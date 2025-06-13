@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ModuleController;
 use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\PlanAccionController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\JwtMiddleware;
@@ -28,6 +29,9 @@ Route::middleware([JwtMiddleware::class])->group(function () {
 
         // roles
         Route::resource("/roles", RoleController::class);
+
+        // plan accion
+        Route::resource("/plan-accion", PlanAccionController::class);
     });
 
     // associated to tables

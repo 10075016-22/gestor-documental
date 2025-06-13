@@ -23,6 +23,9 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             ModuleSeeder::class,
 
+            // plan de acción
+            PlanAccionSeeder::class,
+
         ]);
     }
 }
