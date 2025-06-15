@@ -20,7 +20,7 @@ class ModuleController extends Controller
     public function index()
     {
         try {
-            $modules = Module::get();
+            $modules = Module::with(['permission'])->get();
             return $this->response->success($modules);
         } catch (\Throwable $th) {
             return $this->response->error('An error has occurred');
@@ -46,7 +46,7 @@ class ModuleController extends Controller
     public function show(string $id)
     {
         try {
-            $modules = Module::whereId($id)->get();
+            $modules = Module::with(['permission'])->whereId($id)->get();
             return $this->response->success($modules);
         } catch (\Throwable $th) {
             return $this->response->error('An error has occurred');

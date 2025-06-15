@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Permission\Models\Permission;
 
 class Module extends Model
 {
@@ -24,13 +25,13 @@ class Module extends Model
         'permission_id'
     ];
 
-    protected $hidden = [];
+    protected $hidden = ['permission_id', 'created_at', 'updated_at', 'deleted_at'];
 
-    protected function casts(): array
-    {
-        return [
-            // example
-            // 'email_verified_at' => 'datetime',
-        ];
+    protected function casts(): array {
+        return [];
+    }
+
+    public function permission() {
+        return $this->belongsTo(Permission::class, 'permission_id');
     }
 }

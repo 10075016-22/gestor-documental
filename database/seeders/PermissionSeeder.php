@@ -15,9 +15,33 @@ class PermissionSeeder extends Seeder
     {
         $permissions = [
             [
-                'name' => 'Home',
-                'alias' => 'Vista principal'
+                'name'   => 'Home',
+                'alias'  => 'Vista principal'
             ],
+            [
+                'name'  => 'Ciclo',
+                'alias' => 'Vista de ciclos'
+            ],
+            [
+                'name'  => 'Ciclo-Estandar',
+                'alias' => 'Vista de estandar de ciclos'
+            ],
+            [
+                'name'  => 'Ciclo-Sub-Estandar',
+                'alias' => 'Vista de sub estandar de ciclos'
+            ],
+            [
+                'name'  => 'Tipo-Documentos',
+                'alias' => 'Vista de tipo de documentos'
+            ],
+            [
+                'name'  => 'Documentos',
+                'alias' => 'Vista de documentos'
+            ],
+            [
+                'name'  => 'Clientes',
+                'alias' => 'Vista de clientes'
+            ]
         ];
 
         // Utiliza un bucle foreach para insertar cada conjunto de datos
