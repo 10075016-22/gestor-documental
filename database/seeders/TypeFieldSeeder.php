@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Table;
+use App\Models\TypeField;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class TableSeeder extends Seeder
+class TypeFieldSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,15 +15,13 @@ class TableSeeder extends Seeder
     {
         $data = [
             [
-                'table'    => 'Clientes',
-                'descripcion' => 'Tabla para listado de clientes',
-                'endpoint' => 'clientes',
-                'icon'     => 'mdi-account-group-outline'
+                'name'        => 'FIELD_TEXT',
+                'description' => 'Campo tipo texto'
             ]
         ];
 
         foreach ($data as $key => $value) {
-            Table::create($value);
+            TypeField::create($value);
         }
     }
 }

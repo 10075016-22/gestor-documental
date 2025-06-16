@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ModuleController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\PlanAccionController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\TableController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\JwtMiddleware;
 use Illuminate\Http\Request;
@@ -32,13 +34,14 @@ Route::middleware([JwtMiddleware::class])->group(function () {
 
         // plan accion
         Route::resource("/plan-accion", PlanAccionController::class);
+
+        // clientes
+        Route::resource("/clientes", ClienteController::class);
     });
 
     // associated to tables
     Route::group(['prefix' => 'grid'], function() {
-        Route::get("/users", [UserController::class, "gridIndex"]);
-        Route::get("/roles", [RoleController::class, "gridIndex"]);
-        Route::get("/permissions", [PermissionController::class, "gridIndex"]);
+        Route::resource("/configuracion", TableController::class);
     });
 
 });

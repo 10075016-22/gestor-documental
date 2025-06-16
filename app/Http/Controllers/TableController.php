@@ -2,25 +2,30 @@
 
 namespace App\Http\Controllers;
 
+use App\Interface\ResponseClass;
 use App\Models\Table;
 use Illuminate\Http\Request;
 
 class TableController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    protected $response;
+    public function __construct(ResponseClass $response)
     {
-        //
+        $this->response = $response;
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function index()
     {
-        //
+        try {
+            $configuration = Table::with(['headers' => function($query) {
+                $query->with(['type_field'])
+                      ->orderBy('order');
+            }])->get();
+
+            return $this->response->success($configuration);
+        } catch (\Throwable $th) {
+            return $this->response->error('Ha ocurrido un error');
+        }
     }
 
     /**
@@ -34,17 +39,18 @@ class TableController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Table $table)
+    public function show($id)
     {
-        //
-    }
+        try {
+            $configuration = Table::whereId($id)->with(['headers' => function($query) {
+                $query->with(['type_field'])
+                      ->orderBy('order');
+            }])->get();
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Table $table)
-    {
-        //
+            return $this->response->success($configuration);
+        } catch (\Throwable $th) {
+            return $this->response->error('Ha ocurrido un error');
+        }
     }
 
     /**

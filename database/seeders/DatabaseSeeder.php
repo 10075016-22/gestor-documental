@@ -16,7 +16,10 @@ class DatabaseSeeder extends Seeder
         $this->call([
             // Confiuraciones iniciales de tablas, permisos y perfiles
             TableSeeder::class,
-            HeadersTableSeeder::class,
+            TypeFieldSeeder::class, // Tipos de campos
+            HeadersTableSeeder::class, // Seeder para headers tablas generales
+            HeaderTableClientSeeder::class, // seeder para header tabla de clientes
+
             PermissionSeeder::class,
             RoleSeeder::class,
 
@@ -25,6 +28,10 @@ class DatabaseSeeder extends Seeder
 
             // plan de acción
             PlanAccionSeeder::class,
+
+
+            // fakeseeder
+            ClienteSeeder::class
 
         ]);
     }
