@@ -17,8 +17,20 @@ class TableSeeder extends Seeder
             [
                 'table'    => 'Clientes',
                 'descripcion' => 'Tabla para listado de clientes',
-                'endpoint' => 'clientes',
+                'endpoint' => 'clientes/datatable',
                 'icon'     => 'mdi-account-group-outline'
+            ],
+            [
+                'table'    => 'Usuarios',
+                'descripcion' => 'Tabla para administrar usuarios',
+                'endpoint' => 'users/datatable',
+                'icon'     => 'mdi-account-switch'
+            ],
+            [
+                'table'    => 'Documentos',
+                'descripcion' => 'Tabla para administrar documentos',
+                'endpoint' => 'documentos/datatable',
+                'icon'     => 'mdi-text-box-check-outline'
             ]
         ];
 

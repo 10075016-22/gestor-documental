@@ -2,25 +2,53 @@
 
 namespace App\Http\Controllers;
 
+use App\Interface\ResponseClass;
 use App\Models\Documento;
 use Illuminate\Http\Request;
 
 class DocumentoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    protected $response;
+    public function __construct(ResponseClass $response)
+    {
+        $this->response = $response;
+    }
+    
     public function index()
     {
         //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function indexDatatable(Request $request) 
     {
-        //
+        try {
+            $params = $request->query();
+
+            if(isset($params['page']) && isset($params['limit'])) {
+                $page  = max(1, intval($params['page']));
+                $limit = max(1, intval($params['limit']));
+                $offset = ($page - 1) * $limit;
+
+                $data = Documento::with(['tipoDocumento'])->orderBy('id', 'DESC')
+                    ->offset($offset)
+                    ->limit($limit)
+                    ->get()
+                    ->map(function($documento) {
+                        $documento->tipodocumento = $documento->tipoDocumento->nombre;
+                        return $documento;
+                    });
+            } else {
+                $data = Documento::with(['tipoDocumento'])->orderBy('id', 'DESC')->get();
+            }
+
+            $total = Documento::count();
+            return $this->response->success([
+                'data'  => $data,
+                'total' => $total
+            ]);
+        } catch (\Throwable $th) {
+            return $this->response->error('Ha ocurrido un error');
+        }
     }
 
     /**

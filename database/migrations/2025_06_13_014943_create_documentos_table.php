@@ -16,7 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('tipo_documento_id')->comment('Tipo de documento relacionado');
 
             $table->string('nombre')->comment('Nombre del documento');
-            $table->string('descripcion')->nullable()->comment('Descripción del documento');
+            $table->text('descripcion')->nullable()->comment('Descripción del documento');
             $table->unsignedTinyInteger("obligatorio")->default(0)->comment('Indica si el documento es obligatorio (1) o no (0)');
             $table->unsignedTinyInteger("generaFormato")->default(0)->comment('Indica si el documento genera un formato (1) o no (0)');
 

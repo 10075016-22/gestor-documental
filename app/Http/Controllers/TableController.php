@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Interface\ResponseClass;
+use App\Models\HeadersTable;
 use App\Models\Table;
 use Illuminate\Http\Request;
 
@@ -50,6 +51,27 @@ class TableController extends Controller
             return $this->response->success($configuration);
         } catch (\Throwable $th) {
             return $this->response->error('Ha ocurrido un error');
+        }
+    }
+
+    public function getHeaders($id) {
+        try {
+            $configuration = HeadersTable::whereTableId($id)->with(['type_field'])->orderBy('order')->get();
+            return $this->response->success($configuration);
+        } catch (\Throwable $th) {
+            return $this->response->error('Ha ocurrido un error');
+        }
+    }
+
+    public function getTable($id) {
+        try {
+            $configuration = Table::find($id);
+            if(!$configuration) {
+                return $this->response->notFound('No existe el registro');
+            }
+            return $this->response->success($configuration);
+        } catch (\Throwable $th) {
+            return $this->response->error('Ha ocurrido un error '.$th->getMessage());
         }
     }
 

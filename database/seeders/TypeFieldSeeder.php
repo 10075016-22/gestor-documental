@@ -17,6 +17,18 @@ class TypeFieldSeeder extends Seeder
             [
                 'name'        => 'FIELD_TEXT',
                 'description' => 'Campo tipo texto'
+            ],
+            [
+                'name'        => 'FIELD_STATUS',
+                'description' => 'Campo para estados'
+            ],
+            [
+                'name'        => 'FIELD_LOGO',
+                'description' => 'Campo para mostrar logo'
+            ],
+            [
+                'name'        => 'FIELD_YES_NO',
+                'description' => 'Campo para mostrar SI - NO'
             ]
         ];
 

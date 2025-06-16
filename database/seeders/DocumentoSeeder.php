@@ -2,17 +2,17 @@
 
 namespace Database\Seeders;
 
-use App\Models\Cliente;
+use App\Models\Documento;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class ClienteSeeder extends Seeder
+class DocumentoSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        Cliente::factory(500)->create();
+        Documento::factory(120)->create();
     }
 }

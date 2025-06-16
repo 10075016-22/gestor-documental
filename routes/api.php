@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\DocumentoController;
 use App\Http\Controllers\ModuleController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\PlanAccionController;
@@ -24,6 +25,8 @@ Route::middleware([JwtMiddleware::class])->group(function () {
 
         // users
         Route::put("/users/restore/{id}", [UserController::class, "restoreUser"]);
+        
+        Route::get("/users/datatable", [UserController::class, 'indexDatatable']);
         Route::resource("/users", UserController::class);
 
         // permissions
@@ -36,11 +39,19 @@ Route::middleware([JwtMiddleware::class])->group(function () {
         Route::resource("/plan-accion", PlanAccionController::class);
 
         // clientes
+        Route::get("/clientes/datatable", [ClienteController::class, 'indexDatatable']);
         Route::resource("/clientes", ClienteController::class);
+
+        // documentos
+        
+        Route::get("/documentos/datatable", [DocumentoController::class, 'indexDatatable']);
+        Route::resource("/documentos", DocumentoController::class);
     });
 
     // associated to tables
     Route::group(['prefix' => 'grid'], function() {
+        Route::get("/configuracion/table/{id}", [TableController::class, 'getTable']);
+        Route::get("/configuracion/headers/{id}", [TableController::class, 'getHeaders']);
         Route::resource("/configuracion", TableController::class);
     });
 

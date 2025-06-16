@@ -15,65 +15,88 @@ class ModuleSeeder extends Seeder
     {
         $modules = [
             [
+                'module'  => 'Inicio',
+                'order'   => 1,
+                'divider' => 0
+            ],
+            [
                 'module'      => 'Home',
                 'description' => 'Modulo principal',
                 'icon'  => 'mdi-home',
                 'name'  => '/dashboard',
-                'order' => 1,
                 'status' => 1,
-                'permission_id' => 1
+                'permission_id' => 1,
+                'order' => 2
             ],
             [
-                'module'  => 'Divisor',
-                'order'   => 2,
+                'module'  => 'Divisor 1',
+                'order'   => 3,
                 'divider' => 1
+            ],
+            // modulos principales
+            [
+                'module'  => 'Tus módulos',
+                'order'   => 4,
+                'divider' => 0
             ],
             [
                 'module'      => 'Clientes',
                 'description' => 'Modulo para ver listado de clientes',
                 'icon'  => 'mdi-account-group',
                 'name'  => '/dashboard/clientes',
-                'order' => 3
+                'order' => 5
             ],
             [
                 'module'      => 'Ciclos',
                 'description' => 'Modulo para ver listado de ciclos',
                 'icon'  => 'mdi-list-box-outline',
                 'name'  => '/dashboard/ciclos',
-                'order' => 4
+                'order' => 6
             ],
             [
                 'module'      => 'Evaluaciones',
                 'description' => 'Modulo para ver evaluación(es)',
                 'icon'  => 'mdi-sort-calendar-ascending',
                 'name'  => '/dashboard/evaluaciones',
-                'order' => 5
+                'order' => 7
             ],
             [
                 'module'      => 'Documentos',
                 'description' => 'Modulo para ver documentos',
                 'icon'  => 'mdi-text-box-check-outline',
                 'name'  => '/dashboard/documentos',
-                'order' => 6
+                'order' => 8
             ],
             [
-                'module'  => 'Divisor',
-                'order'   => 7,
-                'divider' => 1
+                'module'      => 'Usuarios',
+                'description' => 'Modulo para administrar usuarios',
+                'icon'  => 'mdi-account-switch',
+                'name'  => '/dashboard/usuarios',
+                'order' => 9
+            ],
+            [
+                'module'  => 'Reportes',
+                'order'   => 10,
+                'divider' => 0
             ],
             [
                 'module'      => 'Reportes',
                 'description' => 'Modulo para ver reportes',
                 'icon'  => 'mdi-file-chart-outline',
                 'name'  => '/dashboard/reportes',
-                'order' => 8
+                'order' => 11
+            ],
+            [
+                'module'  => 'Configuración',
+                'order'   => 12,
+                'divider' => 0
             ],
             [
                 'module'      => 'Configuración',
                 'description' => 'Modulo para ver configuraciones',
                 'icon'  => 'mdi-cogs',
                 'name'  => '/dashboard/configuracion',
-                'order' => 9
+                'order' => 13
             ]
         ];
 

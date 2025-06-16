@@ -22,7 +22,7 @@ class ClienteFactory extends Factory
             'email' => fake()->unique()->companyEmail(),
             'direccion' => fake()->address(),
             'telefono' => fake()->phoneNumber(),
-            'logo' => fake()->imageUrl(640, 480, 'business')
+            'logo' => 'https://picsum.photos/640/480'
         ];
     }
 }

@@ -21,7 +21,7 @@ return new class extends Migration
             $table->unsignedTinyInteger('sortable')->default(0);
             $table->string('width')->nullable();
             $table->unsignedTinyInteger('fixed')->default(0);
-            $table->unsignedTinyInteger('alignment')->nullable();
+            $table->string('alignment')->nullable();
             $table->unsignedInteger('order');
 
             $table->timestamps();

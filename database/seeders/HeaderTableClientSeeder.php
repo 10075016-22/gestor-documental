@@ -24,7 +24,9 @@ class HeaderTableClientSeeder extends Seeder
                 'table_id' => 1,
                 'text'     => 'Logo',
                 'value'    => 'logo',
-                'order'    => 2
+                'type_field_id'  => 3,
+                'alignment'=> 'center',
+                'order'    => 2,
             ],
             [
                 'table_id' => 1,
