@@ -31,6 +31,18 @@ class TableSeeder extends Seeder
                 'descripcion' => 'Tabla para administrar documentos',
                 'endpoint' => 'documentos/datatable',
                 'icon'     => 'mdi-text-box-check-outline'
+            ],
+            [
+                'table'    => 'Estandar de cliente',
+                'descripcion' => 'Tabla para administrar estandar de cliente, con documentos',
+                'endpoint' => 'estandar/datatable',
+                'icon'     => 'mdi-file-document-arrow-right-outline'
+            ],
+            [
+                'table'    => 'Documentos de estandar',
+                'descripcion' => 'Tabla para administrar documentos - tabla detalle',
+                'endpoint' => 'documentos/datatable',
+                'icon'     => 'mdi-text-box-check-outline'
             ]
         ];
 

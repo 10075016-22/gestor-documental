@@ -21,7 +21,7 @@ return new class extends Migration
             $table->softDeletes();
             // Foreign keys
             $table->foreign("cliente_id")->references("id")->on("clientes")->onDelete("cascade")->onUpdate("cascade");
-            $table->foreign("estandar_id")->references("id")->on("ciclo_estandars")->onDelete("cascade")->onUpdate("cascade");
+            $table->foreign("estandar_id")->references("id")->on("estandars")->onDelete("cascade")->onUpdate("cascade");
         });
     }
 

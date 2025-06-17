@@ -68,15 +68,22 @@ class ModuleSeeder extends Seeder
                 'order' => 8
             ],
             [
+                'module'      => 'Estandar',
+                'description' => 'Modulo para administrar estandar y documentos',
+                'icon'  => 'mdi-file-document-arrow-right-outline',
+                'name'  => '/dashboard/estandar',
+                'order' => 9
+            ],
+            [
                 'module'      => 'Usuarios',
                 'description' => 'Modulo para administrar usuarios',
                 'icon'  => 'mdi-account-switch',
                 'name'  => '/dashboard/usuarios',
-                'order' => 9
+                'order' => 10
             ],
             [
                 'module'  => 'Reportes',
-                'order'   => 10,
+                'order'   => 11,
                 'divider' => 0
             ],
             [
@@ -84,11 +91,11 @@ class ModuleSeeder extends Seeder
                 'description' => 'Modulo para ver reportes',
                 'icon'  => 'mdi-file-chart-outline',
                 'name'  => '/dashboard/reportes',
-                'order' => 11
+                'order' => 12
             ],
             [
                 'module'  => 'Configuración',
-                'order'   => 12,
+                'order'   => 13,
                 'divider' => 0
             ],
             [
@@ -96,7 +103,7 @@ class ModuleSeeder extends Seeder
                 'description' => 'Modulo para ver configuraciones',
                 'icon'  => 'mdi-cogs',
                 'name'  => '/dashboard/configuracion',
-                'order' => 13
+                'order' => 14
             ]
         ];
 

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\DocumentoController;
+use App\Http\Controllers\EstandarController;
 use App\Http\Controllers\ModuleController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\PlanAccionController;
@@ -43,9 +44,12 @@ Route::middleware([JwtMiddleware::class])->group(function () {
         Route::resource("/clientes", ClienteController::class);
 
         // documentos
-        
         Route::get("/documentos/datatable", [DocumentoController::class, 'indexDatatable']);
         Route::resource("/documentos", DocumentoController::class);
+
+        // estandar
+        Route::get("/estandar/datatable", [EstandarController::class, 'indexDatatable']);
+        Route::resource("/estandar", EstandarController::class);
     });
 
     // associated to tables

@@ -2,11 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Interface\ResponseClass;
 use App\Models\Estandar;
+use App\Models\EstandarCliente;
 use Illuminate\Http\Request;
 
 class EstandarController extends Controller
 {
+
+
+    protected $response;
+
+    public function __construct(ResponseClass $response)
+    {
+        $this->response = $response;
+    }
     /**
      * Display a listing of the resource.
      */
@@ -15,12 +25,55 @@ class EstandarController extends Controller
         //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function indexDatatable(Request $request)
     {
-        //
+        try {
+            $params = $request->query();
+
+            if(isset($params['page']) && isset($params['limit'])) {
+                $page  = max(1, intval($params['page']));
+                $limit = max(1, intval($params['limit']));
+                $offset = ($page - 1) * $limit;
+
+                $data = EstandarCliente::with(['cliente', 'estandar'])
+                            ->orderBy('id', 'DESC')
+                            ->offset($offset)
+                            ->limit($limit)
+                            ->get()
+                            ->map(function($estandar) {
+                                $estandar->Eid           = $estandar->id;
+                                $estandar->Ecantidad     = $estandar->estandar->cantidad;
+                                $estandar->Enombre       = $estandar->estandar->nombre;
+                                $estandar->Edescripcion  = $estandar->estandar->descripcion;
+                                
+                                $estandar->Cnombre       = $estandar->cliente->nombre;
+                                $estandar->Cid           = $estandar->cliente->id;
+                                
+                                return $estandar;
+                            });
+            } else {
+                $data = EstandarCliente::with(['cliente', 'estandar'])->orderBy('id', 'DESC')->get()
+                ->map(function($estandar) {
+                    $estandar->Eid           = $estandar->id;
+                    $estandar->Ecantidad     = $estandar->estandar->cantidad;
+                    $estandar->Enombre       = $estandar->estandar->nombre;
+                    $estandar->Edescripcion  = $estandar->estandar->descripcion;
+                    
+                    $estandar->Cnombre       = $estandar->cliente->nombre;
+                    $estandar->Cid           = $estandar->cliente->id;
+                    
+                    return $estandar;
+                });
+            }
+
+            $total = Estandar::count();
+            return $this->response->success([
+                'data'  => $data,
+                'total' => $total
+            ]);
+        } catch (\Throwable $th) {
+            return $this->response->error('Ha ocurrido un error');
+        }
     }
 
     /**
@@ -35,14 +88,6 @@ class EstandarController extends Controller
      * Display the specified resource.
      */
     public function show(Estandar $estandar)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Estandar $estandar)
     {
         //
     }

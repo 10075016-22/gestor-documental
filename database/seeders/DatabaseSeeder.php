@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\EstandarCliente;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -22,6 +23,7 @@ class DatabaseSeeder extends Seeder
             HeaderTableClientSeeder::class, // seeder para header tabla de clientes
             HeaderTableUserSeeder::class, // seeder para headers tabla de usuarios
             HeaderTableDocumentoSeeder::class, // seeder para headers tabla de documentos
+            HeaderTableEstandarSeeder::class, // seeder para headers tabla de estandar
 
             PermissionSeeder::class,
             RoleSeeder::class,
@@ -37,7 +39,10 @@ class DatabaseSeeder extends Seeder
 
             // fakeseeder
             ClienteSeeder::class,
-            DocumentoSeeder::class
+            DocumentoSeeder::class,
+            CicloSeeder::class,
+            EstandarSeeder::class,
+            EstandarClienteSeeder::class
 
         ]);
     }

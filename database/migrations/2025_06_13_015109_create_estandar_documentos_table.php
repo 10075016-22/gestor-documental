@@ -19,7 +19,7 @@ return new class extends Migration
             $table->timestamps();
             $table->softDeletes();
             // Foreign keys
-            $table->foreign("estandar_id")->references("id")->on("ciclo_estandars")->onDelete("cascade")->onUpdate("cascade");
+            $table->foreign("estandar_id")->references("id")->on("estandars")->onDelete("cascade")->onUpdate("cascade");
             $table->foreign("documento_id")->references("id")->on("documentos")->onDelete("cascade")->onUpdate("cascade");
         });
     }
