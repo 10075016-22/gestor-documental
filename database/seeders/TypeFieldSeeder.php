@@ -29,6 +29,10 @@ class TypeFieldSeeder extends Seeder
             [
                 'name'        => 'FIELD_YES_NO',
                 'description' => 'Campo para mostrar SI - NO'
+            ],
+            [
+                'name'        => 'FIELD_CHIP',
+                'description' => 'Campo para mostrar el texto en un chip'
             ]
         ];
 

@@ -1,11 +1,13 @@
 <?php
 
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DocumentoController;
 use App\Http\Controllers\EstandarController;
 use App\Http\Controllers\ModuleController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\PlanAccionController;
+use App\Http\Controllers\PlaneacionDocumentoController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\TableController;
 use App\Http\Controllers\UserController;
@@ -20,6 +22,10 @@ Route::middleware([JwtMiddleware::class])->group(function () {
     Route::post('/logout', [UserController::class, 'logout']);
     // services
     Route::group(['prefix' => 'v1'], function() {
+
+        // dashboard
+        Route::get('/dashboard/cards', [DashboardController::class, 'getCards']);
+        Route::get('/dashboard/charts', [DashboardController::class, 'getCharts']);
 
         // modules
         Route::resource("/modules", ModuleController::class);
@@ -47,9 +53,14 @@ Route::middleware([JwtMiddleware::class])->group(function () {
         Route::get("/documentos/datatable", [DocumentoController::class, 'indexDatatable']);
         Route::resource("/documentos", DocumentoController::class);
 
+        Route::get("/planeacion-documentos/datatable", [PlaneacionDocumentoController::class, 'indexDatatable']);
+        Route::get("/planeacion-documentos/cliente/{id}", [PlaneacionDocumentoController::class, 'getByClientId']);
+        Route::resource("/planeacion-documentos", PlaneacionDocumentoController::class);
+
         // estandar
         Route::get("/estandar/datatable", [EstandarController::class, 'indexDatatable']);
         Route::resource("/estandar", EstandarController::class);
+
     });
 
     // associated to tables

@@ -28,9 +28,10 @@ class UserFactory extends Factory
             'fullname' => fake()->name(),
             'email'    => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
-            'password' => static::$password ??= Hash::make('password'),
+            'password' => static::$password ??= Hash::make( md5('password')),
             'remember_token'    => Str::random(10),
             'status' => fake()->numberBetween(0, 1),
+            'created_at' => fake()->dateTimeBetween('-3 months', 'now'),
         ];
     }
 

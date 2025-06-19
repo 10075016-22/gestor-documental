@@ -43,6 +43,12 @@ class TableSeeder extends Seeder
                 'descripcion' => 'Tabla para administrar documentos - tabla detalle',
                 'endpoint' => 'documentos/datatable',
                 'icon'     => 'mdi-text-box-check-outline'
+            ],
+            [
+                'table'    => 'Fechas de documentos',
+                'descripcion' => 'Tabla para administrar las fechas limite de documentos',
+                'endpoint' => 'planeacion-documentos/datatable',
+                'icon'     => 'mdi-calendar-cursor-outline'
             ]
         ];
 

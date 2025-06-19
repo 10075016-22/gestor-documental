@@ -22,7 +22,8 @@ class ClienteFactory extends Factory
             'email' => fake()->unique()->companyEmail(),
             'direccion' => fake()->address(),
             'telefono' => fake()->phoneNumber(),
-            'logo' => 'https://picsum.photos/640/480'
+            'logo' => 'https://picsum.photos/640/480',
+            'created_at' => fake()->dateTimeBetween('-3 month', 'now'),
         ];
     }
 }

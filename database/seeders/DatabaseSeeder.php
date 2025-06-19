@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
             HeaderTableUserSeeder::class, // seeder para headers tabla de usuarios
             HeaderTableDocumentoSeeder::class, // seeder para headers tabla de documentos
             HeaderTableEstandarSeeder::class, // seeder para headers tabla de estandar
+            HeaderTablePlaneacionDocumentoSeeder::class, // seeder para headers tabla de fecha limite para subir documentos
 
             PermissionSeeder::class,
             RoleSeeder::class,

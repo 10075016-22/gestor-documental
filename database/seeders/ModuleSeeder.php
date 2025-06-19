@@ -99,11 +99,18 @@ class ModuleSeeder extends Seeder
                 'divider' => 0
             ],
             [
+                'module'      => 'Fecha de Documentos',
+                'description' => 'Vista para configurar calendario de documentos | fechas en las que se van a subir los documentos',
+                'icon'  => 'mdi-calendar-cursor-outline',
+                'name'  => '/dashboard/calendario-documentos',
+                'order' => 14
+            ],
+            [
                 'module'      => 'Configuración',
                 'description' => 'Modulo para ver configuraciones',
                 'icon'  => 'mdi-cogs',
                 'name'  => '/dashboard/configuracion',
-                'order' => 14
+                'order' => 15
             ]
         ];
 

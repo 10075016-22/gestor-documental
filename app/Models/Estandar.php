@@ -22,8 +22,11 @@ class Estandar extends Model
         "deleted_at",
     ];
 
-    
-    
-
+    public function documentos() {
+        return $this->belongsToMany(Documento::class);
+    }
+    public function clientes() {
+        return $this->belongsToMany(Cliente::class);
+    }
     
 }

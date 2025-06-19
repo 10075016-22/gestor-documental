@@ -3,10 +3,11 @@
 namespace Database\Seeders;
 
 use App\Models\HeadersTable;
+use App\Models\PlaneacionDocumento;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class HeaderTableUserSeeder extends Seeder
+class HeaderTablePlaneacionDocumentoSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,34 +16,34 @@ class HeaderTableUserSeeder extends Seeder
     {
         $data = [
             [
-                'table_id' => 2,
+                'table_id' => 6,
                 'text'     => 'ID',
                 'value'    => 'id',
                 'order'    => 1
             ],
             [
-                'table_id' => 2,
-                'text'     => 'Usuario',
-                'value'    => 'name',
+                'table_id' => 6,
+                'text'     => 'Cliente',
+                'value'    => 'clientenombre',
                 'order'    => 2
             ],
             [
-                'table_id' => 2,
-                'text'     => 'Nombre de usuario',
-                'value'    => 'fullname',
+                'table_id' => 6,
+                'text'     => 'Documento',
+                'value'    => 'docnombre',
                 'order'    => 3
             ],
             [
-                'table_id' => 2,
-                'text'     => 'Email',
-                'value'    => 'email',
+                'table_id' => 6,
+                'text'     => 'Observación',
+                'value'    => 'observaciones',
                 'order'    => 4
             ],
             [
-                'table_id' => 2,
-                'type_field_id'  => 2,
-                'text'     => 'Estado',
-                'value'    => 'status',
+                'table_id' => 6,
+                'text'     => 'Fecha limite',
+                'value'    => 'fecha_fin',
+                'type_field_id' => 5,
                 'order'    => 5
             ],
         ];
