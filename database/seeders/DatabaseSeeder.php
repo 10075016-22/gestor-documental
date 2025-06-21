@@ -28,6 +28,15 @@ class DatabaseSeeder extends Seeder
             HeaderTableCicloSeeder::class, // seeder para headers tabla de ciclos
 
             PermissionSeeder::class,
+            PermissionClientSeeder::class, // Permisos para clientes
+            PermissionEvaluacionSeeder::class, // Permisos para usuarios
+            PermissionDocumentoSeeder::class, // Permisos para documentos
+            PermissionPlaneacionDocumentoSeeder::class, // Permisos para planeación de documentos - fecha límite
+            PermissionEstandarSeeder::class, // Permisos para estandar de cliente
+            PermissionUsuarioSeeder::class, // Permisos para usuarios
+            PermissionReportesSeeder::class, // Permisos para reportes
+            PermissionConfiguracionSeeder::class, // Permisos para configuración
+
             RoleSeeder::class,
 
             UserSeeder::class,

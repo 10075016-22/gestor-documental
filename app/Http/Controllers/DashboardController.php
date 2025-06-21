@@ -94,7 +94,8 @@ class DashboardController extends Controller
                           'height' => 400,
                           'width' => '100%',
                           'legend' => ['position' => 'bottom'],
-                        ]
+                        ],
+                        'permission' => 'home-card-documentos-clientes'
                     ],
                     [
                         'type' => 'ColumnChart',
@@ -119,7 +120,8 @@ class DashboardController extends Controller
                           'width' => '100%',
                           'legend' => [
                             'position' => 'bottom'],
-                        ]
+                        ],
+                        'permission' => 'home-card-evaluaciones-clientes'
                     ]
 
                 ];
@@ -153,7 +155,7 @@ class DashboardController extends Controller
         $data = [];
 
         try {
-            PlaneacionDocumento::get()->map(function($event) use (&$data) {
+            PlaneacionDocumento::whereEstado(0)->get()->map(function($event) use (&$data) {
                 $data[] = [
                     'id'     => $event->id,
                     'title'  => $event->documento->nombre,
@@ -162,6 +164,7 @@ class DashboardController extends Controller
                     'color'  => self::colorFromClientId($event->cliente_id),
                     'client' => $event->cliente->nombre,
                     'image'  => $event->cliente->logo,
+                    'status' => $event->estado === 1,
                     // 'image'  => $event->cliente->imagen ? asset('storage/' . $event->cliente->imagen) : null,
                 ];
             });

@@ -13,6 +13,6 @@ class PlaneacionDocumentoSeeder extends Seeder
      */
     public function run(): void
     {
-        PlaneacionDocumento::factory(20)->create();
+        PlaneacionDocumento::factory(30)->create();
     }
 }

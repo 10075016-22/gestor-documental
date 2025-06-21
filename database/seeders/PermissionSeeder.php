@@ -15,32 +15,28 @@ class PermissionSeeder extends Seeder
     {
         $permissions = [
             [
-                'name'   => 'Home',
-                'alias'  => 'Vista principal'
+                'name'   => 'home',
+                'alias'  => 'Vista principal',
             ],
             [
-                'name'  => 'Ciclo',
-                'alias' => 'Vista de ciclos'
+                'name'   => 'home-cards',
+                'alias'  => 'Vista de tarjetas de inicio',
             ],
             [
-                'name'  => 'Ciclo-Estandar',
-                'alias' => 'Vista de estandar de ciclos'
+                'name'   => 'home-calendar',
+                'alias'  => 'Vista de calendario de inicio',
             ],
             [
-                'name'  => 'Ciclo-Sub-Estandar',
-                'alias' => 'Vista de sub estandar de ciclos'
+                'name'   => 'home-card-documentos-clientes',
+                'alias'  => 'Vista de card de cantidad de documentos por clientes',
             ],
             [
-                'name'  => 'Tipo-Documentos',
-                'alias' => 'Vista de tipo de documentos'
+                'name'   => 'home-card-evaluaciones-clientes',
+                'alias'  => 'Vista de card de seguimiento de evaluaciones por clientes',
             ],
             [
-                'name'  => 'Documentos',
-                'alias' => 'Vista de documentos'
-            ],
-            [
-                'name'  => 'Clientes',
-                'alias' => 'Vista de clientes'
+                'name'   => 'general-menu-titulos',
+                'alias'  => 'Permiso para ver los títulos del menú general',
             ]
         ];
 
