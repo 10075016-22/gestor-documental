@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CicloController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DocumentoController;
@@ -24,8 +25,9 @@ Route::middleware([JwtMiddleware::class])->group(function () {
     Route::group(['prefix' => 'v1'], function() {
 
         // dashboard
-        Route::get('/dashboard/cards', [DashboardController::class, 'getCards']);
-        Route::get('/dashboard/charts', [DashboardController::class, 'getCharts']);
+        Route::get('/dashboard/cards',      [DashboardController::class, 'getCards']);
+        Route::get('/dashboard/charts',     [DashboardController::class, 'getCharts']);
+        Route::get('/dashboard/calendar',   [DashboardController::class, 'getCalendar']);
 
         // modules
         Route::resource("/modules", ModuleController::class);
@@ -60,6 +62,10 @@ Route::middleware([JwtMiddleware::class])->group(function () {
         // estandar
         Route::get("/estandar/datatable", [EstandarController::class, 'indexDatatable']);
         Route::resource("/estandar", EstandarController::class);
+
+        // Ciclos
+        Route::get("/ciclos/datatable", [CicloController::class, 'indexDatatable']);
+        Route::resource("/ciclos", CicloController::class);
 
     });
 

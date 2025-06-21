@@ -20,7 +20,7 @@ class ModuleController extends Controller
     public function index()
     {
         try {
-            $modules = Module::with(['permission'])->get();
+            $modules = Module::with(['permission'])->orderBy('order')->get();
             return $this->response->success($modules);
         } catch (\Throwable $th) {
             return $this->response->error('An error has occurred');

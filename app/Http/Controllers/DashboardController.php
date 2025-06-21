@@ -7,6 +7,7 @@ use App\Models\Cliente;
 use App\Models\Documento;
 use App\Models\EstandarCliente;
 use App\Models\Evaluacion;
+use App\Models\PlaneacionDocumento;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -128,6 +129,48 @@ class DashboardController extends Controller
             return $this->response->error('Ha ocurrido un error' . $th->getMessage());
         }
     }
+
+    public function getCalendar() {
+        try {
+            $user = auth()->user();
+            $data = [];
+            if( $user->hasRole('SuperAdmin') ) {
+                $data = self::getCalendarEvents();
+            }
+            return $this->response->success($data);
+        } catch (\Throwable $th) {
+            return $this->response->error('Ha ocurrido un error al cargar el calendario');
+        }
+    }
+
+    // public functions calendar
+    private static function colorFromClientId($clientId) {
+        $hash = crc32($clientId);
+        return '#' . substr(dechex($hash), 0, 6);
+    }
+
+    private static function getCalendarEvents() {
+        $data = [];
+
+        try {
+            PlaneacionDocumento::get()->map(function($event) use (&$data) {
+                $data[] = [
+                    'id'     => $event->id,
+                    'title'  => $event->documento->nombre,
+                    'start'  => $event->fecha_fin,
+                    'end'    => $event->fecha_fin,
+                    'color'  => self::colorFromClientId($event->cliente_id),
+                    'client' => $event->cliente->nombre,
+                    'image'  => $event->cliente->logo,
+                    // 'image'  => $event->cliente->imagen ? asset('storage/' . $event->cliente->imagen) : null,
+                ];
+            });
+            return $data;
+        } catch (\Throwable $th) {
+            return [];
+        }
+    }
+
 
     // private functions charts
     /**

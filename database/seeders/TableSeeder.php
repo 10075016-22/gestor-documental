@@ -49,6 +49,12 @@ class TableSeeder extends Seeder
                 'descripcion' => 'Tabla para administrar las fechas limite de documentos',
                 'endpoint' => 'planeacion-documentos/datatable',
                 'icon'     => 'mdi-calendar-cursor-outline'
+            ],
+            [
+                'table'    => 'Ciclos',
+                'descripcion' => 'Tabla para administrar los ciclos',
+                'endpoint' => 'ciclos/datatable',
+                'icon'     => 'mdi-list-box-outline'
             ]
         ];
 

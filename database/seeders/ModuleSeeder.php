@@ -30,14 +30,14 @@ class ModuleSeeder extends Seeder
             ],
             [
                 'module'  => 'Divisor 1',
+                'divider' => 1,
                 'order'   => 3,
-                'divider' => 1
             ],
             // modulos principales
             [
                 'module'  => 'Tus módulos',
+                'divider' => 0,
                 'order'   => 4,
-                'divider' => 0
             ],
             [
                 'module'      => 'Clientes',
@@ -47,24 +47,24 @@ class ModuleSeeder extends Seeder
                 'order' => 5
             ],
             [
-                'module'      => 'Ciclos',
-                'description' => 'Modulo para ver listado de ciclos',
-                'icon'  => 'mdi-list-box-outline',
-                'name'  => '/dashboard/ciclos',
-                'order' => 6
-            ],
-            [
                 'module'      => 'Evaluaciones',
                 'description' => 'Modulo para ver evaluación(es)',
                 'icon'  => 'mdi-sort-calendar-ascending',
                 'name'  => '/dashboard/evaluaciones',
-                'order' => 7
+                'order' => 6
             ],
             [
                 'module'      => 'Documentos',
                 'description' => 'Modulo para ver documentos',
                 'icon'  => 'mdi-text-box-check-outline',
                 'name'  => '/dashboard/documentos',
+                'order' => 7
+            ],
+            [
+                'module'      => 'Fecha de Documentos',
+                'description' => 'Vista para configurar calendario de documentos | fechas en las que se van a subir los documentos',
+                'icon'  => 'mdi-calendar-cursor-outline',
+                'name'  => '/dashboard/calendario-documentos',
                 'order' => 8
             ],
             [
@@ -99,10 +99,10 @@ class ModuleSeeder extends Seeder
                 'divider' => 0
             ],
             [
-                'module'      => 'Fecha de Documentos',
-                'description' => 'Vista para configurar calendario de documentos | fechas en las que se van a subir los documentos',
-                'icon'  => 'mdi-calendar-cursor-outline',
-                'name'  => '/dashboard/calendario-documentos',
+                'module'      => 'Ciclos',
+                'description' => 'Modulo para ver listado de ciclos',
+                'icon'  => 'mdi-list-box-outline',
+                'name'  => '/dashboard/ciclos',
                 'order' => 14
             ],
             [
