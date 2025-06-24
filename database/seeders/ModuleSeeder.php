@@ -123,6 +123,14 @@ class ModuleSeeder extends Seeder
                 'name'          => '/dashboard/configuracion',
                 'order'         => 15,
                 'permission_id' => 18,
+            ],
+            [
+                'module'        => 'Formatos cliente',
+                'description'   => 'Modulo para configurar el formato de cliente basado en el archivo',
+                'icon'          => 'mdi-archive-cog-outline',
+                'name'          => '/dashboard/configuracion/formatos-cliente',
+                'order'         => 16,
+                'permission_id' => 21,
             ]
         ];
 

@@ -21,7 +21,11 @@ class PermissionConfiguracionSeeder extends Seeder
             [
                 'name'  => 'configuracion-usuarios-clientes',
                 'alias' => 'Vista de asociación de usuarios a clientes',
-            ]
+            ],
+            [
+                'name'  => 'configuracion-formato-cliente',
+                'alias' => 'Vista de configuración para formatos de clientes',
+            ],
         ];
 
         // Utiliza un bucle foreach para insertar cada conjunto de datos
