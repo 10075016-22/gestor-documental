@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text('descripcion')->nullable()->comment('Descripción del documento');
             $table->unsignedTinyInteger("obligatorio")->default(0)->comment('Indica si el documento es obligatorio (1) o no (0)');
             $table->unsignedTinyInteger("generaFormato")->default(0)->comment('Indica si el documento genera un formato (1) o no (0)');
+            $table->text('plantilla')->nullable()->comment('Plantilla del documento, si aplica');
 
             $table->timestamps();
             $table->softDeletes();

@@ -12,8 +12,7 @@ class Ciclo extends Model
 
     protected $fillable = [
         'nombre',
-        'descripcion',
-        'cliente_id'
+        'descripcion'
     ];
 
     protected $hidden = [

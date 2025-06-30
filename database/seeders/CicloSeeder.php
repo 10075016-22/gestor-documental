@@ -13,6 +13,23 @@ class CicloSeeder extends Seeder
      */
     public function run(): void
     {
-        Ciclo::factory(10)->create();
+        $data = [
+            [
+                'nombre' => 'Planear',
+            ],
+            [
+                'nombre' => 'Hacer'
+            ],
+            [
+                'nombre' => 'Verificar'
+            ],
+            [
+                'nombre' => 'Actuar'
+            ]
+        ];
+
+        foreach ($data as $value) {
+            Ciclo::create($value);
+        }
     }
 }

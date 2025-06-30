@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Interface\ResponseClass;
+use App\Models\FormsTable;
 use App\Models\HeadersTable;
 use App\Models\Table;
 use Illuminate\Http\Request;
@@ -72,6 +73,18 @@ class TableController extends Controller
             return $this->response->success($configuration);
         } catch (\Throwable $th) {
             return $this->response->error('Ha ocurrido un error '.$th->getMessage());
+        }
+    }
+
+    // id - es el idTable
+    public function getForm($id) 
+    {
+        try {
+            $data = FormsTable::with(['type_field'])->whereTableId($id)->orderBy('order')->get();
+
+            return $this->response->success($data);            
+        } catch (\Throwable $th) {
+            return $this->response->error('Ha ocurrido un error al obtener el formulario');
         }
     }
 

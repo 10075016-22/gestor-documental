@@ -15,7 +15,8 @@ class Documento extends Model
         'nombre',
         'descripcion',
         'obligatorio',
-        'generaFormato'
+        'generaFormato',
+        'plantilla'
     ];
 
     protected $hidden = [

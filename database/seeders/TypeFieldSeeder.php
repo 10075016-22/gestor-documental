@@ -33,6 +33,28 @@ class TypeFieldSeeder extends Seeder
             [
                 'name'        => 'FIELD_CHIP',
                 'description' => 'Campo para mostrar el texto en un chip'
+            ],
+
+            // Campos para formularios
+            [
+                'name'        => 'FORM_TEXT',
+                'description' => 'Campo de formulario tipo texto'
+            ],
+            [
+                'name'        => 'FORM_NUMBER',
+                'description' => 'Campo de formulario tipo númerico'
+            ],
+            [
+                'name'        => 'FORM_COLOR',
+                'description' => 'Campo de formulario tipo color'
+            ],
+            [
+                'name'        => 'FORM_EMAIL',
+                'description' => 'Campo de formulario tipo email'
+            ],
+            [
+                'name'        => 'FORM_FILE',
+                'description' => 'Campo de formulario tipo archivo'
             ]
         ];
 

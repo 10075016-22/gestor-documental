@@ -48,13 +48,17 @@ class DatabaseSeeder extends Seeder
 
             TipoDocumentoSeeder::class,
 
-            // fakeseeder
-            ClienteSeeder::class,
-            DocumentoSeeder::class,
             CicloSeeder::class,
-            EstandarSeeder::class,
-            EstandarClienteSeeder::class,
-            PlaneacionDocumentoSeeder::class,
+
+            // formularios
+            FormClienteSeeder::class, // Seeder para formulario de cliente
+
+            // fakeseeder
+            // ClienteSeeder::class,
+            // DocumentoSeeder::class,
+            // EstandarSeeder::class,
+            // EstandarClienteSeeder::class,
+            // PlaneacionDocumentoSeeder::class,
 
         ]);
     }
