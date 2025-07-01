@@ -63,6 +63,10 @@ class TypeFieldSeeder extends Seeder
             [
                 'name'        => 'FORM_TEXTAREA',
                 'description' => 'Campo de formulario tipo textarea'
+            ],
+            [
+                'name'        => 'FORM_SWITCH',
+                'description' => 'Campo de formulario tipo switch'
             ]
         ];
 

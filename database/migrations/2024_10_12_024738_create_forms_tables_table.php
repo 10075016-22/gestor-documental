@@ -26,6 +26,7 @@ return new class extends Migration
             $table->unsignedTinyInteger("modify_to")->nullable()->comment("Indica el field_name que va a modificar");
             $table->string("info")->nullable()->comment("Corresponde a la información que se le quiera añadir al campo, con un tooltip");
             $table->string("maxlength")->nullable()->comment("Tamaño maximo de caracteres (Si aplica)");
+            $table->text("query")->nullable()->comment("Query para traer la información de los select");
 
             $table->timestamps();
             $table->foreign('table_id')->references('id')->on('tables');

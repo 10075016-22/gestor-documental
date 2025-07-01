@@ -21,14 +21,16 @@ class FormsTable extends Model
         'editable',
         'filter_field',
         'modify_to',
-        'info'
+        'info',
+        'query'
     ];
 
     protected $hidden = [
         'created_at',
         'updated_at',
         'table_id',
-        'type_field_id'
+        'type_field_id',
+        'query'
     ];
 
     public function table() {

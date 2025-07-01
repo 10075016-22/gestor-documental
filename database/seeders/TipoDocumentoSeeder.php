@@ -18,6 +18,11 @@ class TipoDocumentoSeeder extends Seeder
                 'nombre'      => 'PDF',
                 'descripcion' => 'documentos tipo PDF',
                 'tipoArchivo' => 'application/pdf'
+            ],
+            [
+                'nombre'      => 'Excel',
+                'descripcion' => 'documentos tipo Excel',
+                'tipoArchivo' => '.xlsx,.xls'
             ]
         ];
 

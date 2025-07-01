@@ -15,58 +15,59 @@ class FormDocumentoSeeder extends Seeder
     {
         $data = [
             [
-                'table_id' => 3,
+                'table_id'      => 3,
                 'type_field_id' => 6, // FORM_TEXT
                 'field_name' => 'nombre',
-                'label' => 'Nombre de documento',
-                'size' => 12,
-                'required' => 1,
-                'order' => 1
+                'label'      => 'Nombre de documento',
+                'size'       => 12,
+                'required'   => 1,
+                'order'      => 1
             ],
             [
-                'table_id' => 3,
+                'table_id'      => 3,
                 'type_field_id' => 12, // FORM_TEXTAREA
                 'field_name' => 'descripcion',
-                'label' => 'Descripción',
-                'size' => 12,
-                'required' => 1,
-                'order' => 2
+                'label'      => 'Descripción',
+                'size'       => 12,
+                'required'   => 0,
+                'order'      => 2
             ],
             [
-                'table_id' => 3,
-                'type_field_id' => 6, // FORM_TEXTAREA
+                'table_id'      => 3,
+                'type_field_id' => 13, // FORM_SWITCH
                 'field_name' => 'obligatorio',
-                'label' => '¿Es obligatorio?',
-                'size' => 6,
-                'required' => 1,
-                'order' => 3
+                'label'      => '¿Es obligatorio?',
+                'size'       => 6,
+                'required'   => 0,
+                'order'      => 3
             ],
             [
-                'table_id' => 3,
-                'type_field_id' => 6, // FORM_TEXTAREA
+                'table_id'      => 3,
+                'type_field_id' => 13, // FORM_SWITCH
                 'field_name' => 'generaFormato',
-                'label' => '¿Genera Formato?',
-                'size' => 6,
-                'required' => 1,
-                'order' => 4
+                'label'      => '¿Genera Formato?',
+                'size'       => 6,
+                'required'   => 0,
+                'order'      => 4
             ],
             [
-                'table_id' => 3,
+                'table_id'      => 3,
                 'type_field_id' => 10, // FORM_FILE
                 'field_name' => 'plantilla',
-                'label' => 'Plantilla',
-                'size' => 6,
-                'required' => 0,
-                'order' => 5
+                'label'      => 'Plantilla',
+                'size'       => 6,
+                'required'   => 0,
+                'order'      => 5
             ],
             [
-                'table_id' => 3,
+                'table_id'      => 3,
                 'type_field_id' => 11, // FORM_SELECT
                 'field_name' => 'tipo_documento_id',
-                'label' => 'Tipo de documento',
-                'size' => 6,
-                'required' => 1,
-                'order' => 6
+                'label'      => 'Tipo de documento',
+                'size'       => 6,
+                'required'   => 1,
+                'order'      => 6,
+                'query'      => 'id,nombre AS text|tipo_documentos'
             ]
         ];
 

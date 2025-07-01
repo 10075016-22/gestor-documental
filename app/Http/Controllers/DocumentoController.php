@@ -36,11 +36,13 @@ class DocumentoController extends Controller
                 $offset = ($page - 1) * $limit;
 
 
-                $data = Documento::with(['tipoDocumento'])->orderBy('documentos.id', 'DESC')
+                $data = Documento::with(['tipoDocumento'])
+                    ->leftJoin('estandar_documentos', 'documentos.id', '=', 'estandar_documentos.documento_id')
+                    ->select('documentos.*')
+                    ->where($where)
+                    ->orderBy('documentos.id', 'DESC')
                     ->offset($offset)
                     ->limit($limit)
-                    ->where($where)
-                    ->leftJoin('estandar_documentos', 'documentos.id', '=', 'estandar_documentos.documento_id')
                     ->get()
                     ->map(function($documento) {
                         $documento->tipodocumento = $documento->tipoDocumento->nombre;
@@ -70,21 +72,27 @@ class DocumentoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $request->validate([ 'nombre' => 'required|string|max:255']);
+
+            $data = $request->except('plantilla');
+
+            if ($request->hasFile('plantilla')) {
+                $filename = $request->file('plantilla')->store('/', 'documentos');
+                $data['plantilla'] = $filename;
+            }
+            $documento = Documento::create($data);
+
+            return $this->response->success($documento);
+        } catch (\Throwable $th) {
+            return $this->response->error('No se ha podido crear el registro '. $th->getMessage());
+        }
     }
 
     /**
      * Display the specified resource.
      */
     public function show(Documento $documento)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Documento $documento)
     {
         //
     }

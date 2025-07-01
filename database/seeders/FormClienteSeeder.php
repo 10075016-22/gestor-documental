@@ -24,7 +24,6 @@ class FormClienteSeeder extends Seeder
                 'order' => 1,
                 'visible' => 1,
                 'editable' => 1,
-                'filter_field' => 0,
                 'modify_to' => null,
                 'info' => 'Nombre del cliente'
             ],
@@ -38,7 +37,6 @@ class FormClienteSeeder extends Seeder
                 'order' => 1,
                 'visible' => 1,
                 'editable' => 1,
-                'filter_field' => 0,
                 'modify_to' => null,
                 'info' => 'Nit de cliente'
             ],
@@ -52,7 +50,6 @@ class FormClienteSeeder extends Seeder
                 'order' => 1,
                 'visible' => 1,
                 'editable' => 1,
-                'filter_field' => 0,
                 'modify_to' => null,
                 'info' => 'Email de cliente'
             ],
@@ -66,7 +63,6 @@ class FormClienteSeeder extends Seeder
                 'order' => 1,
                 'visible' => 1,
                 'editable' => 1,
-                'filter_field' => 0,
                 'modify_to' => null,
                 'info' => 'Dirección de cliente'
             ],
@@ -80,7 +76,6 @@ class FormClienteSeeder extends Seeder
                 'order' => 1,
                 'visible' => 1,
                 'editable' => 1,
-                'filter_field' => 0,
                 'modify_to' => null,
                 'info' => 'Télefono de cliente'
             ],
@@ -94,7 +89,6 @@ class FormClienteSeeder extends Seeder
                 'order' => 1,
                 'visible' => 1,
                 'editable' => 1,
-                'filter_field' => 0,
                 'modify_to' => null,
                 'info' => 'Logo de cliente'
             ]
