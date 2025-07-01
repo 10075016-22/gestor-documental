@@ -56,12 +56,12 @@ return [
             'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
             'throw' => false,
         ],
-        'documentos_sst' => [
-            'driver' => 'local',
-            'root' => storage_path('app/documentos_sst'),
-            'url' => env('APP_URL').'/storage/documentos_sst',
+        'logos' => [
+            'driver'     => 'local',
+            'root'       => storage_path('app/public/logos'),
+            'url'        => env('APP_URL').'/storage/logos',
             'visibility' => 'public',
-            'throw' => false,
+            'throw'      => false,
         ],
 
     ],
@@ -78,8 +78,8 @@ return [
     */
 
     'links' => [
-        public_path('storage') => storage_path('app/public'),
-        public_path('documentos_sst') => storage_path('app/documentos_sst'),
+        public_path('storage')  => storage_path('app/public'),
+        public_path('logos')    => storage_path('app/logos'), 
     ],
 
 ];

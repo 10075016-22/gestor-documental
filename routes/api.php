@@ -5,6 +5,7 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DocumentoController;
 use App\Http\Controllers\EstandarController;
+use App\Http\Controllers\FormsTableController;
 use App\Http\Controllers\ModuleController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\PlanAccionController;
@@ -71,9 +72,9 @@ Route::middleware([JwtMiddleware::class])->group(function () {
 
     // associated to tables
     Route::group(['prefix' => 'grid'], function() {
-        Route::get("/configuracion/table/{id}", [TableController::class, 'getTable']);
+        Route::get("/configuracion/table/{id}",   [TableController::class, 'getTable']);
         Route::get("/configuracion/headers/{id}", [TableController::class, 'getHeaders']);
-        Route::get("/configuracion/form/{id}", [TableController::class, 'getForm']);
+        Route::get("/configuracion/form/{id}",    [TableController::class, 'getForm']);
         Route::resource("/configuracion", TableController::class);
     });
 

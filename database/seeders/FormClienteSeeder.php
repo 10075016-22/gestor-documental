@@ -33,7 +33,7 @@ class FormClienteSeeder extends Seeder
                 'type_field_id' => 6, // FORM_TEXT
                 'field_name' => 'nit',
                 'label' => 'Nit',
-                'size' => 4,
+                'size' => 6,
                 'required' => 1,
                 'order' => 1,
                 'visible' => 1,
@@ -47,7 +47,7 @@ class FormClienteSeeder extends Seeder
                 'type_field_id' => 9, // FORM_EMAIL
                 'field_name' => 'email',
                 'label' => 'Email',
-                'size' => 4,
+                'size' => 6,
                 'required' => 1,
                 'order' => 1,
                 'visible' => 1,
@@ -61,7 +61,7 @@ class FormClienteSeeder extends Seeder
                 'type_field_id' => 6, // FORM_TEXT
                 'field_name' => 'direccion',
                 'label' => 'Dirección',
-                'size' => 4,
+                'size' => 6,
                 'required' => 1,
                 'order' => 1,
                 'visible' => 1,
@@ -75,7 +75,7 @@ class FormClienteSeeder extends Seeder
                 'type_field_id' => 6, // FORM_TEXT
                 'field_name' => 'telefono',
                 'label' => 'Télefono',
-                'size' => 4,
+                'size' => 6,
                 'required' => 1,
                 'order' => 1,
                 'visible' => 1,
@@ -89,7 +89,7 @@ class FormClienteSeeder extends Seeder
                 'type_field_id' => 10, // FORM_FILE
                 'field_name' => 'logo',
                 'label' => 'Logo',
-                'size' => 4,
+                'size' => 12,
                 'required' => 1,
                 'order' => 1,
                 'visible' => 1,

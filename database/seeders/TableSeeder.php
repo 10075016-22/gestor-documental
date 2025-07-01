@@ -17,43 +17,43 @@ class TableSeeder extends Seeder
             [
                 'table'    => 'Clientes',
                 'descripcion' => 'Tabla para listado de clientes',
-                'endpoint' => 'clientes/datatable',
+                'endpoint' => 'clientes',
                 'icon'     => 'mdi-account-group-outline'
             ],
             [
                 'table'    => 'Usuarios',
                 'descripcion' => 'Tabla para administrar usuarios',
-                'endpoint' => 'users/datatable',
+                'endpoint' => 'users',
                 'icon'     => 'mdi-account-switch'
             ],
             [
                 'table'    => 'Documentos',
                 'descripcion' => 'Tabla para administrar documentos',
-                'endpoint' => 'documentos/datatable',
+                'endpoint' => 'documentos',
                 'icon'     => 'mdi-text-box-check-outline'
             ],
             [
                 'table'    => 'Estandar de cliente',
                 'descripcion' => 'Tabla para administrar estandar de cliente, con documentos',
-                'endpoint' => 'estandar/datatable',
+                'endpoint' => 'estandar',
                 'icon'     => 'mdi-file-document-arrow-right-outline'
             ],
             [
                 'table'    => 'Documentos de estandar',
                 'descripcion' => 'Tabla para administrar documentos - tabla detalle',
-                'endpoint' => 'documentos/datatable',
+                'endpoint' => 'documentos',
                 'icon'     => 'mdi-text-box-check-outline'
             ],
             [
                 'table'    => 'Fechas de documentos',
                 'descripcion' => 'Tabla para administrar las fechas limite de documentos',
-                'endpoint' => 'planeacion-documentos/datatable',
+                'endpoint' => 'planeacion-documentos',
                 'icon'     => 'mdi-calendar-cursor-outline'
             ],
             [
                 'table'    => 'Ciclos',
                 'descripcion' => 'Tabla para administrar los ciclos',
-                'endpoint' => 'ciclos/datatable',
+                'endpoint' => 'ciclos',
                 'icon'     => 'mdi-list-box-outline'
             ]
         ];
