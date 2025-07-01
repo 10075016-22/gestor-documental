@@ -2,17 +2,26 @@
 
 namespace App\Http\Controllers;
 
+use App\Interface\ResponseClass;
 use App\Models\FormsTable;
 use Illuminate\Http\Request;
 
 class FormsTableController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    protected $response;
+    public function __construct(ResponseClass $response)
+    {
+        $this->response = $response;
+    }
+
+    
     public function index()
     {
         //
+    }
+
+    public function getSelect(Request $request) {
+
     }
 
     /**

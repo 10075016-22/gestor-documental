@@ -55,6 +55,14 @@ class TypeFieldSeeder extends Seeder
             [
                 'name'        => 'FORM_FILE',
                 'description' => 'Campo de formulario tipo archivo'
+            ],
+            [
+                'name'        => 'FORM_SELECT',
+                'description' => 'Campo de formulario tipo select'
+            ],
+            [
+                'name'        => 'FORM_TEXTAREA',
+                'description' => 'Campo de formulario tipo textarea'
             ]
         ];
 

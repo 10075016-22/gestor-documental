@@ -52,6 +52,7 @@ class DatabaseSeeder extends Seeder
 
             // formularios
             FormClienteSeeder::class, // Seeder para formulario de cliente
+            FormDocumentoSeeder::class, // seeder para documentos
 
             // fakeseeder
             // ClienteSeeder::class,
