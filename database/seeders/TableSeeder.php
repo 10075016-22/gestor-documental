@@ -61,6 +61,12 @@ class TableSeeder extends Seeder
                 'descripcion' => 'Tabla para listar los registros de plan de acción',
                 'endpoint' => 'plan-accion',
                 'icon'     => 'mdi-security-network'
+            ],
+            [
+                'table'    => 'Perfiles',
+                'descripcion' => 'Tabla para listar los perfiles',
+                'endpoint' => 'roles',
+                'icon'     => 'mdi-account-supervisor-circle-outline'
             ]
         ];
 

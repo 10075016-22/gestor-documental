@@ -90,6 +90,14 @@ class ModuleSeeder extends Seeder
                 'permission_id' => 17,
             ],
             [
+                'module'        => 'Perfiles',
+                'description'   => 'Modulo para administrar Perfiles|Roles',
+                'icon'          => 'mdi-account-supervisor-circle-outline',
+                'name'          => '/dashboard/perfiles',
+                'order'         => 10,
+                'permission_id' => 23,
+            ],
+            [
                 'module'        => 'Reportes',
                 'order'         => 11,
                 'divider'       => 0,
@@ -137,7 +145,7 @@ class ModuleSeeder extends Seeder
                 'description'   => 'Modulo para listar plan de acción',
                 'icon'          => 'mdi-security-network',
                 'name'          => '/dashboard/configuracion/plan-de-accion',
-                'order'         => 16,
+                'order'         => 18,
                 'permission_id' => 22,
             ]
         ];

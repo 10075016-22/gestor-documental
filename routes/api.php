@@ -43,6 +43,7 @@ Route::middleware([JwtMiddleware::class])->group(function () {
         Route::resource("/permissions", PermissionController::class);
 
         // roles
+        Route::get("/roles/datatable", [RoleController::class, 'indexDatatable']);
         Route::resource("/roles", RoleController::class);
 
         // plan accion
