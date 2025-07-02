@@ -131,6 +131,14 @@ class ModuleSeeder extends Seeder
                 'name'          => '/dashboard/configuracion/formatos-cliente',
                 'order'         => 16,
                 'permission_id' => 21,
+            ],
+            [
+                'module'        => 'Plan de acción',
+                'description'   => 'Modulo para listar plan de acción',
+                'icon'          => 'mdi-security-network',
+                'name'          => '/dashboard/configuracion/plan-de-accion',
+                'order'         => 16,
+                'permission_id' => 22,
             ]
         ];
 

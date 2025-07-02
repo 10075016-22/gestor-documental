@@ -55,6 +55,12 @@ class TableSeeder extends Seeder
                 'descripcion' => 'Tabla para administrar los ciclos',
                 'endpoint' => 'ciclos',
                 'icon'     => 'mdi-list-box-outline'
+            ],
+            [
+                'table'    => 'Plan de acción',
+                'descripcion' => 'Tabla para listar los registros de plan de acción',
+                'endpoint' => 'plan-accion',
+                'icon'     => 'mdi-security-network'
             ]
         ];
 

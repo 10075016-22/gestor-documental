@@ -13,6 +13,8 @@ class TypeFieldSeeder extends Seeder
      */
     public function run(): void
     {
+        // FIELD -> Campos de grid
+        // FORM -> formulario
         $data = [
             [
                 'name'        => 'FIELD_TEXT',
@@ -67,6 +69,18 @@ class TypeFieldSeeder extends Seeder
             [
                 'name'        => 'FORM_SWITCH',
                 'description' => 'Campo de formulario tipo switch'
+            ],
+            [
+                'name'        => 'FORM_PASSWORD',
+                'description' => 'Campo de formulario tipo password'
+            ],
+            [
+                'name'        => 'FIELD_COLOR',
+                'description' => 'Campo para mostrar un texto con color de celda'
+            ],
+            [
+                'name'        => 'FIELD_HTML',
+                'description' => 'Campo para mostrar un texto html'
             ]
         ];
 

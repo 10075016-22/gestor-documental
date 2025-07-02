@@ -28,6 +28,33 @@ class PlanAccionController extends Controller
         }
     }
 
+    public function indexDatatable(Request $request) 
+    {
+        try {
+            $params = $request->query();
+
+            if(isset($params['page']) && isset($params['limit'])) {
+                $page  = max(1, intval($params['page']));
+                $limit = max(1, intval($params['limit']));
+                $offset = ($page - 1) * $limit;
+
+                $data = PlanAccion::orderBy('id', 'DESC')
+                    ->offset($offset)
+                    ->limit($limit)
+                    ->get();
+            } else {
+                $data = PlanAccion::orderBy('id', 'DESC')->get();
+            }
+
+            $total = PlanAccion::count();
+            return $this->response->success([
+                'data'  => $data,
+                'total' => $total
+            ]);
+        } catch (\Throwable $th) {
+            return $this->response->error('Ha ocurrido un error');
+        }
+    }
     /**
      * Store a newly created resource in storage.
      */
