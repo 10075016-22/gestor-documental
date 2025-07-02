@@ -44,6 +44,8 @@ class DatabaseSeeder extends Seeder
 
             UserSeeder::class,
             ModuleSeeder::class,
+            GrupoSeeder::class, // Grupos para asociar permisos
+            GrupoPermissionSeeder::class, // asociamos permisos a grupos
 
             // plan de acción
             PlanAccionSeeder::class,

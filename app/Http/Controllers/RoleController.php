@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Interface\ResponseClass;
+use App\Models\Grupo;
 use App\Models\HeadersTable;
 use App\Models\Table;
 use Illuminate\Http\Request;
@@ -28,6 +29,27 @@ class RoleController extends Controller
             return $this->response->error('An error has occurred');
         }
     }
+
+    public function permissionByGroups() {
+        try {
+            $grupos = Grupo::with('permissions')->get()->map(function ($grupo) {
+                return [
+                    'nombre' => $grupo->nombre,
+                    'permissions' => $grupo->permissions->map(function ($permiso) {
+                        return [
+                            'id' => $permiso->id,
+                            'name' => $permiso->name,
+                            'guard_name' => $permiso->guard_name,
+                        ];
+                    }),
+                ];
+            });
+            return $this->response->success($grupos);
+        } catch (\Throwable $th) {
+            return $this->response->error('An error has occurred' .$th->getMessage());
+        }
+    }
+
 
     public function indexDatatable(Request $request) 
     {
