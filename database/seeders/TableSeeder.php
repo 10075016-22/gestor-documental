@@ -67,6 +67,12 @@ class TableSeeder extends Seeder
                 'descripcion' => 'Tabla para listar los perfiles',
                 'endpoint' => 'roles',
                 'icon'     => 'mdi-account-supervisor-circle-outline'
+            ],
+            [
+                'table'    => 'Empleados',
+                'descripcion' => 'Tabla para administrar los empleados',
+                'endpoint' => 'empleados',
+                'icon'     => 'mdi-account-tie'
             ]
         ];
 

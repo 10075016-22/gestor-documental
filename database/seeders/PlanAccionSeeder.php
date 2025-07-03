@@ -20,7 +20,7 @@ class PlanAccionSeeder extends Seeder
                 "color"      => "#FC0607",
                 "minimo"     => 0,
                 "maximo"     => 59,
-                "accion"     => "- Realizar y enviar al Ministerio del Trabajo un plan de mejoramiento. \n- Enviar a la ARL el avance del plan de mejoramiento a los 3 meses. \n- El Ministerio del Trabajo realizará seguimiento anual."
+                "accion"     => "- Realizar y enviar al Ministerio del Trabajo un plan de mejoramiento. <br>- Enviar a la ARL el avance del plan de mejoramiento a los 3 meses. <br>- El Ministerio del Trabajo realizará seguimiento anual."
 
             ],
             [
@@ -29,7 +29,7 @@ class PlanAccionSeeder extends Seeder
                 "color" => "#F2DB0F",
                 "minimo" => 60,
                 "maximo" => 84,
-                "accion" => "- Realizar y enviar al Ministerio del Trabajo un plan de mejoramiento. \n- Enviar a la ARL el avance del plan de mejoramiento a los 6 meses. \n- Plan de visita por parte del Ministerio de Trabajo."
+                "accion" => "- Realizar y enviar al Ministerio del Trabajo un plan de mejoramiento. <br>- Enviar a la ARL el avance del plan de mejoramiento a los 6 meses. <br>- Plan de visita por parte del Ministerio de Trabajo."
             ],
             [
                 "criterio" => "Si el puntaje obtenido es mayor o igual a 85%",

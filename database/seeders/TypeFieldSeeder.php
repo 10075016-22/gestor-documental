@@ -81,6 +81,10 @@ class TypeFieldSeeder extends Seeder
             [
                 'name'        => 'FIELD_HTML',
                 'description' => 'Campo para mostrar un texto html'
+            ],
+            [
+                'name'        => 'FORM_DATE',
+                'description' => 'Campo de formulario tipo fecha'
             ]
         ];
 

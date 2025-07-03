@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             // Confiuraciones iniciales de tablas, permisos y perfiles
             TableSeeder::class,
             TypeFieldSeeder::class, // Tipos de campos
+            TipoIdentificacionSeeder::class, // Tipo de documento de identificación -> CC, CE, etc.
 
             HeadersTableSeeder::class, // Seeder para headers tablas generales
             HeaderTableClientSeeder::class, // seeder para header tabla de clientes
@@ -28,6 +29,7 @@ class DatabaseSeeder extends Seeder
             HeaderTableCicloSeeder::class, // seeder para headers tabla de ciclos
             HeaderTablePlanAccionSeeder::class, // headers para plan de acción
             HeaderTableRoleSeeder::class, // headers para perfiles
+            HeaderTableEmpleadoSeeder::class, // headers para empleados
 
             PermissionSeeder::class,
             PermissionClientSeeder::class, // Permisos para clientes
@@ -39,6 +41,7 @@ class DatabaseSeeder extends Seeder
             PermissionReportesSeeder::class, // Permisos para reportes
             PermissionConfiguracionSeeder::class, // Permisos para configuración
             PermissionRoleSeeder::class, // Permisos para configuración
+            PermissionEmpleadoSeeder::class, // Permisos para empleados
 
             RoleSeeder::class,
 
@@ -59,6 +62,7 @@ class DatabaseSeeder extends Seeder
             FormClienteSeeder::class, // Seeder para formulario de cliente
             FormDocumentoSeeder::class, // seeder para documentos
             FormUserSeeder::class,
+            FormEmpleadoSeeder::class, // Formulario de empleados
 
             // fakeseeder
             // ClienteSeeder::class,
