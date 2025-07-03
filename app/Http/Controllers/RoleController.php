@@ -86,6 +86,10 @@ class RoleController extends Controller
     {
         try {
             $role = Role::create($request->all());
+
+            if ($request->has('permissions')) {
+                $role->syncPermissions($request->permissions);
+            }
             return $this->response->success($role);
         } catch (\Throwable $th) {
             return $this->response->error('An error has occurred');
