@@ -72,54 +72,124 @@ class DashboardController extends Controller
             $data = [];
             if( $user->hasRole('SuperAdmin') ) {
                 $data = [
+                    // [
+                    //     'type' => 'ColumnChart',
+                    //     'cols'  => 6,
+                    //     'data' => self::getCalculateColumnsClientDocument(),
+                    //     'options' => [
+                    //       'title' => 'Cantidad de documentos por cliente',
+                    //       'hAxis' => [
+                    //         'title' => 'Clientes', 
+                    //         'titleTextStyle' => ['color' => '#333']
+                    //       ],
+                    //       'vAxis' => [
+                    //         'minValue' => 0,
+                    //         'title' => 'Documentos',
+                    //         'titleTextStyle' => ['color' => '#333']
+                    //       ],
+                    //       'chartArea' => [
+                    //         'width' => '50%', 
+                    //         'height' => '70%'
+                    //       ],
+                    //       'height' => 400,
+                    //       'width' => '100%',
+                    //       'legend' => ['position' => 'bottom'],
+                    //     ],
+                    //     'permission' => 'home-card-documentos-clientes'
+                    // ],
                     [
-                        'type' => 'ColumnChart',
-                        'cols'  => 6,
-                        'data' => self::getCalculateColumnsClientDocument(),
-                        'options' => [
-                          'title' => 'Cantidad de documentos por cliente',
-                          'hAxis' => [
-                            'title' => 'Clientes', 
-                            'titleTextStyle' => ['color' => '#333']
-                          ],
-                          'vAxis' => [
-                            'minValue' => 0,
-                            'title' => 'Documentos',
-                            'titleTextStyle' => ['color' => '#333']
-                          ],
-                          'chartArea' => [
-                            'width' => '50%', 
-                            'height' => '70%'
-                          ],
-                          'height' => 400,
-                          'width' => '100%',
-                          'legend' => ['position' => 'bottom'],
+                        'type' => 'BarChart',
+                        'cols' => 12,
+                        'data' => [
+                            ['Area', 'Documentos Cargados', 'Documentos Pendientes'],
+                            ['Políticas SST', 12, 3],
+                            ['Procedimientos', 25, 5], 
+                            ['Formatos', 45, 10],
+                            ['Matrices', 15, 4],
+                            ['Programas', 20, 6]
                         ],
-                        'permission' => 'home-card-documentos-clientes'
+                        'options' => [
+                            'title' => 'Estado Documentación SST',
+                            'height' => 400,
+                            'width' => '100%',
+                            'isStacked' => true,
+                            'legend' => ['position' => 'top']
+                        ],
+                        'permission' => 'home-card-evaluaciones-clientes'
+                    ],
+                    [
+                        'type' => 'LineChart',
+                        'cols' => 6,
+                        'data' => [
+                            ['Mes', 'Cumplimiento SST'],
+                            ['Ene', 65], ['Feb', 70], ['Mar', 75], ['Abr', 72],
+                            ['May', 78], ['Jun', 82], ['Jul', 85], ['Ago', 88],
+                            ['Sep', 86], ['Oct', 90], ['Nov', 92], ['Dic', 95]
+                        ],
+                        'options' => [
+                            'title' => 'Tendencia de Cumplimiento SST',
+                            'curveType' => 'function',
+                            'height' => 400,
+                            'width' => '100%',
+                            'legend' => ['position' => 'bottom'],
+                        ],
+                        'permission' => 'home-card-evaluaciones-clientes'
+                    ],
+                    [
+                        'type' => 'PieChart', 
+                        'cols' => 6,
+                        'data' => [
+                            ['Estado', 'Cantidad'],
+                            ['Completo', 35],
+                            ['En proceso', 45],
+                            ['Pendiente', 20]
+                        ],
+                        'options' => [
+                            'title' => 'Estado Plan Anual SST',
+                            'height' => 400,
+                            'width' => '100%',
+                            'pieHole' => 0.4
+                        ],
+                        'permission' => 'home-card-evaluaciones-clientes'
                     ],
                     [
                         'type' => 'ColumnChart',
-                        'cols'  => 6,
+                        'cols' => 6,
                         'data' => [
-                            ["Clientes", "Cliente 1", "Cliente 2", "Cliente 3", "Cliente 4", "Cliente 5", "Cliente 6"],
-                            ["Evaluaciones", 56, 78, 27, 12, 34, 45]
+                            ['Mes', 'Capacitaciones', 'Inspecciones', 'Simulacros'],
+                            ['Ene', 4, 2, 1], ['Feb', 3, 3, 0], 
+                            ['Mar', 5, 2, 1], ['Apr', 4, 4, 0],
+                            ['May', 6, 3, 1], ['Jun', 3, 2, 1]
                         ],
                         'options' => [
-                          'title' => 'Seguimiento de evaluaciones por cliente',
-                          'hAxis' => [
-                            'title' => 'Clientes', 
-                            'titleTextStyle' => ['color' => '#333']
-                          ],
-                          'vAxis' => [
-                            'minValue' => 0,
-                            'maxValue' => 100,
-                            'title' => 'Porcentaje de avance',
-                            'titleTextStyle' => ['color' => '#333']
-                          ],
-                          'height' => 400,
-                          'width' => '100%',
-                          'legend' => [
-                            'position' => 'bottom'],
+                            'title' => 'Actividades SST por Mes',
+                            'height' => 400,
+                            'width' => '100%',
+                            'legend' => ['position' => 'bottom']
+                        ],
+                        'permission' => 'home-card-evaluaciones-clientes'
+                    ],
+                    [
+                        'type' => 'AreaChart',
+                        'cols' => 6,
+                        'data' => [
+                            ['Mes', 'Incapacidades'],
+                            ['Ene', 3], ['Feb', 0], ['Mar', 0],
+                            ['Abr', 2], ['May', 3], ['Jun', 3],
+                            ['Jul', 4], ['Ago', 2], ['Sep', 5],
+                            ['Oct', 3], ['Nov', 4], ['Dic', 1]
+                        ],
+                        'options' => [
+                            'title' => 'Incapacidades por Mes',
+                            'height' => 400,
+                            'width' => '100%',
+                            'legend' => ['position' => 'bottom'],
+                            'hAxis' => [
+                                'title' => 'Mes'
+                            ],
+                            'vAxis' => [
+                                'title' => 'Número de Incapacidades'
+                            ]
                         ],
                         'permission' => 'home-card-evaluaciones-clientes'
                     ]
