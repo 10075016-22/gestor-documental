@@ -85,6 +85,10 @@ class TypeFieldSeeder extends Seeder
             [
                 'name'        => 'FORM_DATE',
                 'description' => 'Campo de formulario tipo fecha'
+            ],
+            [
+                'name'        => 'FIELD_FILE',
+                'description' => 'Campo para mostrar visualizar un archivo'
             ]
         ];
 

@@ -27,7 +27,7 @@ class FormDocumentoSeeder extends Seeder
                 'table_id'      => 3,
                 'type_field_id' => 12, // FORM_TEXTAREA
                 'field_name' => 'descripcion',
-                'label'      => 'Descripción',
+                'label'      => 'Comentarios para el Responsable del SGSST',
                 'size'       => 12,
                 'required'   => 0,
                 'order'      => 2

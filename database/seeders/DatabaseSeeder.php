@@ -67,6 +67,8 @@ class DatabaseSeeder extends Seeder
             // fakeseeder
             // ClienteSeeder::class,
             DocumentoSeeder::class,
+            ClienteSeeder::class,
+            // DocumentoSeeder::class,
             // EstandarSeeder::class,
             // EstandarClienteSeeder::class,
             // PlaneacionDocumentoSeeder::class,

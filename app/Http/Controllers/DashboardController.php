@@ -168,30 +168,6 @@ class DashboardController extends Controller
                             'legend' => ['position' => 'bottom']
                         ],
                         'permission' => 'home-card-evaluaciones-clientes'
-                    ],
-                    [
-                        'type' => 'AreaChart',
-                        'cols' => 6,
-                        'data' => [
-                            ['Mes', 'Incapacidades'],
-                            ['Ene', 3], ['Feb', 0], ['Mar', 0],
-                            ['Abr', 2], ['May', 3], ['Jun', 3],
-                            ['Jul', 4], ['Ago', 2], ['Sep', 5],
-                            ['Oct', 3], ['Nov', 4], ['Dic', 1]
-                        ],
-                        'options' => [
-                            'title' => 'Incapacidades por Mes',
-                            'height' => 400,
-                            'width' => '100%',
-                            'legend' => ['position' => 'bottom'],
-                            'hAxis' => [
-                                'title' => 'Mes'
-                            ],
-                            'vAxis' => [
-                                'title' => 'Número de Incapacidades'
-                            ]
-                        ],
-                        'permission' => 'home-card-evaluaciones-clientes'
                     ]
 
                 ];
