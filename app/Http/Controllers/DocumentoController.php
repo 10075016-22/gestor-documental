@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Interface\ResponseClass;
 use App\Models\Documento;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class DocumentoController extends Controller
 {
@@ -46,6 +47,7 @@ class DocumentoController extends Controller
                     ->get()
                     ->map(function($documento) {
                         $documento->tipodocumento = $documento->tipoDocumento->nombre;
+                        $documento->fileplantilla = $documento->plantilla ? Storage::disk('documentos')->url($documento->plantilla) : null;
                         return $documento;
                     });
             } else {

@@ -65,7 +65,7 @@ class DatabaseSeeder extends Seeder
             FormEmpleadoSeeder::class, // Formulario de empleados
 
             // fakeseeder
-            // ClienteSeeder::class,
+            ClienteSeeder::class,
             // DocumentoSeeder::class,
             // EstandarSeeder::class,
             // EstandarClienteSeeder::class,
