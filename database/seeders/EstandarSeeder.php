@@ -13,6 +13,28 @@ class EstandarSeeder extends Seeder
      */
     public function run(): void
     {
-        Estandar::factory(35)->create();
+        $data = [
+            [
+                'nombre'        => '7 Estandarés',
+                'descripcion'   => 'AUTOEVALUACIÓN DE ACUERDO A LOS ESTÁNDARES MÍNIMOS SG-SST',
+                'cantidad'      => '7'
+            ],
+            [
+                'nombre'        => '21 Estandarés',
+                'descripcion'   => 'AUTOEVALUACIÓN DE ACUERDO A LOS ESTÁNDARES MÍNIMOS SG-SST',
+                'cantidad'      => '21'
+            ],
+            [
+                'nombre'        => '60 Estandarés',
+                'descripcion'   => 'AUTOEVALUACIÓN DE ACUERDO A LOS ESTÁNDARES MÍNIMOS SG-SST',
+                'cantidad'      => '60'
+            ]
+
+        ];
+        
+        //Estandar::factory(35)->create();
+        foreach  ($data as $key => $value){
+            Estandar::create($value);
+        }
     }
 }

@@ -69,7 +69,7 @@ class DatabaseSeeder extends Seeder
             DocumentoSeeder::class,
             ClienteSeeder::class,
             // DocumentoSeeder::class,
-            // EstandarSeeder::class,
+            EstandarSeeder::class,
             // EstandarClienteSeeder::class,
             // PlaneacionDocumentoSeeder::class,
 
