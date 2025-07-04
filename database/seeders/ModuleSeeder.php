@@ -74,6 +74,14 @@ class ModuleSeeder extends Seeder
                 'permission_id' => 15,
             ],
             [
+                'module'        => 'Seguimiento',
+                'description'   => 'Vista para llevar seguimiento de planeación',
+                'icon'          => 'mdi-chart-box-plus-outline',
+                'name'          => '/dashboard/seguimiento',
+                'order'         => 8,
+                'permission_id' => 15,
+            ],
+            [
                 'module'        => 'Estandar',
                 'description'   => 'Modulo para administrar estandar y documentos',
                 'icon'          => 'mdi-file-document-arrow-right-outline',

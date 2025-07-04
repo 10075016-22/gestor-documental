@@ -110,8 +110,18 @@ class DocumentoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Documento $documento)
+    public function destroy($id)
     {
-        //
+        try {
+            $record = Documento::find($id);
+            if(!$record) {
+                return $this->response->notFound('No existe el registro');
+            }
+            if($record) $record->delete();
+
+            return $this->response->success([]);
+        } catch (\Throwable $th) {
+            return $this->response->error('An error has occurred');
+        } 
     }
 }

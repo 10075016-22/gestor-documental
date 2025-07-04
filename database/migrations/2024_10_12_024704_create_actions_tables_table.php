@@ -14,13 +14,13 @@ return new class extends Migration
         Schema::create('actions_tables', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('table_id');
-            $table->unsignedBigInteger('action_id');
+            $table->unsignedBigInteger('type_field_id');
             $table->unsignedInteger("order");
             $table->string("message")->nullable();
             $table->timestamps();
 
             $table->foreign('table_id')->references('id')->on('tables');
-            $table->foreign('action_id')->references('id')->on('actions_buttons');
+            $table->foreign('type_field_id')->references('id')->on('type_fields');
         });
     }
 

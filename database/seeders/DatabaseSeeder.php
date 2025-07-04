@@ -53,7 +53,6 @@ class DatabaseSeeder extends Seeder
             // plan de acción
             PlanAccionSeeder::class,
 
-
             TipoDocumentoSeeder::class,
 
             CicloSeeder::class,
@@ -63,6 +62,10 @@ class DatabaseSeeder extends Seeder
             FormDocumentoSeeder::class, // seeder para documentos
             FormUserSeeder::class,
             FormEmpleadoSeeder::class, // Formulario de empleados
+
+
+            // actions
+            ActionButtonSeeder::class,
 
             // fakeseeder
             // ClienteSeeder::class,

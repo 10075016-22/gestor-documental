@@ -89,6 +89,10 @@ class TypeFieldSeeder extends Seeder
             [
                 'name'        => 'FIELD_FILE',
                 'description' => 'Campo para mostrar visualizar un archivo'
+            ],
+            [
+                'name'        => 'ACTION_DELETE',
+                'description' => 'Acción para eliminar'
             ]
         ];
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Interface\ResponseClass;
+use App\Models\ActionsTable;
 use App\Models\FormsTable;
 use App\Models\HeadersTable;
 use App\Models\Table;
@@ -58,6 +59,15 @@ class TableController extends Controller
     public function getHeaders($id) {
         try {
             $configuration = HeadersTable::whereTableId($id)->with(['type_field'])->orderBy('order')->get();
+            return $this->response->success($configuration);
+        } catch (\Throwable $th) {
+            return $this->response->error('Ha ocurrido un error');
+        }
+    }
+
+    public function getActions($id) {
+        try {
+            $configuration = ActionsTable::whereTableId($id)->with(['typeField'])->orderBy('order')->get();
             return $this->response->success($configuration);
         } catch (\Throwable $th) {
             return $this->response->error('Ha ocurrido un error');
