@@ -5,6 +5,7 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DocumentoController;
 use App\Http\Controllers\EmpleadoController;
+use App\Http\Controllers\EstandarClienteController;
 use App\Http\Controllers\EstandarController;
 use App\Http\Controllers\FormsTableController;
 use App\Http\Controllers\ModuleController;
@@ -67,6 +68,8 @@ Route::middleware([JwtMiddleware::class])->group(function () {
         // estandar
         Route::get("/estandar/datatable", [EstandarController::class, 'indexDatatable']);
         Route::resource("/estandar", EstandarController::class);
+
+        Route::resource("/estandar-cliente", EstandarClienteController::class);
 
         // Ciclos
         Route::get("/ciclos/datatable", [CicloController::class, 'indexDatatable']);

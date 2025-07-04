@@ -22,6 +22,8 @@ return new class extends Migration
             // Foreign keys
             $table->foreign("cliente_id")->references("id")->on("clientes")->onDelete("cascade")->onUpdate("cascade");
             $table->foreign("estandar_id")->references("id")->on("estandars")->onDelete("cascade")->onUpdate("cascade");
+
+            $table->unique(['cliente_id', 'estandar_id'], 'cliente_estandar_unique');
         });
     }
 

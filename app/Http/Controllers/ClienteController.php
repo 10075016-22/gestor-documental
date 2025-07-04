@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Interface\ResponseClass;
 use App\Models\Cliente;
+use App\Models\EstandarCliente;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -41,6 +42,9 @@ class ClienteController extends Controller
                     ->get()
                     ->map(function ($cliente) {
                         $cliente->logo = $cliente->logo ? Storage::disk('logos')->url($cliente->logo) : null;
+
+                        $estandarcliente = EstandarCliente::whereClienteId($cliente->id)->first();
+                        $cliente->estandarcliente = $estandarcliente->estandar_id ?? null;
                         return $cliente;
                     });
             } else {

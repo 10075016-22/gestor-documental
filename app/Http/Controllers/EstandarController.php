@@ -22,7 +22,12 @@ class EstandarController extends Controller
      */
     public function index()
     {
-        //
+        try {
+            $data = Estandar::orderBy('id', 'DESC')->get();
+            return $this->response->success($data);
+        } catch (\Throwable $th) {
+            return $this->response->error('Ha ocurrido un error');
+        }
     }
 
     public function indexDatatable(Request $request)

@@ -18,13 +18,19 @@ class ActionButtonSeeder extends Seeder
                 'table_id'      => 1,
                 'type_field_id' => 19,
                 'order'         => 1,
-                'message'       => ''
+                'message'       => 'Eliminar'
+            ],
+            [
+                'table_id'      => 1,
+                'type_field_id' => 20,
+                'order'         => 1,
+                'message'       => 'Asociar estandar'
             ],
             [
                 'table_id'      => 3,
                 'type_field_id' => 19,
                 'order'         => 1,
-                'message'       => ''
+                'message'       => 'Eliminar'
             ]
         ];
 

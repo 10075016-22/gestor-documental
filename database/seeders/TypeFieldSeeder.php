@@ -93,6 +93,10 @@ class TypeFieldSeeder extends Seeder
             [
                 'name'        => 'ACTION_DELETE',
                 'description' => 'Acción para eliminar'
+            ],
+            [
+                'name'        => 'ACTION_ASSOCIATE_STANDAR',
+                'description' => 'Acción para asociar estandar a cliente'
             ]
         ];
 
