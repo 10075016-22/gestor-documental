@@ -168,6 +168,36 @@ class DashboardController extends Controller
                             'legend' => ['position' => 'bottom']
                         ],
                         'permission' => 'home-card-evaluaciones-clientes'
+                    ],
+                    [
+                        'type' => 'ColumnChart',
+                        'cols' => 6,
+                        'data' => [
+                            ['Cliente', 'Calificación Posible', 'Calificación Obtenida'],
+                            ['Cliente A', 5, 3.8],
+                            ['Cliente B', 5, 4.2], 
+                            ['Cliente C', 5, 3.5],
+                            ['Cliente D', 5, 4.7],
+                            ['Cliente E', 5, 4.1],
+                            ['Cliente F', 5, 3.9]
+                        ],
+                        'options' => [
+                            'title' => 'Calificación por Cliente',
+                            'height' => 400,
+                            'width' => '100%',
+                            'vAxis' => [
+                                'minValue' => 0,
+                                'maxValue' => 5,
+                                'title' => 'Calificación'
+                            ],
+                            'hAxis' => [
+                                'title' => 'Clientes',
+                                'slantedText' => true,
+                                'slantedTextAngle' => 45
+                            ],
+                            'legend' => ['position' => 'bottom']
+                        ],
+                        'permission' => 'home-card-evaluaciones-clientes'
                     ]
 
                 ];

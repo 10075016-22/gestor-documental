@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('ciclo_item_estandars', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger("ciclo_sub_estandar_id")->comment("Subestandar relacionado");
-            $table->unsignedBigInteger("documento_id")->comment("Documento relacionado")->nullable();
+            $table->unsignedBigInteger("documento_id")->nullable()->comment("Documento relacionado");
 
             $table->string("nombre")->comment("Nombre del item estandar");
             $table->text("descripcion")->nullable()->comment("Descripción del item estandar");
@@ -22,6 +22,7 @@ return new class extends Migration
             
             $table->timestamps();
             $table->softDeletes();
+            
             $table->foreign("ciclo_sub_estandar_id")->references("id")->on("ciclo_estandar_sub_estandars")->onDelete("cascade")->onUpdate("cascade");
             $table->foreign("documento_id")->references("id")->on("documentos")->onDelete("set null")->onUpdate("cascade");
             $table->index(['ciclo_sub_estandar_id'], 'idx_ciclo_sub_estandar_id');
