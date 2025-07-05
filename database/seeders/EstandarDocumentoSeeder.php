@@ -1,0 +1,167 @@
+<?php
+
+namespace Database\Seeders;
+
+use App\Models\EstandarDocumento;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
+
+class EstandarDocumentoSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     */
+    public function run(): void
+    {
+        $data = [
+            // estandar 7
+            [ 'estandar_id' => 1, 'documento_id' => 1],
+            [ 'estandar_id' => 1, 'documento_id' => 2],
+            [ 'estandar_id' => 1, 'documento_id' => 3],
+            [ 'estandar_id' => 1, 'documento_id' => 6],
+            [ 'estandar_id' => 1, 'documento_id' => 19],
+            [ 'estandar_id' => 1, 'documento_id' => 20],
+            [ 'estandar_id' => 1, 'documento_id' => 28],
+            [ 'estandar_id' => 1, 'documento_id' => 45],
+            [ 'estandar_id' => 1, 'documento_id' => 46],
+            [ 'estandar_id' => 1, 'documento_id' => 64],
+            [ 'estandar_id' => 1, 'documento_id' => 69],
+
+            // estandar 21
+            [ 'estandar_id' => 2, 'documento_id' => 1],
+            [ 'estandar_id' => 2, 'documento_id' => 2],
+            [ 'estandar_id' => 2, 'documento_id' => 3],
+            [ 'estandar_id' => 2, 'documento_id' => 5],
+            [ 'estandar_id' => 2, 'documento_id' => 6],
+            // 1.1.6 Conformación COPASST O Asignación de VIGIA
+            [ 'estandar_id' => 2, 'documento_id' => 8],
+            [ 'estandar_id' => 2, 'documento_id' => 9],
+            [ 'estandar_id' => 2, 'documento_id' => 10],
+            [ 'estandar_id' => 2, 'documento_id' => 11],
+            [ 'estandar_id' => 2, 'documento_id' => 12],
+            // 1.1.8 Conformación Comité de Convivencia
+            [ 'estandar_id' => 2, 'documento_id' => 14],
+            [ 'estandar_id' => 2, 'documento_id' => 15],
+            [ 'estandar_id' => 2, 'documento_id' => 16],
+            [ 'estandar_id' => 2, 'documento_id' => 17],
+            [ 'estandar_id' => 2, 'documento_id' => 18],
+
+            [ 'estandar_id' => 2, 'documento_id' => 19],
+            [ 'estandar_id' => 2, 'documento_id' => 20],
+            [ 'estandar_id' => 2, 'documento_id' => 23],
+            [ 'estandar_id' => 2, 'documento_id' => 24],
+            [ 'estandar_id' => 2, 'documento_id' => 28],
+            [ 'estandar_id' => 2, 'documento_id' => 29],
+            [ 'estandar_id' => 2, 'documento_id' => 30],
+            [ 'estandar_id' => 2, 'documento_id' => 39],
+            [ 'estandar_id' => 2, 'documento_id' => 40],
+            [ 'estandar_id' => 2, 'documento_id' => 41],
+            [ 'estandar_id' => 2, 'documento_id' => 45],
+            [ 'estandar_id' => 2, 'documento_id' => 46],
+            [ 'estandar_id' => 2, 'documento_id' => 48],
+            [ 'estandar_id' => 2, 'documento_id' => 49],
+
+            [ 'estandar_id' => 2, 'documento_id' => 53],
+            [ 'estandar_id' => 2, 'documento_id' => 54],
+            [ 'estandar_id' => 2, 'documento_id' => 55],
+            [ 'estandar_id' => 2, 'documento_id' => 56],
+            [ 'estandar_id' => 2, 'documento_id' => 66],
+            [ 'estandar_id' => 2, 'documento_id' => 73],
+            [ 'estandar_id' => 2, 'documento_id' => 74],
+            [ 'estandar_id' => 2, 'documento_id' => 75],
+            [ 'estandar_id' => 2, 'documento_id' => 76],
+            [ 'estandar_id' => 2, 'documento_id' => 77],
+            [ 'estandar_id' => 2, 'documento_id' => 78],
+            [ 'estandar_id' => 2, 'documento_id' => 83],
+            
+            // estandar 60
+            [ 'estandar_id' => 3, 'documento_id' => 1],
+            [ 'estandar_id' => 3, 'documento_id' => 2],
+            [ 'estandar_id' => 3, 'documento_id' => 3],
+            [ 'estandar_id' => 3, 'documento_id' => 4],
+            [ 'estandar_id' => 3, 'documento_id' => 5],
+            [ 'estandar_id' => 3, 'documento_id' => 6],
+            [ 'estandar_id' => 3, 'documento_id' => 7],
+            [ 'estandar_id' => 3, 'documento_id' => 8],
+            [ 'estandar_id' => 3, 'documento_id' => 9],
+            [ 'estandar_id' => 3, 'documento_id' => 10],
+            [ 'estandar_id' => 3, 'documento_id' => 11],
+            [ 'estandar_id' => 3, 'documento_id' => 12],
+            [ 'estandar_id' => 3, 'documento_id' => 13],
+            [ 'estandar_id' => 3, 'documento_id' => 14],
+            [ 'estandar_id' => 3, 'documento_id' => 15],
+            [ 'estandar_id' => 3, 'documento_id' => 16],
+            [ 'estandar_id' => 3, 'documento_id' => 17],
+            [ 'estandar_id' => 3, 'documento_id' => 18],
+            [ 'estandar_id' => 3, 'documento_id' => 23],
+            [ 'estandar_id' => 3, 'documento_id' => 24],
+            [ 'estandar_id' => 3, 'documento_id' => 25],
+            [ 'estandar_id' => 3, 'documento_id' => 26],
+            [ 'estandar_id' => 3, 'documento_id' => 27],
+            [ 'estandar_id' => 3, 'documento_id' => 28],
+            [ 'estandar_id' => 3, 'documento_id' => 29],
+            [ 'estandar_id' => 3, 'documento_id' => 30],
+            [ 'estandar_id' => 3, 'documento_id' => 31],
+            [ 'estandar_id' => 3, 'documento_id' => 32],
+            [ 'estandar_id' => 3, 'documento_id' => 33],
+            [ 'estandar_id' => 3, 'documento_id' => 34],
+            [ 'estandar_id' => 3, 'documento_id' => 35],
+            [ 'estandar_id' => 3, 'documento_id' => 36],
+            [ 'estandar_id' => 3, 'documento_id' => 37],
+            [ 'estandar_id' => 3, 'documento_id' => 38],
+            [ 'estandar_id' => 3, 'documento_id' => 39],
+            [ 'estandar_id' => 3, 'documento_id' => 40],
+            [ 'estandar_id' => 3, 'documento_id' => 41],
+            [ 'estandar_id' => 3, 'documento_id' => 42],
+            [ 'estandar_id' => 3, 'documento_id' => 43],
+            [ 'estandar_id' => 3, 'documento_id' => 44],
+            [ 'estandar_id' => 3, 'documento_id' => 45],
+            [ 'estandar_id' => 3, 'documento_id' => 46],
+            [ 'estandar_id' => 3, 'documento_id' => 47],
+            [ 'estandar_id' => 3, 'documento_id' => 48],
+            [ 'estandar_id' => 3, 'documento_id' => 49],
+            [ 'estandar_id' => 3, 'documento_id' => 50],
+            [ 'estandar_id' => 3, 'documento_id' => 51],
+            [ 'estandar_id' => 3, 'documento_id' => 52],
+            [ 'estandar_id' => 3, 'documento_id' => 53],
+            [ 'estandar_id' => 3, 'documento_id' => 54],
+            [ 'estandar_id' => 3, 'documento_id' => 55],
+            [ 'estandar_id' => 3, 'documento_id' => 56],
+            [ 'estandar_id' => 3, 'documento_id' => 57],
+            [ 'estandar_id' => 3, 'documento_id' => 58],
+            [ 'estandar_id' => 3, 'documento_id' => 59],
+            [ 'estandar_id' => 3, 'documento_id' => 60],
+            [ 'estandar_id' => 3, 'documento_id' => 61],
+            [ 'estandar_id' => 3, 'documento_id' => 62],
+            [ 'estandar_id' => 3, 'documento_id' => 63],
+            [ 'estandar_id' => 3, 'documento_id' => 64],
+            [ 'estandar_id' => 3, 'documento_id' => 65],
+            [ 'estandar_id' => 3, 'documento_id' => 66],
+            [ 'estandar_id' => 3, 'documento_id' => 67],
+            [ 'estandar_id' => 3, 'documento_id' => 68],
+            [ 'estandar_id' => 3, 'documento_id' => 69],
+            [ 'estandar_id' => 3, 'documento_id' => 70],
+            [ 'estandar_id' => 3, 'documento_id' => 71],
+            [ 'estandar_id' => 3, 'documento_id' => 72],
+            [ 'estandar_id' => 3, 'documento_id' => 73],
+            [ 'estandar_id' => 3, 'documento_id' => 74],
+            [ 'estandar_id' => 3, 'documento_id' => 75],
+            [ 'estandar_id' => 3, 'documento_id' => 76],
+            [ 'estandar_id' => 3, 'documento_id' => 77],
+            [ 'estandar_id' => 3, 'documento_id' => 78],
+            [ 'estandar_id' => 3, 'documento_id' => 81],
+            [ 'estandar_id' => 3, 'documento_id' => 82],
+            [ 'estandar_id' => 3, 'documento_id' => 83],
+            [ 'estandar_id' => 3, 'documento_id' => 84],
+            [ 'estandar_id' => 3, 'documento_id' => 85],
+            [ 'estandar_id' => 3, 'documento_id' => 86],
+            [ 'estandar_id' => 3, 'documento_id' => 87],
+            [ 'estandar_id' => 3, 'documento_id' => 88],
+            [ 'estandar_id' => 3, 'documento_id' => 89],
+        ];
+
+        foreach ($data as $value) {
+            EstandarDocumento::create($value);
+        }
+    }
+}

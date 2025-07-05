@@ -59,7 +59,7 @@ class DocumentoSeeder extends Seeder
     ['tipo_documento_id' => 1, 'nombre' => '1. Perfil Biomedico', 'obligatorio' => '1', 'generaFormato' => '1'],
     ['tipo_documento_id' => 1, 'nombre' => '2. Soporte de socialización a IPS ocupacional', 'obligatorio' => '1', 'generaFormato' => '1'],
     ['tipo_documento_id' => 1, 'nombre' => '3. Documento perfiles de cargo', 'obligatorio' => '1', 'generaFormato' => '1'],
-    ['tipo_documento_id' => 1, 'nombre' => '1. Revisar conceotps medicos por el porcentaje según la cantidad de empleados', 'obligatorio' => '1', 'generaFormato' => '1'],
+    ['tipo_documento_id' => 1, 'nombre' => '1. Revisar conceptos medicos por el porcentaje según la cantidad de empleados', 'obligatorio' => '1', 'generaFormato' => '1'],
     ['tipo_documento_id' => 1, 'nombre' => '2. Soporte de resultados de las evaluaciones médicas a los trabajadores', 'obligatorio' => '1', 'generaFormato' => '1'],
     ['tipo_documento_id' => 1, 'nombre' => '1. Certificados de custodia clinicas de la IPS que presta servicios', 'obligatorio' => '1', 'generaFormato' => '1'],
     ['tipo_documento_id' => 1, 'nombre' => '1. Procedimiento de reintegro laboral donde se acaten las recomendaciones y restricciones médico laborales a los trabajadores', 'obligatorio' => '1', 'generaFormato' => '1'],
