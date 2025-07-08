@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\GrupoPermission;
+use App\Models\FormatoCliente;
 use Illuminate\Http\Request;
 
-class GrupoPermissionController extends Controller
+class FormatoClienteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class GrupoPermissionController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(GrupoPermission $grupoPermission)
+    public function show(FormatoCliente $formatoCliente)
     {
         //
     }
@@ -42,7 +42,7 @@ class GrupoPermissionController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(GrupoPermission $grupoPermission)
+    public function edit(FormatoCliente $formatoCliente)
     {
         //
     }
@@ -50,7 +50,7 @@ class GrupoPermissionController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, GrupoPermission $grupoPermission)
+    public function update(Request $request, FormatoCliente $formatoCliente)
     {
         //
     }
@@ -58,7 +58,7 @@ class GrupoPermissionController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(GrupoPermission $grupoPermission)
+    public function destroy(FormatoCliente $formatoCliente)
     {
         //
     }
