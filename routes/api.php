@@ -8,6 +8,7 @@ use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\EstandarClienteController;
 use App\Http\Controllers\EstandarController;
 use App\Http\Controllers\FormatoClienteController;
+use App\Http\Controllers\FormatoController;
 use App\Http\Controllers\FormsTableController;
 use App\Http\Controllers\ModuleController;
 use App\Http\Controllers\PermissionController;
@@ -80,6 +81,10 @@ Route::middleware([JwtMiddleware::class])->group(function () {
         Route::get("/empleados/datatable", [EmpleadoController::class, 'indexDatatable']);
         Route::resource("/empleados", EmpleadoController::class);
 
+        Route::resource("/formatos", FormatoController::class);
+
+        Route::get('/formatos-clientes/clientes',     [FormatoClienteController::class, 'getClientes']);
+        Route::get('/formatos-clientes/preview/{id}', [FormatoClienteController::class, 'getFormato']);
         Route::resource("/formatos-cliente", FormatoClienteController::class);
 
 

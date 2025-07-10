@@ -14,9 +14,18 @@ class FormatoSeeder extends Seeder
     public function run(): void
     {
         $data = [
-            [ 'nombre' => 'FORMATO 7' ],
-            [ 'nombre' => 'FORMATO 21' ],
-            [ 'nombre' => 'FORMATO 60' ],
+            [ 
+                'nombre'        => 'FORMATO 7',
+                'descripcion'   => 'Formato estándar 7'
+            ],
+            [ 
+                'nombre'        => 'FORMATO 21',
+                'descripcion'   => 'Formato estándar 21'
+            ],
+            [ 
+                'nombre'        => 'FORMATO 60',
+                'descripcion'   => 'Formato estándar 60'
+            ],
         ];
 
         foreach ($data as $key => $value) {

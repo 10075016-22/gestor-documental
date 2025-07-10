@@ -2,26 +2,30 @@
 
 namespace App\Http\Controllers;
 
+use App\Interface\ResponseClass;
 use App\Models\Formato;
 use Illuminate\Http\Request;
 
 class FormatoController extends Controller
 {
+    protected $response;
+    public function __construct(ResponseClass $response)
+    {
+        $this->response = $response;
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        try {
+            $data = Formato::orderBy('id')->get();
+            return $this->response->success($data);
+        } catch (\Throwable $th) {
+            return $this->response->error('Ha ocurrido un error');
+        }
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -35,14 +39,6 @@ class FormatoController extends Controller
      * Display the specified resource.
      */
     public function show(Formato $formato)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Formato $formato)
     {
         //
     }
