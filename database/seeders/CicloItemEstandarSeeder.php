@@ -59,6 +59,16 @@ class CicloItemEstandarSeeder extends Seeder
             "ciclo_sub_estandar_id" => 2,
             "nombre"                => "1.2.1 Programa Capacitación promoción y prevención PYP",
             "valor"                 => 2
+          ],               
+          [
+            "ciclo_sub_estandar_id" => 2,
+            "nombre"                => "1.2.2 Capacitación, Inducción y Reinducción en Sistema de Gestión de Seguridad y Salud en el Trabajo SG-SST, actividades de Promoción y Prevención PyP",
+            "valor"                 => 2
+          ],                 
+          [
+            "ciclo_sub_estandar_id" => 2,
+            "nombre"                => "1.2.3 Responsables del Sistema de Gestión de Seguridad y Salud en el Trabajo SG-SST con curso virtual de  (50 horas)",
+            "valor"                 => 2
           ],
           // Plan Anual de Trabajo (2%)
           [
