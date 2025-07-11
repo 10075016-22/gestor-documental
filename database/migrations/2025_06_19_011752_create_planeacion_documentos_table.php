@@ -18,7 +18,7 @@ return new class extends Migration
 
             $table->date("fecha_fin")->nullable()->comment("Fecha máxima para subir el documento");
             $table->text("observaciones")->nullable()->comment("Observaciones adicionales a esta planeación");
-            $table->unsignedTinyInteger("estado")->comment("1: Completado | 0: Incompleto")->default(0);
+            $table->unsignedTinyInteger("estado")->default(0)->comment("1: Completado | 0: Incompleto");
 
             $table->timestamps();
             $table->softDeletes();

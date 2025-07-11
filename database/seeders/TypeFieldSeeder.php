@@ -97,6 +97,10 @@ class TypeFieldSeeder extends Seeder
             [
                 'name'        => 'ACTION_ASSOCIATE_STANDAR',
                 'description' => 'Acción para asociar estandar a cliente'
+            ],
+            [
+                'name'        => 'ACTION_VIEW_FORMAT',
+                'description' => 'Acción para ver formato de cliente'
             ]
         ];
 

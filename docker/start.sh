@@ -26,7 +26,8 @@ done
 echo "¡MySQL está disponible! Continuando..."
 
 # Instalar dependencias
-composer install --no-interaction --optimize-autoloader --no-dev
+composer install --no-interaction --optimize-autoloader 
+# --no-dev
 
 # Generar clave de aplicación si no está configurada
 php artisan key:generate --no-interaction --force

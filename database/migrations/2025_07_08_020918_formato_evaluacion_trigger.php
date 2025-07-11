@@ -26,7 +26,7 @@ return new class extends Migration
 
                     IF NEW.cumple = 1 THEN
                         SET NEW.calificacion = valor_item;
-                    ELSEIF NEW.cumple = 0 AND NEW.justifica = 1 THEN
+                    ELSEIF (NEW.cumple = 0 OR NEW.cumple IS NULL) AND NEW.justifica = 1 THEN
                         SET NEW.calificacion = valor_item;
                     ELSE
                         SET NEW.calificacion = 0;
