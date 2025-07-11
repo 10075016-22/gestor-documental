@@ -62,6 +62,7 @@ class DatabaseSeeder extends Seeder
             FormDocumentoSeeder::class, // seeder para documentos
             FormUserSeeder::class,
             FormEmpleadoSeeder::class, // Formulario de empleados
+            FormCalendarioSeeder::class, // Formulario de planeación para documentos - cliente
 
 
             // actions
@@ -78,7 +79,9 @@ class DatabaseSeeder extends Seeder
             CicloItemEstandarSeeder::class,
             EstandarDocumentoSeeder::class,
             FormatoSeeder::class,
-            FormatoClienteSeeder::class
+            FormatoClienteSeeder::class,
+
+            
 
             // EstandarClienteSeeder::class,
             // PlaneacionDocumentoSeeder::class,

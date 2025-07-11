@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Interface\ResponseClass;
 use App\Models\EstandarCliente;
+use App\Models\FormatoCliente;
 use Illuminate\Http\Request;
 
 class EstandarClienteController extends Controller
@@ -33,12 +34,33 @@ class EstandarClienteController extends Controller
                 'estandar_id'   => 'required',
             ]);
 
+            $formato = self::getFormatById($request->estandar_id);
+            foreach ($formato as $key => $value) {
+                FormatoCliente::create([
+                    'cliente_id'                => $request->cliente_id,
+                    'formato_id'                => $request->estandar_id,
+                    'ciclo_id'                  => $value->ciclo_id,
+                    'ciclo_estandar_id'         => $value->ciclo_estandar_id,
+                    'ciclo_sub_estandar_id'     => $value->ciclo_sub_estandar_id,
+                    'ciclo_item_estandars_id'   => $value->ciclo_item_estandars_id
+                ]);
+            }
+
             $record = EstandarCliente::create($request->all());
             
             return $this->response->success($record);
         } catch (\Throwable $th) {
             return $this->response->error('Ha ocurrido un error');
         }
+    }
+
+    private static function getFormatById($id) {
+        try {
+            $format = FormatoCliente::whereFormatoId($id)->wherePreview(1)->get();
+            return $format;
+        } catch (\Throwable $th) {
+            return [];
+        }        
     }
 
     /**

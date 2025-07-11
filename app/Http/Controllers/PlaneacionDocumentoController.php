@@ -67,7 +67,22 @@ class PlaneacionDocumentoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $request->validate([
+                'cliente_id'    => 'required|integer',
+                'documento_id'  => 'required|integer',
+                'fecha_fin'     => 'required|date|after_or_equal:today'
+            ]);
+
+            $data = PlaneacionDocumento::create($request->all());
+            return $this->response->success($data);
+        } catch (\Throwable $th) {
+            $errorCode = $th->getCode();
+            if($errorCode == 23000) {
+                return $this->response->error('Ha ocurrido un error, el registro ya existe', [], 409);
+            }            
+            return $this->response->error('Ha ocurrido un error');
+        }
     }
 
     /**

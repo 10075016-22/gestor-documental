@@ -11,6 +11,7 @@ class FormatoCliente extends Model
 
     protected $fillable = [
         'cliente_id',
+        'formato_id',
         'ciclo_id',
         'ciclo_estandar_id',
         'ciclo_sub_estandar_id',
@@ -20,6 +21,8 @@ class FormatoCliente extends Model
         'observacion',
         'calificacion'
     ];
+
+    protected $hidden = [ 'created_at', 'updated_at' ];
 
     public function cliente() {
         return $this->belongsTo(Cliente::class);
