@@ -354,7 +354,7 @@ class FormatoClienteSeeder extends Seeder
                 'ciclo_sub_estandar_id'   => 6,
                 'ciclo_item_estandars_id' => 15,
                 'preview'       => 1,
-            ].
+            ],
             [
                 'formato_id'    => 3,
                 'ciclo_id'      => 1,
@@ -634,7 +634,7 @@ class FormatoClienteSeeder extends Seeder
                 'ciclo_sub_estandar_id'   => 18,
                 'ciclo_item_estandars_id' => 49,
                 'preview'       => 1,
-            ].
+            ],
             [
                 'formato_id'    => 3,
                 'ciclo_id'      => 2,
