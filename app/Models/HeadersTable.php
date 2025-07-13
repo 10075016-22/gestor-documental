@@ -23,8 +23,6 @@ class HeadersTable extends Model
     ];
 
     protected $hidden = [
-        'table_id',
-        'type_field_id',
         'created_at', 
         'updated_at', 
         'deleted_at'

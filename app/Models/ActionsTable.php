@@ -13,7 +13,9 @@ class ActionsTable extends Model
         'table_id',
         'type_field_id',
         'order',
-        'message'
+        'message',
+        'color',
+        'icon'
     ];
 
     protected $hidden = [

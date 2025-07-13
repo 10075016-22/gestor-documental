@@ -92,19 +92,33 @@ class TypeFieldSeeder extends Seeder
             ],
             [
                 'name'        => 'ACTION_DELETE',
-                'description' => 'Acción para eliminar'
+                'description' => 'Acción para eliminar',
+                'color'       => 'error',
+                'icon'        => 'mdi-delete-outline'
             ],
             [
                 'name'        => 'ACTION_ASSOCIATE_STANDAR',
-                'description' => 'Acción para asociar estandar a cliente'
+                'description' => 'Acción para asociar estandar a cliente',
+                'color'       => 'indigo darken-2',
+                'icon'        => 'mdi-account-file-text'
             ],
             [
                 'name'        => 'ACTION_VIEW_FORMAT',
-                'description' => 'Acción para ver formato de cliente'
+                'description' => 'Acción para ver formato de cliente',
+                'color'       => 'primary',
+                'icon'        => 'mdi-eye-outline'
             ],
             [
                 'name'        => 'ACTION_ASSOCIATE_CLIENT',
-                'description' => 'Acción para asociar clientes a usuario'
+                'description' => 'Acción para asociar clientes a usuario',
+                'color'       => 'indigo',
+                'icon'        => 'mdi-account-box-plus-outline'
+            ],
+            [
+                'name'        => 'ACTION_EDIT',
+                'description' => 'Acción para editar',
+                'color'       => 'blue-grey-darken-1',
+                'icon'        => 'mdi-pencil-box-outline'
             ]
         ];
 

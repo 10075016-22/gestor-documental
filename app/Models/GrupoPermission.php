@@ -16,8 +16,6 @@ class GrupoPermission extends Model
     ];
 
     protected $hidden = [
-        'grupo_id',
-        'permission_id',
         'created_at',
         'updated_at'
     ];

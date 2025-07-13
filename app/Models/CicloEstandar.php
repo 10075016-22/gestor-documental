@@ -17,7 +17,7 @@ class CicloEstandar extends Model
         'porcentaje',
     ];
 
-    protected $hidden = ['ciclo_id', 'created_at', 'updated_at', 'deleted_at'];
+    protected $hidden = ['created_at', 'updated_at', 'deleted_at'];
 
     public function ciclo() {
         return $this->belongsTo(Ciclo::class);

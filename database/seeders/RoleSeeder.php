@@ -21,7 +21,8 @@ class RoleSeeder extends Seeder
 
         // Asigna todos los permisos al rol
         $admin->syncPermissions($permissions);
-
+        
+        Role::create(['name' => 'Gestor']);
         Role::create(['name' => 'Cliente']);
 
     }

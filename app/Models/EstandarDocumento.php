@@ -18,9 +18,7 @@ class EstandarDocumento extends Model
     protected $hidden = [
         'created_at',
         'updated_at',
-        'deleted_at',
-        'estandar_id',
-        'documento_id'
+        'deleted_at'
     ];
 
 

@@ -18,7 +18,6 @@ class CicloEstandarSubEstandar extends Model
     ];
 
     protected $hidden = [
-        'ciclo_estandar_id',
         'created_at',
         'updated_at',
         'deleted_at'

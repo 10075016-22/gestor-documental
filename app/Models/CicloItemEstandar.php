@@ -19,8 +19,6 @@ class CicloItemEstandar extends Model
     ];
 
     protected $hidden = [
-        'ciclo_sub_estandar_id',
-        'documento_id',
         'created_at',
         'updated_at',
         'deleted_at'

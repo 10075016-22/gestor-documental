@@ -25,7 +25,7 @@ class Module extends Model
         'permission_id'
     ];
 
-    protected $hidden = ['permission_id', 'created_at', 'updated_at', 'deleted_at'];
+    protected $hidden = ['created_at', 'updated_at', 'deleted_at'];
 
     protected function casts(): array {
         return [];

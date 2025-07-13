@@ -20,7 +20,6 @@ class Documento extends Model
     ];
 
     protected $hidden = [
-        'tipo_documento_id',
         'created_at', 
         'updated_at',
         'deleted_at'

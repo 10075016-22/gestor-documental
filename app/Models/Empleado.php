@@ -25,9 +25,7 @@ class Empleado extends Model
     protected $hidden = [
         'created_at', 
         'updated_at', 
-        'deleted_at',
-        'tipoidentificacion_id',
-        'cliente_id',
+        'deleted_at'
     ];
 
     public function tipoidentificacion () {

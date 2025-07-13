@@ -99,13 +99,13 @@ class UserController extends Controller
                 $limit = max(1, intval($params['limit']));
                 $offset = ($page - 1) * $limit;
 
-                $data = User::with('roles')
+                $data = User::with(['roles', 'clientes'])
                     ->orderBy('id', 'DESC')
                     ->offset($offset)
                     ->limit($limit)
                     ->get();
             } else {
-                $data = User::with('roles')->orderBy('id', 'DESC')->get();
+                $data = User::with(['roles'])->orderBy('id', 'DESC')->get();
             }
 
             $total = User::count();

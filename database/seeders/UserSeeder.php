@@ -25,6 +25,6 @@ class UserSeeder extends Seeder
         $user->assignRole('SuperAdmin'); // Reemplaza 'admin' con el nombre del rol
 
         // fake
-        User::factory(30)->create();
+        User::factory(15)->create();
     }
 }

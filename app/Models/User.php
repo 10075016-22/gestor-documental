@@ -67,4 +67,9 @@ class User extends Authenticatable implements JWTSubject
         return $query->with('roles:id,name');
     }
 
+    public function clientes() {
+        // traemos los clientes asociado al usuario en la tabla UsuarioXCliente
+        return $this->belongsToMany(Cliente::class, 'usuario_x_clientes', 'user_id', 'cliente_id');
+    }
+
 }

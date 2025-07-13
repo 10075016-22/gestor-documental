@@ -29,7 +29,6 @@ class FormsTable extends Model
         'created_at',
         'updated_at',
         'table_id',
-        'type_field_id',
         'query'
     ];
 

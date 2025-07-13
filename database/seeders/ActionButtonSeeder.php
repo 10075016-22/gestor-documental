@@ -27,6 +27,12 @@ class ActionButtonSeeder extends Seeder
                 'message'       => 'Asociar estandar'
             ],
             [
+                'table_id'      => 1,
+                'type_field_id' => 23,
+                'order'         => 1,
+                'message'       => 'Editar'
+            ],
+            [
                 'table_id'      => 3,
                 'type_field_id' => 19,
                 'order'         => 1,
@@ -43,6 +49,12 @@ class ActionButtonSeeder extends Seeder
                 'type_field_id' => 22,
                 'order'         => 1,
                 'message'       => 'Asociar clientes'
+            ],
+            [
+                'table_id'      => 2,
+                'type_field_id' => 23,
+                'order'         => 1,
+                'message'       => 'Editar'
             ]
         ];
 
