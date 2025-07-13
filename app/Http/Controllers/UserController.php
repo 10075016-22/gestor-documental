@@ -27,16 +27,18 @@ class UserController extends Controller
     {
         $credentials = $request->only('email', 'password');
         try {
-            if (! $token = JWTAuth::attempt($credentials)) return response()->json(['error' => 'Incorrect credentials', 'status' => 'error'], 400); // Credenciales incorrectas
+            if (! $token = JWTAuth::attempt($credentials)) {
+                return $this->response->error('Credenciales incorrectas', [], 400);
+            } 
         } catch (JWTException $e) {
-            return response()->json(['error' => 'Could not create token.', 'status' => 'error'], 500);
+            return $this->response->error('Could not create token', [], 500);
         }
 
         $oUser = Auth::user();
 
         try {
-            if($oUser->status !== 1) return response()->json(['error' => 'Inactive user', 'status' => 'error'], 400);
-            if(!is_null($oUser->deleted_at)) return response()->json(['error' => 'Unauthorized user', 'status' => 'error'], 400);
+            if($oUser->status !== 1) return $this->response->error('Inactive user', [], 400);
+            if(!is_null($oUser->deleted_at)) return $this->response->error('Unauthorized user', [], 400);
             // Obtener roles del usuario
             $roles = $oUser->getRoleNames(); // Esto devolverá una colección de nombres de roles
 
@@ -97,12 +99,13 @@ class UserController extends Controller
                 $limit = max(1, intval($params['limit']));
                 $offset = ($page - 1) * $limit;
 
-                $data = User::orderBy('id', 'DESC')
+                $data = User::with('roles')
+                    ->orderBy('id', 'DESC')
                     ->offset($offset)
                     ->limit($limit)
                     ->get();
             } else {
-                $data = User::orderBy('id', 'DESC')->get();
+                $data = User::with('roles')->orderBy('id', 'DESC')->get();
             }
 
             $total = User::count();

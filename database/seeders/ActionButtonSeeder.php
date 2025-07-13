@@ -37,6 +37,12 @@ class ActionButtonSeeder extends Seeder
                 'type_field_id' => 21,
                 'order'         => 1,
                 'message'       => 'Ver formato cliente'
+            ],
+            [
+                'table_id'      => 2,
+                'type_field_id' => 22,
+                'order'         => 1,
+                'message'       => 'Asociar clientes'
             ]
         ];
 

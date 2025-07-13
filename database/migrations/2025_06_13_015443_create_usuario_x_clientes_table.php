@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('usuario_x_clientes', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('usuario_id')->comment('ID del usuario relacionado con el cliente');
+            $table->unsignedBigInteger('user_id')->comment('ID del usuario relacionado con el cliente');
             $table->unsignedBigInteger('cliente_id')->comment('ID del cliente relacionado con el usuario');
             
             $table->timestamps();

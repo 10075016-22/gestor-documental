@@ -17,6 +17,7 @@ use App\Http\Controllers\PlaneacionDocumentoController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\TableController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\UsuarioXClienteController;
 use App\Http\Middleware\JwtMiddleware;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -57,6 +58,7 @@ Route::middleware([JwtMiddleware::class])->group(function () {
 
         // clientes
         Route::get("/clientes/datatable", [ClienteController::class, 'indexDatatable']);
+        Route::get("/clientes/usuario/{id}", [ClienteController::class, 'getClientUser']);
         Route::resource("/clientes", ClienteController::class);
 
         // documentos
@@ -86,7 +88,11 @@ Route::middleware([JwtMiddleware::class])->group(function () {
         Route::get('/formatos-clientes/clientes',     [FormatoClienteController::class, 'getClientes']);
         Route::get('/formatos-clientes/preview/{id}', [FormatoClienteController::class, 'getFormato']);
         Route::get('/formatos-clientes/preview/cliente/{id}', [FormatoClienteController::class, 'getFormatoByCliente']);
+        Route::get('/formatos-clientes/preview/cliente/{id}/chart', [FormatoClienteController::class, 'getFormatoByClienteChart']);
         Route::resource("/formatos-cliente", FormatoClienteController::class);
+
+
+        Route::resource("/usuarios-clientes", UsuarioXClienteController::class);
 
 
     });

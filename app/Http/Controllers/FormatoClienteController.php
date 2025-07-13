@@ -67,6 +67,61 @@ class FormatoClienteController extends Controller
         }
     }
 
+    public function getFormatoByClienteChart($id) {
+        try {
+
+            $cliente = Cliente::find($id);
+            if (!$cliente) {
+                return $this->response->error("Cliente no encontrado");
+            }
+
+            $data = FormatoCliente::selectRaw('c2.nombre AS ciclo, sum(c5.valor) as calificacion_posible, sum(formato_clientes.calificacion) as calificacion_obtenida')
+                ->leftJoin('clientes as c', 'formato_clientes.cliente_id', '=', 'c.id')
+                ->join('formatos as f2', 'formato_clientes.formato_id', '=', 'f2.id')
+                ->join('ciclos as c2', 'c2.id', '=', 'formato_clientes.ciclo_id')
+                ->join('ciclo_item_estandars as c5', 'c5.id', '=', 'formato_clientes.ciclo_item_estandars_id')
+                ->where('formato_clientes.preview', 0)
+                ->where('formato_clientes.cliente_id', $id)
+                ->groupBy('c2.nombre')
+                ->get()
+                ->map(function ($item) {
+                    return [
+                        $item->ciclo,
+                        floatval($item->calificacion_obtenida),
+                        floatval($item->calificacion_posible)
+                    ];
+                });
+
+            $chart = [
+                [
+                    'type' => 'ColumnChart',
+                    'cols' => 12,
+                    'data' => [
+                        ['Ciclo', 'Calificación Obtenida', 'Calificación Posible'],
+                        ...$data
+                    ],
+                    'options' => [
+                        'title' => 'Calificación cliente: ' . $cliente->nombre,
+                        'height' => 400,
+                        'width' => '100%',
+                        'vAxis' => [
+                            'title' => 'Calificación Obtenida'
+                        ],
+                        'hAxis' => [
+                            'title' => 'Ciclos',
+                        ],
+                        'legend' => ['position' => 'bottom'],
+                    ],
+                    'permission' => 'home-card-evaluaciones-clientes'
+                ]
+            ];
+
+            return $this->response->success($chart);
+        } catch (\Throwable $th) {
+            return $this->response->error("Ha ocurrido un error");
+        }
+    }
+
     public function getFormato($id) {
         try {
             $data = FormatoCliente::select(

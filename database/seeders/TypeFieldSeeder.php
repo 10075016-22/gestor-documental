@@ -101,6 +101,10 @@ class TypeFieldSeeder extends Seeder
             [
                 'name'        => 'ACTION_VIEW_FORMAT',
                 'description' => 'Acción para ver formato de cliente'
+            ],
+            [
+                'name'        => 'ACTION_ASSOCIATE_CLIENT',
+                'description' => 'Acción para asociar clientes a usuario'
             ]
         ];
 

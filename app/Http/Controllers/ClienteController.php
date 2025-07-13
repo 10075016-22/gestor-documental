@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Interface\ResponseClass;
 use App\Models\Cliente;
 use App\Models\EstandarCliente;
+use App\Models\UsuarioXCliente;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -23,6 +24,21 @@ class ClienteController extends Controller
             return $this->response->success($data);
         } catch (\Throwable $th) {
             return $this->response->error('Ha ocurrido un error');
+        }
+    }
+
+    public function getClientUser($id)
+    {
+        try {
+            // si está asociado hacemos la relación con UsuarioXcliente
+            $data = Cliente::orderBy('id', 'DESC')->get()->map(function ($cliente) use ($id) {
+                $userXCliente = UsuarioXCliente::whereUserId($id)->whereClienteId($cliente->id)->first();
+                $cliente->associate = $userXCliente ? true : false;
+                return $cliente;
+            });
+            return $this->response->success($data);
+        } catch (\Throwable $th) {
+            return $this->response->error('Ha ocurrido un error '.$th->getMessage());
         }
     }
 
