@@ -49,7 +49,8 @@ class FormUserSeeder extends Seeder
                 'label'      => 'Contraseña',
                 'size'       => 6,
                 'required'   => 1,
-                'order'      => 4
+                'editable'   => 0,
+                'order'      => 4,
             ],
             [
                 'table_id'      => 2,
@@ -60,6 +61,14 @@ class FormUserSeeder extends Seeder
                 'required'   => 1,
                 'order'      => 4,
                 'query'      => 'id,name AS text|roles'
+            ],
+            [
+                'table_id'      => 2,
+                'type_field_id' => 13,
+                'field_name' => 'status',
+                'label'      => 'Estado',
+                'size'       => 4,
+                'order'      => 5
             ]
         ];
 

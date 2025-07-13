@@ -108,9 +108,18 @@ class ClienteController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Cliente $cliente)
+    public function show($id)
     {
-        //
+        try {
+            $data = Cliente::find($id);
+            if(!$data) {
+                return $this->response->notFound('No existe el registro');
+            }
+            $data->logo = $data->logo ? Storage::disk('logos')->url($data->logo) : null;
+            return $this->response->success($data);
+        } catch (\Throwable $th) {
+            return $this->response->error('Ha ocurrido un error');
+        }
     }
 
     /**
@@ -118,7 +127,23 @@ class ClienteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try {
+            $cliente = Cliente::find($id);
+            if(!$cliente) {
+                return $this->response->notFound('No existe el registro');
+            }
+
+            $data = $request->except('logo');
+            if ($request->hasFile('logo')) {
+                $filename = $request->file('logo')->store('/', 'logos');
+                $data['logo'] = $filename;
+            }
+
+            $cliente->update($data);
+            return $this->response->success($cliente);
+        } catch (\Throwable $th) {
+            return $this->response->error('Ha ocurrido un error');
+        }
     }
 
     /**

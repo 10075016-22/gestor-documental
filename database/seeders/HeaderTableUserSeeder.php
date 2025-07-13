@@ -45,6 +45,21 @@ class HeaderTableUserSeeder extends Seeder
                 'value'    => 'status',
                 'order'    => 5
             ],
+            [
+                'table_id' => 2,
+                'type_field_id'  => 5,
+                'text'     => 'Perfil',
+                'value'    => 'roles',
+                'order'    => 6
+            ],
+            [
+                'table_id' => 2,
+                'type_field_id'  => 5,
+                'text'     => 'Clientes asociados',
+                'value'    => 'clientes',
+                'width'    => '25%',
+                'order'    => 6
+            ],
         ];
 
         foreach ($data as $key => $value) {

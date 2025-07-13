@@ -127,10 +127,15 @@ class UserController extends Controller
     public function show($id)
     {
         try {
-            $user = User::withRole()->find($id);
+            $user = User::find($id);
+            if($user) {
+                if($user->roles->count() > 0) {
+                    $user->role_id = $user->roles->first()->id;
+                }
+            }
             return $this->response->success($user);
         } catch (\Throwable $th) {
-            return $this->response->error('An error has occurred');
+            return $this->response->error('An error has occurred'. $th->getMessage());
         }
     }
 
@@ -184,6 +189,10 @@ class UserController extends Controller
                 ];
                 if(!is_null($password)) {
                     $aUpdate['password'] = $password;
+                }
+
+                if(isset($request->status)) {
+                    $aUpdate['status'] = $request->status;
                 }
 
                 $user->update($aUpdate);

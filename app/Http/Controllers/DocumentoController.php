@@ -94,9 +94,17 @@ class DocumentoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Documento $documento)
+    public function show($id)
     {
-        //
+        try {
+            $documento = Documento::find($id);
+            if(!$documento) {
+                return $this->response->notFound('No existe el registro');
+            }
+            return $this->response->success($documento);
+        } catch (\Throwable $th) {
+            return $this->response->error('An error has occurred');
+        }
     }
 
     /**
