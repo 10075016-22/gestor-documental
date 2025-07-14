@@ -91,7 +91,10 @@ class PlaneacionDocumentoController extends Controller
     public function show($id)
     {
         try {
-            $data = PlaneacionDocumento::whereId($id)->with(['cliente', 'documento'])->get();
+            $data = PlaneacionDocumento::whereId($id)->with(['cliente', 'documento'])->first();
+            if(!$data) {
+                return $this->response->notFound('No existe el registro');
+            }
             return $this->response->success($data);
         } catch (\Throwable $th) {
             return $this->response->error('Ha ocurrido un error');
@@ -110,16 +113,34 @@ class PlaneacionDocumentoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, PlaneacionDocumento $planeacionDocumento)
+    public function update(Request $request, $id)
     {
-        //
+        try {
+            $data = PlaneacionDocumento::find($id);
+            if(!$data) {
+                return $this->response->notFound('No existe el registro');
+            }
+            $data->update($request->all());
+            return $this->response->success($data);
+        } catch (\Throwable $th) {
+            return $this->response->error('Ha ocurrido un error');
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(PlaneacionDocumento $planeacionDocumento)
+    public function destroy($id)
     {
-        //
+        try {
+            $data = PlaneacionDocumento::find($id);
+            if(!$data) {
+                return $this->response->notFound('No existe el registro');
+            }
+            $data->delete();
+            return $this->response->success('Registro eliminado correctamente');
+        } catch (\Throwable $th) {
+            return $this->response->error('Ha ocurrido un error');
+        }
     }
 }

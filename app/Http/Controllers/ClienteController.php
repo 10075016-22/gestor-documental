@@ -58,7 +58,6 @@ class ClienteController extends Controller
                     ->get()
                     ->map(function ($cliente) {
                         $cliente->logo = $cliente->logo ? Storage::disk('logos')->url($cliente->logo) : null;
-
                         $estandarcliente = EstandarCliente::whereClienteId($cliente->id)->first();
                         $cliente->estandarcliente = $estandarcliente->estandar_id ?? null;
                         return $cliente;

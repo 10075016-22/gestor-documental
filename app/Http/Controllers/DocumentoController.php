@@ -44,6 +44,7 @@ class DocumentoController extends Controller
                     ->orderBy('documentos.id', 'DESC')
                     ->offset($offset)
                     ->limit($limit)
+                    ->distinct()
                     ->get()
                     ->map(function($documento) {
                         $documento->tipodocumento = $documento->tipoDocumento->nombre;
@@ -51,15 +52,18 @@ class DocumentoController extends Controller
                         return $documento;
                     });
             } else {
-                $data = Documento::with(['tipoDocumento'])->orderBy('documentos.id', 'DESC')
-                ->leftJoin('estandar_documentos', 'documentos.id', '=', 'estandar_documentos.documento_id')
-                ->get();
+                $data = Documento::with(['tipoDocumento'])
+                                ->leftJoin('estandar_documentos', 'documentos.id', '=', 'estandar_documentos.documento_id')
+                                ->orderBy('documentos.id', 'DESC')
+                                ->distinct()
+                                ->get();
             }
 
-            $total = Documento::with(['tipoDocumento'])->orderBy('documentos.id', 'DESC')
-            ->leftJoin('estandar_documentos', 'documentos.id', '=', 'estandar_documentos.documento_id')
-            ->where($where)
-            ->count();
+            $total = Documento::with(['tipoDocumento'])
+                                ->leftJoin('estandar_documentos', 'documentos.id', '=', 'estandar_documentos.documento_id')
+                                ->where($where)
+                                ->distinct()
+                                ->count();
             return $this->response->success([
                 'data'  => $data,
                 'total' => $total
@@ -110,9 +114,27 @@ class DocumentoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Documento $documento)
+    public function update(Request $request, $id)
     {
-        //
+        try {
+            $documento = Documento::find($id);
+            if(!$documento) {
+                return $this->response->notFound('No existe el registro');
+            }
+            // observacion si llega cómo null no lo actualiza
+            $data = $request->except('plantilla');
+            if($data['descripcion'] === null || $data['descripcion'] === 'null') {
+                unset($data['descripcion']); // eliminamos la llave si llega con null
+            }
+            if ($request->hasFile('plantilla')) {
+                $filename = $request->file('plantilla')->store('/', 'documentos');
+                $data['plantilla'] = $filename;
+            }
+            $documento->update($data);
+            return $this->response->success($documento);
+        } catch (\Throwable $th) {
+            return $this->response->error('No se ha podido actualizar el registro '. $th->getMessage());
+        }
     }
 
     /**
