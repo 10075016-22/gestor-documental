@@ -17,7 +17,19 @@ class PermissionRoleSeeder extends Seeder
             [
                 'name'  => 'perfiles',
                 'alias' => 'Menú de perfiles',
-            ]
+            ],
+            [
+                'name'  => 'perfiles-datatable',
+                'alias' => 'Vista de datatable de perfiles',
+            ],
+            [
+                'name'  => 'perfiles-datatable-nuevo',
+                'alias' => 'Vista de datatable de perfiles - nuevo',
+            ],
+            [
+                'name'  => 'perfiles-datatable-eliminar',
+                'alias' => 'Vista de datatable de perfiles - eliminar',
+            ],
         ];
 
         // Utiliza un bucle foreach para insertar cada conjunto de datos

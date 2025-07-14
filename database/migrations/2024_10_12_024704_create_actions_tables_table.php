@@ -17,10 +17,14 @@ return new class extends Migration
             $table->unsignedBigInteger('type_field_id');
             $table->unsignedInteger("order");
             $table->string("message")->nullable();
+
+            $table->unsignedBigInteger("permission_id")->nullable();
+            
             $table->timestamps();
 
             $table->foreign('table_id')->references('id')->on('tables');
             $table->foreign('type_field_id')->references('id')->on('type_fields');
+            $table->foreign('permission_id')->references('id')->on('permissions');
         });
     }
 

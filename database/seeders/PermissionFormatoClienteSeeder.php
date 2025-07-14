@@ -6,7 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Permission;
 
-class PermissionConfiguracionSeeder extends Seeder
+class PermissionFormatoClienteSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,9 +15,9 @@ class PermissionConfiguracionSeeder extends Seeder
     {
         $permissions = [
             [
-                'name'  => 'configuracion',
-                'alias' => 'Vista de configuración',
-            ]
+                'name'  => 'formatos-cliente',
+                'alias' => 'Vista de formatos de cliente borradores'
+            ],
         ];
 
         // Utiliza un bucle foreach para insertar cada conjunto de datos

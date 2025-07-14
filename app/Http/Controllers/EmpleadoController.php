@@ -81,24 +81,50 @@ class EmpleadoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Empleado $empleado)
+    public function show($id)
     {
-        //
+        try {
+            $empleado = Empleado::find($id);
+            if(!$empleado) {
+                return $this->response->error('No se ha encontrado el registro');
+            }
+            return $this->response->success($empleado);
+        } catch (\Throwable $th) {
+            return $this->response->error('Ha ocurrido un error');
+        }
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Empleado $empleado)
+    public function update(Request $request, $id)
     {
-        //
+        try {
+            $empleado = Empleado::find($id);
+            if(!$empleado) {
+                return $this->response->error('No se ha encontrado el registro');
+            }
+            $empleado->update($request->all());
+            return $this->response->success($empleado);
+        } catch (\Throwable $th) {
+            return $this->response->error('Ha ocurrido un error');
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Empleado $empleado)
+    public function destroy($id)
     {
-        //
+        try {
+            $empleado = Empleado::find($id);
+            if(!$empleado) {
+                return $this->response->error('No se ha encontrado el registro');
+            }
+            $empleado->delete();
+            return $this->response->success('Registro eliminado correctamente');
+        } catch (\Throwable $th) {
+            return $this->response->error('Ha ocurrido un error');
+        }
     }
 }

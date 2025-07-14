@@ -17,7 +17,27 @@ class PermissionUsuarioSeeder extends Seeder
             [
                 'name'  => 'usuario',
                 'alias' => 'Vista de usuarios',
-            ]
+            ],
+            [
+                'name'  => 'usuario-datatable',
+                'alias' => 'Vista de datatable de usuarios',
+            ],
+            [
+                'name'  => 'usuario-datatable-nuevo',
+                'alias' => 'Vista de datatable de usuarios - nuevo',
+            ],
+            [
+                'name'  => 'usuario-datatable-editar',
+                'alias' => 'Vista de datatable de usuarios - editar',
+            ],
+            [
+                'name'  => 'usuario-datatable-eliminar',
+                'alias' => 'Vista de datatable de usuarios - eliminar',
+            ],
+            [
+                'name'  => 'usuario-datatable-asociar-cliente',
+                'alias' => 'Vista de datatable de usuarios - asociar cliente',
+            ],
         ];
 
         // Utiliza un bucle foreach para insertar cada conjunto de datos

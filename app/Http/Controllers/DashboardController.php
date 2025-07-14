@@ -72,31 +72,6 @@ class DashboardController extends Controller
             $data = [];
             if( $user->hasRole('SuperAdmin') ) {
                 $data = [
-                    // [
-                    //     'type' => 'ColumnChart',
-                    //     'cols'  => 6,
-                    //     'data' => self::getCalculateColumnsClientDocument(),
-                    //     'options' => [
-                    //       'title' => 'Cantidad de documentos por cliente',
-                    //       'hAxis' => [
-                    //         'title' => 'Clientes', 
-                    //         'titleTextStyle' => ['color' => '#333']
-                    //       ],
-                    //       'vAxis' => [
-                    //         'minValue' => 0,
-                    //         'title' => 'Documentos',
-                    //         'titleTextStyle' => ['color' => '#333']
-                    //       ],
-                    //       'chartArea' => [
-                    //         'width' => '50%', 
-                    //         'height' => '70%'
-                    //       ],
-                    //       'height' => 400,
-                    //       'width' => '100%',
-                    //       'legend' => ['position' => 'bottom'],
-                    //     ],
-                    //     'permission' => 'home-card-documentos-clientes'
-                    // ],
                     [
                         'type' => 'BarChart',
                         'cols' => 12,

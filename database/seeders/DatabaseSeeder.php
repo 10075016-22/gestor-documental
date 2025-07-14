@@ -33,15 +33,19 @@ class DatabaseSeeder extends Seeder
 
             PermissionSeeder::class,
             PermissionClientSeeder::class, // Permisos para clientes
-            PermissionEvaluacionSeeder::class, // Permisos para usuarios
             PermissionDocumentoSeeder::class, // Permisos para documentos
             PermissionPlaneacionDocumentoSeeder::class, // Permisos para planeación de documentos - fecha límite
             PermissionEstandarSeeder::class, // Permisos para estandar de cliente
             PermissionUsuarioSeeder::class, // Permisos para usuarios
-            PermissionReportesSeeder::class, // Permisos para reportes
-            PermissionConfiguracionSeeder::class, // Permisos para configuración
             PermissionRoleSeeder::class, // Permisos para configuración
             PermissionEmpleadoSeeder::class, // Permisos para empleados
+            PermissionPlanAccionSeeder::class, // Permisos para plan de acción
+            PermissionFormatoClienteSeeder::class, // Permisos para formatos de cliente
+            
+            PermissionEvaluacionSeeder::class, // Permisos para usuarios
+            PermissionReportesSeeder::class, // Permisos para reportes
+            PermissionConfiguracionSeeder::class, // Permisos para configuración
+            PermissionSeguimientoSeeder::class, // Permisos para seguimiento
 
             RoleSeeder::class,
 

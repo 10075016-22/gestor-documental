@@ -37,9 +37,10 @@ class ModuleSeeder extends Seeder
             ],
             // modulos principales
             [
-                'module'  => 'Tus módulos',
-                'divider' => 0,
-                'order'   => 4,
+                'module'        => 'Tus módulos',
+                'divider'       => 0,
+                'permission_id' => 6,
+                'order'         => 4,
             ],
             [
                 'module'        => 'Clientes',
@@ -55,7 +56,7 @@ class ModuleSeeder extends Seeder
                 'icon'          => 'mdi-sort-calendar-ascending',
                 'name'          => '/dashboard/evaluaciones',
                 'order'         => 6,
-                'permission_id' => 13,
+                'permission_id' => 40,
             ],
             [
                 'module'        => 'Documentos',
@@ -71,7 +72,7 @@ class ModuleSeeder extends Seeder
                 'icon'          => 'mdi-calendar-cursor-outline',
                 'name'          => '/dashboard/calendario-documentos',
                 'order'         => 8,
-                'permission_id' => 15,
+                'permission_id' => 18,
             ],
             [
                 'module'        => 'Seguimiento',
@@ -79,7 +80,7 @@ class ModuleSeeder extends Seeder
                 'icon'          => 'mdi-chart-box-plus-outline',
                 'name'          => '/dashboard/seguimiento',
                 'order'         => 8,
-                'permission_id' => 15,
+                'permission_id' => 43,
             ],
             [
                 'module'        => 'Estandar',
@@ -87,7 +88,7 @@ class ModuleSeeder extends Seeder
                 'icon'          => 'mdi-file-document-arrow-right-outline',
                 'name'          => '/dashboard/estandar',
                 'order'         => 9,
-                'permission_id' => 16,
+                'permission_id' => 22,
             ],
             [
                 'module'        => 'Usuarios',
@@ -95,7 +96,7 @@ class ModuleSeeder extends Seeder
                 'icon'          => 'mdi-account-switch',
                 'name'          => '/dashboard/usuarios',
                 'order'         => 10,
-                'permission_id' => 17,
+                'permission_id' => 23,
             ],
             [
                 'module'        => 'Perfiles',
@@ -103,7 +104,7 @@ class ModuleSeeder extends Seeder
                 'icon'          => 'mdi-account-supervisor-circle-outline',
                 'name'          => '/dashboard/perfiles',
                 'order'         => 10,
-                'permission_id' => 23,
+                'permission_id' => 29,
             ],
             [
                 'module'        => 'Empleados',
@@ -111,7 +112,7 @@ class ModuleSeeder extends Seeder
                 'icon'          => 'mdi-account-tie',
                 'name'          => '/dashboard/empleados',
                 'order'         => 11,
-                'permission_id' => 24,
+                'permission_id' => 33,
             ],
             [
                 'module'        => 'Reportes',
@@ -125,20 +126,13 @@ class ModuleSeeder extends Seeder
                 'icon'          => 'mdi-file-chart-outline',
                 'name'          => '/dashboard/reportes',
                 'order'         => 13,
-                'permission_id' => 18,
+                'permission_id' => 42,
             ],
             [
                 'module'        => 'Configuración',
                 'order'         => 14,
                 'divider'       => 0,
-                'permission_id' => 6,
-            ],
-            [
-                'module'        => 'Ciclos',
-                'description'   => 'Modulo para ver listado de ciclos',
-                'icon'          => 'mdi-list-box-outline',
-                'name'          => '/dashboard/ciclos',
-                'order'         => 15,
+                'permission_id' => 42,
             ],
             [
                 'module'        => 'Configuración',
@@ -146,7 +140,7 @@ class ModuleSeeder extends Seeder
                 'icon'          => 'mdi-cogs',
                 'name'          => '/dashboard/configuracion',
                 'order'         => 16,
-                'permission_id' => 18,
+                'permission_id' => 43,
             ],
             [
                 'module'        => 'Formatos cliente',
@@ -154,7 +148,7 @@ class ModuleSeeder extends Seeder
                 'icon'          => 'mdi-archive-cog-outline',
                 'name'          => '/dashboard/configuracion/formatos-cliente',
                 'order'         => 17,
-                'permission_id' => 21,
+                'permission_id' => 40,
             ],
             [
                 'module'        => 'Plan de acción',
@@ -162,7 +156,7 @@ class ModuleSeeder extends Seeder
                 'icon'          => 'mdi-security-network',
                 'name'          => '/dashboard/configuracion/plan-de-accion',
                 'order'         => 18,
-                'permission_id' => 22,
+                'permission_id' => 38,
             ]
         ];
 

@@ -30,6 +30,51 @@ class GrupoPermissionSeeder extends Seeder
             [ 'grupo_id' => 3, 'permission_id' => 10 ],
             [ 'grupo_id' => 3, 'permission_id' => 11 ],
             [ 'grupo_id' => 3, 'permission_id' => 12 ],
+            [ 'grupo_id' => 3, 'permission_id' => 13 ],
+
+            // Documentos - 5
+            [ 'grupo_id' => 5, 'permission_id' => 14 ],
+            [ 'grupo_id' => 5, 'permission_id' => 15 ],
+            [ 'grupo_id' => 5, 'permission_id' => 16 ],
+            [ 'grupo_id' => 5, 'permission_id' => 17 ],
+
+            // Fecha documentos
+            [ 'grupo_id' => 6, 'permission_id' => 18 ],
+            [ 'grupo_id' => 6, 'permission_id' => 19 ],
+            [ 'grupo_id' => 6, 'permission_id' => 20 ],
+            [ 'grupo_id' => 6, 'permission_id' => 21 ],
+
+            // Estandar
+            [ 'grupo_id' => 7, 'permission_id' => 22 ],
+
+            // Usuarios
+            [ 'grupo_id' => 8, 'permission_id' => 23 ],
+            [ 'grupo_id' => 8, 'permission_id' => 24 ],
+            [ 'grupo_id' => 8, 'permission_id' => 25 ],
+            [ 'grupo_id' => 8, 'permission_id' => 26 ],
+            [ 'grupo_id' => 8, 'permission_id' => 27 ],
+            [ 'grupo_id' => 8, 'permission_id' => 28 ],
+
+            // Perfiles
+            [ 'grupo_id' => 9, 'permission_id' => 29 ],
+            [ 'grupo_id' => 9, 'permission_id' => 30 ],
+            [ 'grupo_id' => 9, 'permission_id' => 31 ],
+            [ 'grupo_id' => 9, 'permission_id' => 32 ],
+
+            // Empleados
+            [ 'grupo_id' => 10, 'permission_id' => 33 ],
+            [ 'grupo_id' => 10, 'permission_id' => 34 ],
+            [ 'grupo_id' => 10, 'permission_id' => 35 ],
+            [ 'grupo_id' => 10, 'permission_id' => 36 ],
+            [ 'grupo_id' => 10, 'permission_id' => 37 ],
+
+            // Plan de acción
+            [ 'grupo_id' => 14, 'permission_id' => 38 ],
+            [ 'grupo_id' => 14, 'permission_id' => 39 ],
+
+            // Seguimiento
+            [ 'grupo_id' => 15, 'permission_id' => 44 ],
+
         ];
 
         foreach ($data as $key => $value) {

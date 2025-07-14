@@ -16,8 +16,24 @@ class PermissionEmpleadoSeeder extends Seeder
         $permissions = [
             [
                 'name'  => 'empleados',
+                'alias' => 'Menú de empleados',
+            ],
+            [
+                'name'  => 'empleados-datatable',
                 'alias' => 'Vista de lista de empleados',
-            ]
+            ],
+            [
+                'name'  => 'empleados-datatable-nuevo',
+                'alias' => 'Vista de lista de empleados - Nuevo',
+            ],
+            [
+                'name'  => 'empleados-datatable-editar',
+                'alias' => 'Vista de lista de empleados - Editar',
+            ],
+            [
+                'name'  => 'empleados-datatable-eliminar',
+                'alias' => 'Vista de lista de empleados - Eliminar',
+            ],
         ];
 
         // Utiliza un bucle foreach para insertar cada conjunto de datos

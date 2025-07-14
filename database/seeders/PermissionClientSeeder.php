@@ -35,8 +35,12 @@ class PermissionClientSeeder extends Seeder
                 'alias' => 'Vista de datatable de clientes - eliminar',
             ],
             [
-                'name'  => 'clientes-datatable-ver',
-                'alias' => 'Vista de datatable de clientes - ver',
+                'name'  => 'clientes-datatable-ver-formato',
+                'alias' => 'Vista de datatable de clientes - ver formato',
+            ],
+            [
+                'name'  => 'clientes-datatable-asociar-formato',
+                'alias' => 'Vista de datatable de clientes - asociar formato',
             ]
         ];
 

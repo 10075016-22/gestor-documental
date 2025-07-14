@@ -23,10 +23,12 @@ class GrupoSeeder extends Seeder
             [ 'nombre' => 'Estandar' ],
             [ 'nombre' => 'Usuarios' ],
             [ 'nombre' => 'Perfiles' ],
+            [ 'nombre' => 'Empleados' ],
             [ 'nombre' => 'Reportes' ],
             [ 'nombre' => 'Configuración' ],
             [ 'nombre' => 'Formatos Cliente' ],
             [ 'nombre' => 'Plan de acción' ],
+            [ 'nombre' => 'Seguimiento' ],
         ];
 
         foreach ($data as $key => $value) {

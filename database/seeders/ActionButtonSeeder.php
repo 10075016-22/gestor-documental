@@ -67,6 +67,24 @@ class ActionButtonSeeder extends Seeder
                 'type_field_id' => 23,
                 'order'         => 1,
                 'message'       => 'Editar'
+            ],
+            [
+                'table_id'      => 6,
+                'type_field_id' => 19,
+                'order'         => 1,
+                'message'       => 'Editar'
+            ],
+            [
+                'table_id'      => 10,
+                'type_field_id' => 23,
+                'order'         => 1,
+                'message'       => 'Editar'
+            ],
+            [
+                'table_id'      => 10,
+                'type_field_id' => 19,
+                'order'         => 1,
+                'message'       => 'Editar'
             ]
         ];
 

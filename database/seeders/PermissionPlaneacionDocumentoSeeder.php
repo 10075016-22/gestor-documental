@@ -17,7 +17,19 @@ class PermissionPlaneacionDocumentoSeeder extends Seeder
             [
                 'name'  => 'fecha-documento',
                 'alias' => 'Vista de fecha de documento',
-            ]
+            ],
+            [
+                'name'  => 'fecha-documento-datatable-nuevo',
+                'alias' => 'Vista de fecha de documento - Nuevo',
+            ],
+            [
+                'name'  => 'fecha-documento-datatable-editar',
+                'alias' => 'Vista de fecha de documento - Editar',
+            ],
+            [
+                'name'  => 'fecha-documento-datatable-eliminar',
+                'alias' => 'Vista de fecha de documento - Eliminar',
+            ],
         ];
 
         // Utiliza un bucle foreach para insertar cada conjunto de datos

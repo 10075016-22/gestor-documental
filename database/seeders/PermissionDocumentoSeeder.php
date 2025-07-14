@@ -17,7 +17,19 @@ class PermissionDocumentoSeeder extends Seeder
             [
                 'name'  => 'documentos',
                 'alias' => 'Vista de documentos'
-            ]
+            ],
+            [
+                'name'  => 'documentos-datatable',
+                'alias' => 'Vista de documentos - nuevo'
+            ],
+            [
+                'name'  => 'documentos-datatable-editar',
+                'alias' => 'Vista de documentos - editar'
+            ],
+            [
+                'name'  => 'documentos-datatable-eliminar',
+                'alias' => 'Vista de documentos - eliminar'
+            ],
         ];
 
         // Utiliza un bucle foreach para insertar cada conjunto de datos
