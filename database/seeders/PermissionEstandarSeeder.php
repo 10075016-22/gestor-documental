@@ -16,7 +16,7 @@ class PermissionEstandarSeeder extends Seeder
         $permissions = [
             [
                 'name'  => 'estandar',
-                'alias' => 'Vista de lista de estandar',
+                'alias' => 'Menu de estandar',
             ]
         ];
 

@@ -20,7 +20,7 @@ class PermissionDocumentoSeeder extends Seeder
             ],
             [
                 'name'  => 'documentos-datatable',
-                'alias' => 'Vista de documentos - nuevo'
+                'alias' => 'Vista de documentos'
             ],
             [
                 'name'  => 'documentos-datatable-editar',

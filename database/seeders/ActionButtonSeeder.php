@@ -18,73 +18,85 @@ class ActionButtonSeeder extends Seeder
                 'table_id'      => 1,
                 'type_field_id' => 19,
                 'order'         => 1,
-                'message'       => 'Eliminar'
+                'message'       => 'Eliminar',
+                'permission_id' => 11
             ],
             [
                 'table_id'      => 1,
                 'type_field_id' => 20,
                 'order'         => 1,
-                'message'       => 'Asociar estandar'
+                'message'       => 'Asociar estandar',
+                'permission_id' => 13
             ],
             [
                 'table_id'      => 1,
                 'type_field_id' => 23,
                 'order'         => 1,
-                'message'       => 'Editar'
+                'message'       => 'Editar',
+                'permission_id' => 10
             ],
             [
                 'table_id'      => 3,
                 'type_field_id' => 19,
                 'order'         => 1,
-                'message'       => 'Eliminar'
+                'message'       => 'Eliminar',
+                'permission_id' => 17
             ],
             [
                 'table_id'      => 3,
                 'type_field_id' => 23,
                 'order'         => 1,
-                'message'       => 'Editar'
+                'message'       => 'Editar',
+                'permission_id' => 16
             ],
             [
                 'table_id'      => 1,
                 'type_field_id' => 21,
                 'order'         => 1,
-                'message'       => 'Ver formato cliente'
+                'message'       => 'Ver formato cliente',
+                'permission_id' => 12
             ],
             [
                 'table_id'      => 2,
                 'type_field_id' => 22,
                 'order'         => 1,
-                'message'       => 'Asociar clientes'
+                'message'       => 'Asociar clientes',
+                'permission_id' => 28
             ],
             [
                 'table_id'      => 2,
                 'type_field_id' => 23,
                 'order'         => 1,
-                'message'       => 'Editar'
+                'message'       => 'Editar',
+                'permission_id' => 26
             ],
             [
                 'table_id'      => 6,
                 'type_field_id' => 23,
                 'order'         => 1,
-                'message'       => 'Editar'
+                'message'       => 'Editar',
+                'permission_id' => 20
             ],
             [
                 'table_id'      => 6,
                 'type_field_id' => 19,
                 'order'         => 1,
-                'message'       => 'Editar'
+                'message'       => 'Eliminar',
+                'permission_id' => 21
             ],
             [
                 'table_id'      => 10,
                 'type_field_id' => 23,
                 'order'         => 1,
-                'message'       => 'Editar'
+                'message'       => 'Editar',
+                'permission_id' => 36
             ],
             [
                 'table_id'      => 10,
                 'type_field_id' => 19,
                 'order'         => 1,
-                'message'       => 'Editar'
+                'message'       => 'Eliminar',
+                'permission_id' => 37
             ]
         ];
 

@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
-
+use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Traits\HasRoles;
 
 use Tymon\JWTAuth\Contracts\JWTSubject;
@@ -70,6 +70,10 @@ class User extends Authenticatable implements JWTSubject
     public function clientes() {
         // traemos los clientes asociado al usuario en la tabla UsuarioXCliente
         return $this->belongsToMany(Cliente::class, 'usuario_x_clientes', 'user_id', 'cliente_id');
+    }
+
+    public function clientesId() {
+        return $this->belongsToMany(Cliente::class, 'usuario_x_clientes', 'user_id', 'cliente_id')->pluck('cliente_id')->toArray();
     }
 
 }

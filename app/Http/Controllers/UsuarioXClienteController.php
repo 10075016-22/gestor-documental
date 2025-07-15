@@ -41,8 +41,10 @@ class UsuarioXClienteController extends Controller
             }
             $clientes = $request->clientes;
             $associateid = [];
+            // eliminamos los clientes asociados al usuario
+            $user->clientes()->detach();
+            // asociamos a X usuario N clientes
             foreach ($clientes as $key => $clienteid) {
-                // asociamos a X usuario N clientes
                 $associateid[] = UsuarioXCliente::create([ 'user_id' => $user->id, 'cliente_id' => $clienteid ]);
             }
 

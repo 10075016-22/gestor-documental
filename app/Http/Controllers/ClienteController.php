@@ -6,6 +6,7 @@ use App\Interface\ResponseClass;
 use App\Models\Cliente;
 use App\Models\EstandarCliente;
 use App\Models\UsuarioXCliente;
+use App\Utils\UtilPermissions;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -55,6 +56,7 @@ class ClienteController extends Controller
                 $data = Cliente::orderBy('id', 'DESC')
                     ->offset($offset)
                     ->limit($limit)
+                    ->whereIn('id', UtilPermissions::getUserClients())
                     ->get()
                     ->map(function ($cliente) {
                         $cliente->logo = $cliente->logo ? Storage::disk('logos')->url($cliente->logo) : null;
@@ -63,10 +65,12 @@ class ClienteController extends Controller
                         return $cliente;
                     });
             } else {
-                $data = Cliente::orderBy('id', 'DESC')->get();
+                $data = Cliente::orderBy('id', 'DESC')
+                    ->whereIn('id', UtilPermissions::getUserClients())
+                    ->get();
             }
 
-            $total = Cliente::count();
+            $total = Cliente::whereIn('id', UtilPermissions::getUserClients())->count();
             return $this->response->success([
                 'data'  => $data,
                 'total' => $total

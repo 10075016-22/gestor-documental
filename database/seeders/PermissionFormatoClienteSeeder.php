@@ -16,7 +16,7 @@ class PermissionFormatoClienteSeeder extends Seeder
         $permissions = [
             [
                 'name'  => 'formatos-cliente',
-                'alias' => 'Vista de formatos de cliente borradores'
+                'alias' => 'Menú de formatos de cliente borradores'
             ],
         ];
 

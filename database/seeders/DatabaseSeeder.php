@@ -47,6 +47,8 @@ class DatabaseSeeder extends Seeder
             PermissionConfiguracionSeeder::class, // Permisos para configuración
             PermissionSeguimientoSeeder::class, // Permisos para seguimiento
 
+            PermissionExtraSeeder::class, // Permisos extra
+
             RoleSeeder::class,
 
             UserSeeder::class,

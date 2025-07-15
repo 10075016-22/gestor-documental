@@ -7,6 +7,7 @@ use App\Models\ActionsTable;
 use App\Models\FormsTable;
 use App\Models\HeadersTable;
 use App\Models\Table;
+use App\Utils\UtilPermissions;
 use Illuminate\Http\Request;
 
 class TableController extends Controller
@@ -67,7 +68,11 @@ class TableController extends Controller
 
     public function getActions($id) {
         try {
-            $configuration = ActionsTable::whereTableId($id)->with(['typeField'])->orderBy('order')->get();
+            $configuration = ActionsTable::whereTableId($id)
+                                            ->whereIn('permission_id', UtilPermissions::getUserPermissions())
+                                            ->with(['typeField'])
+                                            ->orderBy('order')
+                                            ->get();
             return $this->response->success($configuration);
         } catch (\Throwable $th) {
             return $this->response->error('Ha ocurrido un error');
