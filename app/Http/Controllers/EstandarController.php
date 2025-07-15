@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Interface\ResponseClass;
 use App\Models\Estandar;
 use App\Models\EstandarCliente;
+use App\Utils\UtilPermissions;
 use Illuminate\Http\Request;
 
 class EstandarController extends Controller
@@ -44,6 +45,7 @@ class EstandarController extends Controller
                             ->orderBy('id', 'DESC')
                             ->offset($offset)
                             ->limit($limit)
+                            ->whereIn('cliente_id', UtilPermissions::getUserClients())
                             ->get()
                             ->map(function($estandar) {
                                 $estandar->Eid           = $estandar->id;
@@ -57,7 +59,10 @@ class EstandarController extends Controller
                                 return $estandar;
                             });
             } else {
-                $data = EstandarCliente::with(['cliente', 'estandar'])->orderBy('id', 'DESC')->get()
+                $data = EstandarCliente::with(['cliente', 'estandar'])
+                            ->whereIn('cliente_id', UtilPermissions::getUserClients())
+                            ->orderBy('id', 'DESC')
+                            ->get()
                 ->map(function($estandar) {
                     $estandar->Eid           = $estandar->id;
                     $estandar->Ecantidad     = $estandar->estandar->cantidad;
@@ -71,10 +76,10 @@ class EstandarController extends Controller
                 });
             }
 
-            $total = Estandar::count();
+            $total = EstandarCliente::whereIn('cliente_id', UtilPermissions::getUserClients())->count();
             return $this->response->success([
                 'data'  => $data,
-                'total' => $total
+                'total' => $total,
             ]);
         } catch (\Throwable $th) {
             return $this->response->error('Ha ocurrido un error');

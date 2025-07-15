@@ -35,6 +35,10 @@ class EstandarClienteController extends Controller
             ]);
 
             $formato = self::getFormatById($request->estandar_id);
+
+            // eliminamos los formatos anteriores
+            FormatoCliente::whereClienteId($request->cliente_id)->delete();
+
             foreach ($formato as $key => $value) {
                 FormatoCliente::create([
                     'cliente_id'                => $request->cliente_id,

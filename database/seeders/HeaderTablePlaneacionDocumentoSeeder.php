@@ -46,6 +46,33 @@ class HeaderTablePlaneacionDocumentoSeeder extends Seeder
                 'type_field_id' => 5,
                 'order'    => 5
             ],
+            
+            // seguimiento
+            [
+                'table_id' => 11,
+                'text'     => 'ID',
+                'value'    => 'id',
+                'order'    => 1
+            ],
+            [
+                'table_id' => 11,
+                'text'     => 'Documento',
+                'value'    => 'docnombre',
+                'order'    => 3
+            ],
+            [
+                'table_id' => 11,
+                'text'     => 'Observación',
+                'value'    => 'observaciones',
+                'order'    => 4
+            ],
+            [
+                'table_id' => 11,
+                'text'     => 'Fecha limite',
+                'value'    => 'fecha_fin',
+                'type_field_id' => 5,
+                'order'    => 5
+            ],
         ];
 
         foreach ($data as $key => $value) {

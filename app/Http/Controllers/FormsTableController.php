@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Interface\ResponseClass;
 use App\Models\FormsTable;
+use App\Utils\UtilPermissions;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
@@ -52,7 +53,12 @@ class FormsTableController extends Controller
                 }
             }
             
-            $results = DB::table($table)->select($fields)->get();
+            if($table === 'clientes') {
+                $results = DB::table($table)->select($fields)->whereIn('clientes.id', UtilPermissions::getUserClients())->get();
+            } else {
+                $results = DB::table($table)->select($fields)->get();
+            }
+
 
             return $this->response->success($results);
         } catch (\Throwable $th) {

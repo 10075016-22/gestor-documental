@@ -119,6 +119,12 @@ class TypeFieldSeeder extends Seeder
                 'description' => 'Acción para editar',
                 'color'       => 'blue-grey-darken-1',
                 'icon'        => 'mdi-pencil-box-outline'
+            ],
+            [
+                'name'        => 'ACTION_VIEW_TEMPLATE',
+                'description' => 'Acción para ver plantilla',
+                'color'       => 'primary',
+                'icon'        => 'mdi-download-box-outline'
             ]
         ];
 

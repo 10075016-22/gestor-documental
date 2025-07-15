@@ -16,7 +16,7 @@ class PermissionPlaneacionDocumentoSeeder extends Seeder
         $permissions = [
             [
                 'name'  => 'fecha-documento',
-                'alias' => 'Vista de fecha de documento',
+                'alias' => 'Menú de fecha de documento',
             ],
             [
                 'name'  => 'fecha-documento-datatable-nuevo',

@@ -34,6 +34,18 @@ class PermissionExtraSeeder extends Seeder
                 'name'  => 'formatos-cliente-datatable-detalle',
                 'alias' => 'Vista de formatos de cliente - detalle'
             ],
+            [
+                'name'  => 'fecha-documento-datatable',
+                'alias' => 'Vista de fecha de documento',
+            ],
+            [
+                'name'  => 'seguimiento-datatable',
+                'alias' => 'Vista de seguimiento',
+            ],
+            [
+                'name'  => 'seguimiento-datatable-viewtemplate',
+                'alias' => 'Vista de seguimiento - ver template',
+            ],
         ];
 
         // Utiliza un bucle foreach para insertar cada conjunto de datos

@@ -56,7 +56,7 @@ class ModuleSeeder extends Seeder
                 'icon'          => 'mdi-sort-calendar-ascending',
                 'name'          => '/dashboard/evaluaciones',
                 'order'         => 6,
-                'permission_id' => 40,
+                'permission_id' => 41,
             ],
             [
                 'module'        => 'Documentos',
@@ -80,7 +80,7 @@ class ModuleSeeder extends Seeder
                 'icon'          => 'mdi-chart-box-plus-outline',
                 'name'          => '/dashboard/seguimiento',
                 'order'         => 8,
-                'permission_id' => 43,
+                'permission_id' => 44,
             ],
             [
                 'module'        => 'Estandar',

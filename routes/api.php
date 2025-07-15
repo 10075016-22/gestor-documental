@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CicloController;
+use App\Http\Controllers\CicloItemEstandarController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DocumentoController;
@@ -64,8 +65,13 @@ Route::middleware([JwtMiddleware::class])->group(function () {
 
         // documentos
         Route::get("/documentos/datatable", [DocumentoController::class, 'indexDatatable']);
+        Route::get("/documentos/seguimiento", [DocumentoController::class, 'getSeguimiento']);
         Route::post("/documentos/{id}", [DocumentoController::class, 'update']); // El put no está tomando el formData
         Route::resource("/documentos", DocumentoController::class);
+
+
+        // planeacion documentos seguimiento
+        Route::get("/planeacion-documentos/seguimiento/datatable", [PlaneacionDocumentoController::class, 'indexDatatablePendientes']);
 
         Route::get("/planeacion-documentos/datatable", [PlaneacionDocumentoController::class, 'indexDatatable']);
         Route::get("/planeacion-documentos/cliente/{id}", [PlaneacionDocumentoController::class, 'getByClientId']);
@@ -80,6 +86,10 @@ Route::middleware([JwtMiddleware::class])->group(function () {
         // Ciclos
         Route::get("/ciclos/datatable", [CicloController::class, 'indexDatatable']);
         Route::resource("/ciclos", CicloController::class);
+
+        // Ciclo Item Estandar
+        Route::resource("/ciclo-item-estandar", CicloItemEstandarController::class);
+
 
         // Empleados
         Route::get("/empleados/datatable", [EmpleadoController::class, 'indexDatatable']);

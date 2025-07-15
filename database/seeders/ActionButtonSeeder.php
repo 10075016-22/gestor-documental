@@ -97,6 +97,13 @@ class ActionButtonSeeder extends Seeder
                 'order'         => 1,
                 'message'       => 'Eliminar',
                 'permission_id' => 37
+            ],
+            [
+                'table_id'      => 11,
+                'type_field_id' => 24,
+                'order'         => 1,
+                'message'       => 'Ver plantilla',
+                'permission_id' => 52
             ]
         ];
 

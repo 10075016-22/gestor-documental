@@ -21,7 +21,7 @@ class ClienteController extends Controller
     public function index()
     {
         try {
-            $data = Cliente::orderBy('id', 'DESC')->get();
+            $data = Cliente::orderBy('id', 'DESC')->whereIn('id', UtilPermissions::getUserClients())->get();
             return $this->response->success($data);
         } catch (\Throwable $th) {
             return $this->response->error('Ha ocurrido un error');

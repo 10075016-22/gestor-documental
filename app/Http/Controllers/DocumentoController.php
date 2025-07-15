@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Interface\ResponseClass;
 use App\Models\Documento;
+use App\Utils\UtilPermissions;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -18,6 +19,24 @@ class DocumentoController extends Controller
     public function index()
     {
         //
+    }
+
+    public function getSeguimiento() {
+        try {
+            $data = Documento::join('estandar_documentos', 'documentos.id', '=', 'estandar_documentos.documento_id')
+                            ->join('estandar_clientes', 'estandar_documentos.estandar_id', '=', 'estandar_clientes.estandar_id')
+                            ->whereIn('estandar_clientes.cliente_id', UtilPermissions::getUserClients())
+                            ->select('documentos.*')
+                            ->distinct('documentos.id')
+                            ->get()
+                            ->map(function($documento) {
+                                $documento->fileplantilla = $documento->plantilla ? Storage::disk('documentos')->url($documento->plantilla) : null;
+                                return $documento;
+                            });
+            return $this->response->success($data);
+        } catch (\Throwable $th) {
+            return $this->response->error('Ha ocurrido un error '.$th->getMessage());
+        }
     }
 
     public function indexDatatable(Request $request) 

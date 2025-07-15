@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Interface\ResponseClass;
 use App\Models\PlaneacionDocumento;
+use App\Utils\UtilPermissions;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PlaneacionDocumentoController extends Controller
 {
@@ -24,6 +26,58 @@ class PlaneacionDocumentoController extends Controller
         }
     }
 
+
+    public function indexDatatablePendientes(Request $request) 
+    {
+        try {
+            $params = $request->query();
+
+            if(isset($params['page']) && isset($params['limit'])) {
+                $page  = max(1, intval($params['page']));
+                $limit = max(1, intval($params['limit']));
+                $offset = ($page - 1) * $limit;
+
+                $data = PlaneacionDocumento::with(['cliente', 'documento'])->orderBy('id', 'DESC')
+                    ->orderBy('cliente_id')
+                    ->whereIn('cliente_id', UtilPermissions::getUserClients())
+                    ->whereEstado(0)
+                    ->offset($offset)
+                    ->limit($limit)
+                    ->get()
+                    ->map(function($item) {
+                        $item->clientenombre = $item->cliente->nombre;
+                        $item->docnombre     = $item->documento->nombre;
+                        if($item->documento) {
+                            $item->plantilla = Storage::disk('documentos')->url($item->documento->plantilla);
+                        }
+                        return $item;
+                    });
+            } else {
+                $data = PlaneacionDocumento::with(['cliente', 'documento'])->orderBy('id', 'DESC')
+                    ->whereIn('cliente_id', UtilPermissions::getUserClients())
+                    ->whereEstado(0)
+                    ->get()
+                    ->map(function($item) {
+                        $item->clientenombre = $item->cliente->nombre;
+                        $item->docnombre     = $item->documento->nombre;
+                        if($item->documento) {
+                            // devolvemos la ruta publica del archivo usando el disk
+                            $item->plantilla = Storage::disk('documentos')->url($item->documento->plantilla);
+                        }
+                        return $item;
+                    });
+            }
+
+            $total = PlaneacionDocumento::whereIn('cliente_id', UtilPermissions::getUserClients())->whereEstado(0)->count();
+            return $this->response->success([
+                'data'  => $data,
+                'total' => $total
+            ]);
+        } catch (\Throwable $th) {
+            return $this->response->error('Ha ocurrido un error');
+        }
+    }
+
     public function indexDatatable(Request $request) 
     {
         try {
@@ -36,6 +90,7 @@ class PlaneacionDocumentoController extends Controller
 
                 $data = PlaneacionDocumento::orderBy('id', 'DESC')
                     ->orderBy('cliente_id')
+                    ->whereIn('cliente_id', UtilPermissions::getUserClients())
                     ->offset($offset)
                     ->limit($limit)
                     ->get()
@@ -45,14 +100,17 @@ class PlaneacionDocumentoController extends Controller
                         return $item;
                     });
             } else {
-                $data = PlaneacionDocumento::orderBy('id', 'DESC')->get()->map(function($item) {
-                    $item->clientenombre = $item->cliente->nombre;
-                    $item->docnombre     = $item->documento->nombre;
-                    return $item;
-                });
+                $data = PlaneacionDocumento::orderBy('id', 'DESC')
+                    ->whereIn('cliente_id', UtilPermissions::getUserClients())
+                    ->get()
+                    ->map(function($item) {
+                        $item->clientenombre = $item->cliente->nombre;
+                        $item->docnombre     = $item->documento->nombre;
+                        return $item;
+                    });
             }
 
-            $total = PlaneacionDocumento::count();
+            $total = PlaneacionDocumento::whereIn('cliente_id', UtilPermissions::getUserClients())->count();
             return $this->response->success([
                 'data'  => $data,
                 'total' => $total

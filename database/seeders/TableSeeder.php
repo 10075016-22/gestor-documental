@@ -73,6 +73,12 @@ class TableSeeder extends Seeder
                 'descripcion' => 'Tabla para administrar los empleados',
                 'endpoint' => 'empleados',
                 'icon'     => 'mdi-account-tie'
+            ],
+            [
+                'table'    => 'Documentos seguimiento',
+                'descripcion' => 'Tabla para ver los documentos de seguimiento',
+                'endpoint' => 'planeacion-documentos/seguimiento',
+                'icon'     => 'mdi-format-list-checks'
             ]
         ];
 
