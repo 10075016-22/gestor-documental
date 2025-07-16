@@ -75,6 +75,7 @@ Route::middleware([JwtMiddleware::class])->group(function () {
 
         Route::get("/planeacion-documentos/datatable", [PlaneacionDocumentoController::class, 'indexDatatable']);
         Route::get("/planeacion-documentos/cliente/{id}", [PlaneacionDocumentoController::class, 'getByClientId']);
+        Route::post("/planeacion-documentos/{id}", [PlaneacionDocumentoController::class, 'update']); // El put no está tomando el formData
         Route::resource("/planeacion-documentos", PlaneacionDocumentoController::class);
 
         // estandar

@@ -125,6 +125,18 @@ class TypeFieldSeeder extends Seeder
                 'description' => 'Acción para ver plantilla',
                 'color'       => 'primary',
                 'icon'        => 'mdi-download-box-outline'
+            ],
+            [
+                'name'        => 'ACTION_VIEW_UPLOAD_FILE',
+                'description' => 'Acción para subir archivo',
+                'color'       => 'teal-darken-2',
+                'icon'        => 'mdi-cloud-upload-outline'
+            ],
+            [
+                'name'        => 'ACTION_VIEW_HISTORIC',
+                'description' => 'Acción para ver historico',
+                'color'       => 'indigo',
+                'icon'        => 'mdi-history'
             ]
         ];
 

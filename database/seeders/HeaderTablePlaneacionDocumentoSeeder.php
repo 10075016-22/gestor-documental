@@ -46,13 +46,25 @@ class HeaderTablePlaneacionDocumentoSeeder extends Seeder
                 'type_field_id' => 5,
                 'order'    => 5
             ],
-            
+            [
+                'table_id' => 6,
+                'text'     => '¿Documento cargado?',
+                'value'    => 'estado',
+                'type_field_id' => 4,
+                'order'    => 6
+            ],            
             // seguimiento
             [
                 'table_id' => 11,
                 'text'     => 'ID',
                 'value'    => 'id',
                 'order'    => 1
+            ],
+            [
+                'table_id' => 11,
+                'text'     => 'Cliente',
+                'value'    => 'clientenombre',
+                'order'    => 2
             ],
             [
                 'table_id' => 11,

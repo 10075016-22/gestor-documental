@@ -32,5 +32,9 @@ class PlaneacionDocumento extends Model
         return $this->belongsTo(Documento::class);
     }
 
+    public function historicoDocumentos() {
+        return $this->hasMany(HistoricoDocumento::class);
+    }
+
 
 }

@@ -14,7 +14,7 @@ class ClienteSeeder extends Seeder
      */
     public function run(): void
     {
-        Cliente::factory(30)->create();
+        Cliente::factory(5)->create();
 
         $clientes = Cliente::all();
         foreach ($clientes as $key => $cliente) {
@@ -23,5 +23,10 @@ class ClienteSeeder extends Seeder
                 'cliente_id' => $cliente->id
             ]);
         }
+
+        UsuarioXCliente::create([
+            'user_id'   => 3,
+            'cliente_id' => 1
+        ]);
     }
 }

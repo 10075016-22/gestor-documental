@@ -60,6 +60,13 @@ class TableController extends Controller
     public function getHeaders($id) {
         try {
             $configuration = HeadersTable::whereTableId($id)->with(['type_field'])->orderBy('order')->get();
+            $count = count(UtilPermissions::getUserClients());
+            if ($count <= 1) {
+                $configuration = array_values($configuration->filter(function($header) {
+                    return strpos( strtolower($header->text), 'cliente') === false;
+                })->toArray());
+            }
+
             return $this->response->success($configuration);
         } catch (\Throwable $th) {
             return $this->response->error('Ha ocurrido un error');

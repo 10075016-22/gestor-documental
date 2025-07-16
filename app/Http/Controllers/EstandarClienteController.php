@@ -38,6 +38,7 @@ class EstandarClienteController extends Controller
 
             // eliminamos los formatos anteriores
             FormatoCliente::whereClienteId($request->cliente_id)->delete();
+            EstandarCliente::whereClienteId($request->cliente_id)->forceDelete();
 
             foreach ($formato as $key => $value) {
                 FormatoCliente::create([

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Interface\ResponseClass;
+use App\Models\Documento;
+use App\Models\HistoricoDocumento;
 use App\Models\PlaneacionDocumento;
 use App\Utils\UtilPermissions;
 use Illuminate\Http\Request;
@@ -48,7 +50,8 @@ class PlaneacionDocumentoController extends Controller
                         $item->clientenombre = $item->cliente->nombre;
                         $item->docnombre     = $item->documento->nombre;
                         if($item->documento) {
-                            $item->plantilla = Storage::disk('documentos')->url($item->documento->plantilla);
+                            $plantilla = $item->documento->plantilla ? (Storage::disk('documentos')->exists($item->documento->plantilla) ? Storage::disk('documentos')->url($item->documento->plantilla) : null) : null;
+                            $item->plantilla = $plantilla;
                         }
                         return $item;
                     });
@@ -61,8 +64,7 @@ class PlaneacionDocumentoController extends Controller
                         $item->clientenombre = $item->cliente->nombre;
                         $item->docnombre     = $item->documento->nombre;
                         if($item->documento) {
-                            // devolvemos la ruta publica del archivo usando el disk
-                            $item->plantilla = Storage::disk('documentos')->url($item->documento->plantilla);
+                            $item->plantilla = $item->documento->plantilla ? (Storage::disk('documentos')->exists($item->documento->plantilla) ? Storage::disk('documentos')->url($item->documento->plantilla) : null) : null;
                         }
                         return $item;
                     });
@@ -74,7 +76,7 @@ class PlaneacionDocumentoController extends Controller
                 'total' => $total
             ]);
         } catch (\Throwable $th) {
-            return $this->response->error('Ha ocurrido un error');
+            return $this->response->error('Ha ocurrido un error'.$th->getMessage());
         }
     }
 
@@ -88,7 +90,7 @@ class PlaneacionDocumentoController extends Controller
                 $limit = max(1, intval($params['limit']));
                 $offset = ($page - 1) * $limit;
 
-                $data = PlaneacionDocumento::orderBy('id', 'DESC')
+                $data = PlaneacionDocumento::with(['historicoDocumentos'])->orderBy('id', 'DESC')
                     ->orderBy('cliente_id')
                     ->whereIn('cliente_id', UtilPermissions::getUserClients())
                     ->offset($offset)
@@ -97,6 +99,12 @@ class PlaneacionDocumentoController extends Controller
                     ->map(function($item) {
                         $item->clientenombre = $item->cliente->nombre;
                         $item->docnombre     = $item->documento->nombre;
+                        $item->historicoDocumentos = $item->historicoDocumentos->map(function($historico) {
+                            $historico->document = Storage::disk('documentos')->url($historico->document);
+                            $documento = PlaneacionDocumento::with(['documento'])->whereId($historico->planeacion_documento_id)->first();
+                            $historico->namedoc  = $documento->documento->nombre ?? null;
+                            return $historico;
+                        })->toArray() ?? [];
                         return $item;
                     });
             } else {
@@ -143,6 +151,7 @@ class PlaneacionDocumentoController extends Controller
         }
     }
 
+
     /**
      * Display the specified resource.
      */
@@ -174,12 +183,39 @@ class PlaneacionDocumentoController extends Controller
     public function update(Request $request, $id)
     {
         try {
-            $data = PlaneacionDocumento::find($id);
-            if(!$data) {
+            $planeacionDocumento = PlaneacionDocumento::find($id);
+            if(!$planeacionDocumento) {
                 return $this->response->notFound('No existe el registro');
             }
-            $data->update($request->all());
-            return $this->response->success($data);
+            // validamos que el documento | File | requerido
+            // validamos que ciclo_item_estandar_id | requerido | exista
+
+            $request->validate([
+                'documento_id'  => 'required|integer',
+                'ciclo_item_estandar_id' => 'required|integer|exists:ciclo_item_estandars,id'
+            ]);
+            
+            $data = $request->except(['documento', 'observaciones']);
+
+            if($request->hasFile('documento')) {
+                $filename = $request->file('documento')->store('/', 'documentos');
+
+                $data['estado']    = 1;
+                $data['documento'] = $filename;
+            }
+
+            $planeacionDocumento->update($data);
+
+            // se crea el historico
+            HistoricoDocumento::create([
+                'planeacion_documento_id' => $planeacionDocumento->id,
+                'user_id' => auth()->user()->id,
+                'ciclo_item_estandar_id' => $request->ciclo_item_estandar_id,
+                'document' => $filename,
+                'observaciones' => $request->observaciones
+            ]);
+
+            return $this->response->success($planeacionDocumento);
         } catch (\Throwable $th) {
             return $this->response->error('Ha ocurrido un error');
         }
