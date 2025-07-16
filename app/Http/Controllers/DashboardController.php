@@ -9,7 +9,9 @@ use App\Models\EstandarCliente;
 use App\Models\Evaluacion;
 use App\Models\PlaneacionDocumento;
 use App\Models\User;
+use App\Utils\UtilPermissions;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class DashboardController extends Controller
 {
@@ -185,11 +187,8 @@ class DashboardController extends Controller
 
     public function getCalendar() {
         try {
-            $user = auth()->user();
             $data = [];
-            if( $user->hasRole('SuperAdmin') ) {
-                $data = self::getCalendarEvents();
-            }
+            $data = self::getCalendarEvents();
             return $this->response->success($data);
         } catch (\Throwable $th) {
             return $this->response->error('Ha ocurrido un error al cargar el calendario');
@@ -206,7 +205,7 @@ class DashboardController extends Controller
         $data = [];
 
         try {
-            PlaneacionDocumento::whereEstado(0)->get()->map(function($event) use (&$data) {
+            PlaneacionDocumento::whereEstado(0)->whereIn('cliente_id', UtilPermissions::getUserClients())->get()->map(function($event) use (&$data) {
                 $data[] = [
                     'id'     => $event->id,
                     'title'  => $event->documento->nombre,
@@ -214,7 +213,7 @@ class DashboardController extends Controller
                     'end'    => $event->fecha_fin,
                     'color'  => self::colorFromClientId($event->cliente_id),
                     'client' => $event->cliente->nombre,
-                    'image'  => $event->cliente->logo,
+                    'image'  => $event->cliente->logo ? Storage::disk('logos')->url($event->cliente->logo) : null,
                     'status' => $event->estado === 1,
                     // 'image'  => $event->cliente->imagen ? asset('storage/' . $event->cliente->imagen) : null,
                 ];

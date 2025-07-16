@@ -6,6 +6,7 @@ use App\Interface\ResponseClass;
 use App\Models\Documento;
 use App\Models\HistoricoDocumento;
 use App\Models\PlaneacionDocumento;
+use App\Models\User;
 use App\Utils\UtilPermissions;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -102,7 +103,12 @@ class PlaneacionDocumentoController extends Controller
                         $item->historicoDocumentos = $item->historicoDocumentos->map(function($historico) {
                             $historico->document = Storage::disk('documentos')->url($historico->document);
                             $documento = PlaneacionDocumento::with(['documento'])->whereId($historico->planeacion_documento_id)->first();
+
+                            $user = User::find($historico->user_id);
                             $historico->namedoc  = $documento->documento->nombre ?? null;
+                            $historico->user = $user->fullname ?? null;
+
+                            $historico->fechacreacion = $historico->created_at->format('Y-m-d H:i:s');
                             return $historico;
                         })->toArray() ?? [];
                         return $item;
