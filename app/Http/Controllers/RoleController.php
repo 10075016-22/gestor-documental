@@ -102,8 +102,15 @@ class RoleController extends Controller
     public function show(string $id)
     {
         try {
-            $roles = Role::whereId($id)->get();
-            return $this->response->success($roles);
+            $profile = Role::find($id);
+
+            if (!$profile) {
+                return $this->response->error('The record does not exist');
+            }
+
+            $profile->permissions = $profile->permissions()->get();
+
+            return $this->response->success($profile);
         } catch (\Throwable $th) {
             return $this->response->error('An error has occurred');
         }
@@ -112,10 +119,18 @@ class RoleController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
         try {
-            $role = Role::whereId($id)->update($request->all());
+            $role = Role::find($id);
+            if (!$role) {
+                return $this->response->error('El registro no existe');
+            }
+            $role->update(['name' => $request->name]);
+
+            if ($request->has('permissions')) {
+                $role->syncPermissions($request->permissions);
+            }
             return $this->response->success($role);
         } catch (\Throwable $th) {
             return $this->response->error('An error has occurred');

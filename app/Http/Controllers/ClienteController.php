@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use App\Interface\ResponseClass;
 use App\Models\Cliente;
 use App\Models\EstandarCliente;
+use App\Models\User;
 use App\Models\UsuarioXCliente;
 use App\Utils\UtilPermissions;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Spatie\Permission\Models\Role;
 
 class ClienteController extends Controller
 {
@@ -102,6 +104,22 @@ class ClienteController extends Controller
             }
 
             $cliente = Cliente::create($data);
+
+            $role = Role::find(1);
+            $admins = $role->users;
+
+            foreach ($admins as $adminUser) {
+                UsuarioXCliente::updateOrCreate([
+                    'user_id'    => $adminUser->id,
+                    'cliente_id' => $cliente->id
+                ]);
+            }
+
+            UsuarioXCliente::updateOrCreate([
+                'user_id'    => auth()->user()->id,
+                'cliente_id' => $cliente->id
+            ]);
+
             return $this->response->success($cliente);
         } catch (\Throwable $th) {
             return $this->response->error('Ha ocurrido un error creando el cliente '.$th->getMessage());
