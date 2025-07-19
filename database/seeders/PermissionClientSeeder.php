@@ -16,7 +16,7 @@ class PermissionClientSeeder extends Seeder
         $permissions = [
             [
                 'name'  => 'clientes',
-                'alias' => 'Vista de clientes'
+                'alias' => 'Menú de clientes'
             ],
             [
                 'name'  => 'clientes-datatable',

@@ -124,7 +124,7 @@ class ActionButtonSeeder extends Seeder
                 'type_field_id' => 21,
                 'order'         => 1,
                 'message'       => 'Ver formato cliente',
-                'permission_id' => 12
+                'permission_id' => 56
             ]
         ];
 

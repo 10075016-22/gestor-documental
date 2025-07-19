@@ -38,7 +38,7 @@ class RoleController extends Controller
                     'permissions' => $grupo->permissions->map(function ($permiso) {
                         return [
                             'id' => $permiso->id,
-                            'name' => $permiso->name,
+                            'name' => $permiso->alias,
                             'guard_name' => $permiso->guard_name,
                         ];
                     }),

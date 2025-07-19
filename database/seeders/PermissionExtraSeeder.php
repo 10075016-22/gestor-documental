@@ -58,6 +58,26 @@ class PermissionExtraSeeder extends Seeder
                 'name'  => 'evaluacion-datatable',
                 'alias' => 'Vista de evaluacion',
             ],
+            [
+                'name'  => 'evaluacion-datatable-viewformat',
+                'alias' => 'Vista de evaluacion - ver formato',
+            ],
+            [
+                'name'  => 'evaluacion-datatable-viewevaluacion',
+                'alias' => 'Vista de evaluacion - ver evaluacion',
+            ],
+            [
+                'name'  => 'evaluacion-datatable-viewchart',
+                'alias' => 'Vista de evaluacion - ver gráfica',
+            ],
+            [
+                'name'  => 'evaluacion-datatable-detalle',
+                'alias' => 'Vista de evaluacion - detalle',
+            ],
+            [
+                'name'  => 'evaluacion-datatable-update',
+                'alias' => 'Detalle de evaluacion - hacer evaluación a item',
+            ],
         ];
 
         // Utiliza un bucle foreach para insertar cada conjunto de datos

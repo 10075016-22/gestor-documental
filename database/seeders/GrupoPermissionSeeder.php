@@ -37,15 +37,19 @@ class GrupoPermissionSeeder extends Seeder
             [ 'grupo_id' => 5, 'permission_id' => 15 ],
             [ 'grupo_id' => 5, 'permission_id' => 16 ],
             [ 'grupo_id' => 5, 'permission_id' => 17 ],
+            [ 'grupo_id' => 5, 'permission_id' => 45 ],
 
             // Fecha documentos
             [ 'grupo_id' => 6, 'permission_id' => 18 ],
             [ 'grupo_id' => 6, 'permission_id' => 19 ],
             [ 'grupo_id' => 6, 'permission_id' => 20 ],
             [ 'grupo_id' => 6, 'permission_id' => 21 ],
+            [ 'grupo_id' => 6, 'permission_id' => 51 ],
+            [ 'grupo_id' => 6, 'permission_id' => 54 ],
 
             // Estandar
             [ 'grupo_id' => 7, 'permission_id' => 22 ],
+            [ 'grupo_id' => 7, 'permission_id' => 46 ],
 
             // Usuarios
             [ 'grupo_id' => 8, 'permission_id' => 23 ],
@@ -74,6 +78,22 @@ class GrupoPermissionSeeder extends Seeder
 
             // Seguimiento
             [ 'grupo_id' => 15, 'permission_id' => 44 ],
+            [ 'grupo_id' => 15, 'permission_id' => 52 ],
+            [ 'grupo_id' => 15, 'permission_id' => 53 ],
+
+            // formatos cliente
+            [ 'grupo_id' => 13, 'permission_id' => 47 ],
+            [ 'grupo_id' => 13, 'permission_id' => 48 ],
+            [ 'grupo_id' => 13, 'permission_id' => 49 ],
+
+            // evaluacion
+            [ 'grupo_id' => 4, 'permission_id' => 55 ],
+            [ 'grupo_id' => 4, 'permission_id' => 56 ],
+            [ 'grupo_id' => 4, 'permission_id' => 57 ],
+            [ 'grupo_id' => 4, 'permission_id' => 58 ],
+
+            // configuración
+            [ 'grupo_id' => 12, 'permission_id' => 43 ],
 
         ];
 

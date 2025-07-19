@@ -16,7 +16,7 @@ class PermissionUsuarioSeeder extends Seeder
         $permissions = [
             [
                 'name'  => 'usuario',
-                'alias' => 'Vista de usuarios',
+                'alias' => 'Menú de usuarios',
             ],
             [
                 'name'  => 'usuario-datatable',

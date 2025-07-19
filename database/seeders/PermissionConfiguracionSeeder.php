@@ -16,7 +16,7 @@ class PermissionConfiguracionSeeder extends Seeder
         $permissions = [
             [
                 'name'  => 'configuracion',
-                'alias' => 'Vista de configuración',
+                'alias' => 'Menú de configuración',
             ]
         ];
 

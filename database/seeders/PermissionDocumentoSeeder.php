@@ -16,7 +16,7 @@ class PermissionDocumentoSeeder extends Seeder
         $permissions = [
             [
                 'name'  => 'documentos',
-                'alias' => 'Vista de documentos'
+                'alias' => 'Menú de documentos'
             ],
             [
                 'name'  => 'documentos-datatable',
