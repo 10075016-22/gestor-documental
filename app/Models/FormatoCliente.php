@@ -24,6 +24,10 @@ class FormatoCliente extends Model
 
     protected $hidden = [ 'created_at', 'updated_at' ];
 
+    public function formato() {
+        return $this->belongsTo(Formato::class);
+    }
+
     public function cliente() {
         return $this->belongsTo(Cliente::class);
     }

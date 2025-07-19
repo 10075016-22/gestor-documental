@@ -118,6 +118,13 @@ class ActionButtonSeeder extends Seeder
                 'order'         => 1,
                 'message'       => 'Historico',
                 'permission_id' => 54
+            ],
+            [
+                'table_id'      => 12,
+                'type_field_id' => 21,
+                'order'         => 1,
+                'message'       => 'Ver formato cliente',
+                'permission_id' => 12
             ]
         ];
 

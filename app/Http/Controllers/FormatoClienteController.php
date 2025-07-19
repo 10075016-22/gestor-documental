@@ -155,20 +155,46 @@ class FormatoClienteController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(FormatoCliente $formatoCliente)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, FormatoCliente $formatoCliente)
+    public function update(Request $request, $id)
     {
-        //
+        try {
+            $formatoCliente = FormatoCliente::find($id);
+            if(!$formatoCliente) {
+                return $this->response->notFound('No existe el registro');
+            }
+            /**
+             * cumplimiento: 
+             * 1 = Cumple
+             * 2 = Justifica -> debe tener observación
+             * 3 = No Aplica
+             */
+            if($request->cumplimiento == 2) {
+                $request->validate([
+                    'observacion' => 'required|string|max:255'
+                ]);
+            }
+            
+            // Si justifica el formato - documento
+            if($request->cumplimiento == 2) {
+                $formatoCliente->update([
+                    'justifica'   => 1,
+                    'observacion' => $request->observacion
+                ]);
+            } else {
+                // Sino se valida si cumple o no cumple
+                $formatoCliente->update([
+                    'cumple'        => $request->cumplimiento === 1 ? 1 : 0,
+                    'observacion'   => $request->observacion
+                ]);
+            }
+            return $this->response->success($formatoCliente);
+        } catch (\Throwable $th) {
+            return $this->response->error('Ha ocurrido un error');
+        }
     }
 
     /**

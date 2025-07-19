@@ -54,6 +54,10 @@ class PermissionExtraSeeder extends Seeder
                 'name'  => 'fecha-documento-datatable-historico',
                 'alias' => 'Vista de fecha de documento - historico',
             ],
+            [
+                'name'  => 'evaluacion-datatable',
+                'alias' => 'Vista de evaluacion',
+            ],
         ];
 
         // Utiliza un bucle foreach para insertar cada conjunto de datos

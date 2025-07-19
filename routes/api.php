@@ -8,6 +8,7 @@ use App\Http\Controllers\DocumentoController;
 use App\Http\Controllers\EmpleadoController;
 use App\Http\Controllers\EstandarClienteController;
 use App\Http\Controllers\EstandarController;
+use App\Http\Controllers\EvaluacionController;
 use App\Http\Controllers\FormatoClienteController;
 use App\Http\Controllers\FormatoController;
 use App\Http\Controllers\FormsTableController;
@@ -106,6 +107,12 @@ Route::middleware([JwtMiddleware::class])->group(function () {
 
 
         Route::resource("/usuarios-clientes", UsuarioXClienteController::class);
+
+        // evaluacion
+        Route::get("/evaluacion/formato-item/{cliente_id}/{id}", [EvaluacionController::class, 'getByFormatoItemId']);
+        Route::get("/evaluacion/detalle/datatable", [EvaluacionController::class, 'indexDatatableDetalle']);
+        Route::get("/evaluacion/datatable", [EvaluacionController::class, 'indexDatatable']);
+        Route::resource("/evaluacion", EvaluacionController::class);
 
 
     });

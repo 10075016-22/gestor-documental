@@ -16,7 +16,7 @@ class PermissionEvaluacionSeeder extends Seeder
         $permissions = [
             [
                 'name'  => 'evaluacion',
-                'alias' => 'Vista de evaluaciones'
+                'alias' => 'Menú de evaluaciones'
             ]
         ];
 

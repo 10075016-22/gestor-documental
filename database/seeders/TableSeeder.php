@@ -79,6 +79,18 @@ class TableSeeder extends Seeder
                 'descripcion' => 'Tabla para ver los documentos de seguimiento',
                 'endpoint' => 'planeacion-documentos/seguimiento',
                 'icon'     => 'mdi-format-list-checks'
+            ],
+            [
+                'table'    => 'Evaluaciones',
+                'descripcion' => 'Tabla para ver los documentos de seguimiento',
+                'endpoint' => 'evaluacion',
+                'icon'     => 'mdi-sort-calendar-ascending'
+            ],
+            [
+                'table'    => 'Detalle evaluacion',
+                'descripcion' => 'Tabla para hacer la gestión de evaluaciones',
+                'endpoint' => 'evaluacion/detalle',
+                'icon'     => 'mdi-format-list-checks'
             ]
         ];
 

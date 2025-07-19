@@ -43,7 +43,7 @@ class PlaneacionDocumentoController extends Controller
                 $data = PlaneacionDocumento::with(['cliente', 'documento'])->orderBy('id', 'DESC')
                     ->orderBy('cliente_id')
                     ->whereIn('cliente_id', UtilPermissions::getUserClients())
-                    ->whereEstado(0)
+                    // ->whereEstado(0)
                     ->offset($offset)
                     ->limit($limit)
                     ->get()
@@ -59,7 +59,7 @@ class PlaneacionDocumentoController extends Controller
             } else {
                 $data = PlaneacionDocumento::with(['cliente', 'documento'])->orderBy('id', 'DESC')
                     ->whereIn('cliente_id', UtilPermissions::getUserClients())
-                    ->whereEstado(0)
+                    // ->whereEstado(0)
                     ->get()
                     ->map(function($item) {
                         $item->clientenombre = $item->cliente->nombre;
@@ -71,7 +71,7 @@ class PlaneacionDocumentoController extends Controller
                     });
             }
 
-            $total = PlaneacionDocumento::whereIn('cliente_id', UtilPermissions::getUserClients())->whereEstado(0)->count();
+            $total = PlaneacionDocumento::whereIn('cliente_id', UtilPermissions::getUserClients())->count();
             return $this->response->success([
                 'data'  => $data,
                 'total' => $total

@@ -30,6 +30,7 @@ class DatabaseSeeder extends Seeder
             HeaderTablePlanAccionSeeder::class, // headers para plan de acción
             HeaderTableRoleSeeder::class, // headers para perfiles
             HeaderTableEmpleadoSeeder::class, // headers para empleados
+            HeaderTableEvaluacionSeeder::class, // headers para evaluaciones
 
             PermissionSeeder::class,
             PermissionClientSeeder::class, // Permisos para clientes
