@@ -22,10 +22,8 @@
                 AUTOEVALUACIÓN DE ACUERDO A LOS ESTÁNDARES MÍNIMOS SG-SST EMPRESA:  <b>{{ strtoupper($cliente->nombre) }}</b> <br>
                 <span style="font-size: 10px; color: #666;">Fecha de realización: {{ date('d/m/Y') }}</span>
             </td>
-            <td style="border: 1px solid #ccc; padding: 10px; width: 200px; vertical-align: center;" colspan="2" align="center">
-                <span style="border: 1px solid #ccc; padding: 5px; width: 100%; box-sizing: border-box; margin-bottom: 5px;">
-                    Version 1.0
-                </span>
+            <td style="border: 1px solid #ccc; padding: 10px; font-size: 17px; font-weight: bold; width: 200px; vertical-align: center;" colspan="2" align="center">
+                Version 1.0
             </td>
         </tr>
         <tr>
@@ -40,7 +38,7 @@
         <thead>
             <tr>
                 <th rowspan="2" style="border: 1px solid #000; padding: 8px; background-color: #e8e8e8; font-weight: bold; text-align: center; width: 80px; font-size: 11px; vertical-align: middle;">Ciclo</th>
-                <th rowspan="2" style="border: 1px solid #000; padding: 8px; background-color: #e8e8e8; font-weight: bold; text-align: center; width: 450px; font-size: 11px; vertical-align: middle;" colspan="2">Estándar</th>
+                <th rowspan="2" style="border: 1px solid #000; padding: 8px; background-color: #e8e8e8; font-weight: bold; text-align: center; width: 550px; font-size: 11px; vertical-align: middle;" colspan="2">Estándar</th>
                 <th rowspan="2" style="border: 1px solid #000; padding: 8px; background-color: #e8e8e8; font-weight: bold; text-align: center; width: 400px; font-size: 11px; vertical-align: middle;">Ítem del Estándar</th>
                 <th rowspan="2" style="border: 1px solid #000; padding: 8px; background-color: #e8e8e8; font-weight: bold; text-align: center; width: 60px; font-size: 11px; vertical-align: middle;">Valor</th>
                 <th colspan="2" style="border: 1px solid #000; padding: 8px; background-color: #e8e8e8; font-weight: bold; text-align: center; font-size: 11px;">PUNTAJE POSIBLE</th>

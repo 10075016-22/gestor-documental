@@ -193,12 +193,14 @@ class FormatoClienteController extends Controller
             });
             $resumen = collect($resumen)->toArray();
 
-            $filename = "formato-cliente-[{$cliente->nombre}]-" . now()->timestamp . ".xlsx";
+            $nombrecliente = strtolower(trim(preg_replace('/[^A-Za-z0-9\-]/', '', str_replace(' ', '_', $cliente->nombre))));
+            $filename = "formatocliente_{$nombrecliente}_" . now()->timestamp . ".xlsx";
 
-            Excel::store(new FormatoClienteExport($data->toArray(), $cliente, $resumen), "exports/{$filename}", 'public');
+            $dia = now()->format('d_m_Y');
+            Excel::store(new FormatoClienteExport($data->toArray(), $cliente, $resumen), "exports/{$dia}/{$filename}", 'public');
 
             $result = [
-                'url' => Storage::disk('public')->url("exports/{$filename}")
+                'url' => Storage::disk('public')->url("exports/{$dia}/{$filename}")
             ];
 
             return $this->response->success($result);
