@@ -9,6 +9,7 @@ use App\Models\EstandarCliente;
 use App\Models\Evaluacion;
 use App\Models\PlaneacionDocumento;
 use App\Models\User;
+use App\utils\ChartUtils;
 use App\Utils\UtilPermissions;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -69,116 +70,66 @@ class DashboardController extends Controller
 
     public function getCharts() {
         try {
-            $user = auth()->user();
+            $data = [
+                ChartUtils::getDocumentSSTByStatus(),
+                [
+                    'type' => 'LineChart',
+                    'cols' => 6,
+                    'data' => [
+                        ['Mes', 'Cumplimiento SST'],
+                        ['Ene', 65], ['Feb', 70], ['Mar', 75], ['Abr', 72],
+                        ['May', 78], ['Jun', 82], ['Jul', 85], ['Ago', 88],
+                        ['Sep', 86], ['Oct', 90], ['Nov', 92], ['Dic', 95]
+                    ],
+                    'options' => [
+                        'title' => 'Tendencia de Cumplimiento SST',
+                        'curveType' => 'function',
+                        'height' => 400,
+                        'width' => '100%',
+                        'legend' => ['position' => 'bottom'],
+                    ],
+                    'permission' => 'home-card-evaluaciones-clientes'
+                ],
+                [
+                    'type' => 'PieChart', 
+                    'cols' => 6,
+                    'data' => [
+                        ['Estado', 'Cantidad'],
+                        ['Completo', 35],
+                        ['En proceso', 45],
+                        ['Pendiente', 20]
+                    ],
+                    'options' => [
+                        'title' => 'Estado Plan Anual SST',
+                        'height' => 400,
+                        'width' => '100%',
+                        'pieHole' => 0.4
+                    ],
+                    'permission' => 'home-card-evaluaciones-clientes'
+                ],
+                [
+                    'type' => 'ColumnChart',
+                    'cols' => 6,
+                    'data' => [
+                        ['Mes', 'Capacitaciones', 'Inspecciones', 'Simulacros'],
+                        ['Ene', 4, 2, 1], ['Feb', 3, 3, 0], 
+                        ['Mar', 5, 2, 1], ['Apr', 4, 4, 0],
+                        ['May', 6, 3, 1], ['Jun', 3, 2, 1]
+                    ],
+                    'options' => [
+                        'title' => 'Actividades SST por Mes',
+                        'height' => 400,
+                        'width' => '100%',
+                        'legend' => ['position' => 'bottom']
+                    ],
+                    'permission' => 'home-card-evaluaciones-clientes'
+                ],
+                ChartUtils::getQualificationByClients()
+            ];
 
-            $data = [];
-            if( $user->hasRole('SuperAdmin') ) {
-                $data = [
-                    [
-                        'type' => 'BarChart',
-                        'cols' => 12,
-                        'data' => [
-                            ['Area', 'Documentos Cargados', 'Documentos Pendientes'],
-                            ['Políticas SST', 12, 3],
-                            ['Procedimientos', 25, 5], 
-                            ['Formatos', 45, 10],
-                            ['Matrices', 15, 4],
-                            ['Programas', 20, 6]
-                        ],
-                        'options' => [
-                            'title' => 'Estado Documentación SST',
-                            'height' => 400,
-                            'width' => '100%',
-                            'isStacked' => true,
-                            'legend' => ['position' => 'top']
-                        ],
-                        'permission' => 'home-card-evaluaciones-clientes'
-                    ],
-                    [
-                        'type' => 'LineChart',
-                        'cols' => 6,
-                        'data' => [
-                            ['Mes', 'Cumplimiento SST'],
-                            ['Ene', 65], ['Feb', 70], ['Mar', 75], ['Abr', 72],
-                            ['May', 78], ['Jun', 82], ['Jul', 85], ['Ago', 88],
-                            ['Sep', 86], ['Oct', 90], ['Nov', 92], ['Dic', 95]
-                        ],
-                        'options' => [
-                            'title' => 'Tendencia de Cumplimiento SST',
-                            'curveType' => 'function',
-                            'height' => 400,
-                            'width' => '100%',
-                            'legend' => ['position' => 'bottom'],
-                        ],
-                        'permission' => 'home-card-evaluaciones-clientes'
-                    ],
-                    [
-                        'type' => 'PieChart', 
-                        'cols' => 6,
-                        'data' => [
-                            ['Estado', 'Cantidad'],
-                            ['Completo', 35],
-                            ['En proceso', 45],
-                            ['Pendiente', 20]
-                        ],
-                        'options' => [
-                            'title' => 'Estado Plan Anual SST',
-                            'height' => 400,
-                            'width' => '100%',
-                            'pieHole' => 0.4
-                        ],
-                        'permission' => 'home-card-evaluaciones-clientes'
-                    ],
-                    [
-                        'type' => 'ColumnChart',
-                        'cols' => 6,
-                        'data' => [
-                            ['Mes', 'Capacitaciones', 'Inspecciones', 'Simulacros'],
-                            ['Ene', 4, 2, 1], ['Feb', 3, 3, 0], 
-                            ['Mar', 5, 2, 1], ['Apr', 4, 4, 0],
-                            ['May', 6, 3, 1], ['Jun', 3, 2, 1]
-                        ],
-                        'options' => [
-                            'title' => 'Actividades SST por Mes',
-                            'height' => 400,
-                            'width' => '100%',
-                            'legend' => ['position' => 'bottom']
-                        ],
-                        'permission' => 'home-card-evaluaciones-clientes'
-                    ],
-                    [
-                        'type' => 'ColumnChart',
-                        'cols' => 6,
-                        'data' => [
-                            ['Cliente', 'Calificación Posible', 'Calificación Obtenida'],
-                            ['Cliente A', 5, 3.8],
-                            ['Cliente B', 5, 4.2], 
-                            ['Cliente C', 5, 3.5],
-                            ['Cliente D', 5, 4.7],
-                            ['Cliente E', 5, 4.1],
-                            ['Cliente F', 5, 3.9]
-                        ],
-                        'options' => [
-                            'title' => 'Calificación por Cliente',
-                            'height' => 400,
-                            'width' => '100%',
-                            'vAxis' => [
-                                'minValue' => 0,
-                                'maxValue' => 5,
-                                'title' => 'Calificación'
-                            ],
-                            'hAxis' => [
-                                'title' => 'Clientes',
-                                'slantedText' => true,
-                                'slantedTextAngle' => 45
-                            ],
-                            'legend' => ['position' => 'bottom']
-                        ],
-                        'permission' => 'home-card-evaluaciones-clientes'
-                    ]
-
-                ];
-            }
+            $data = array_filter($data, function($item) {
+                return in_array($item['permission'], UtilPermissions::getUserPermissionsByName());
+            });
             return $this->response->success($data);
         } catch (\Throwable $th) {
             return $this->response->error('Ha ocurrido un error' . $th->getMessage());

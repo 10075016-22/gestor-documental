@@ -78,6 +78,10 @@ class PermissionExtraSeeder extends Seeder
                 'name'  => 'evaluacion-datatable-update',
                 'alias' => 'Detalle de evaluacion - hacer evaluación a item',
             ],
+            [
+                'name'  => 'evaluacion-datatable-export',
+                'alias' => 'Detalle de evaluacion - exportar',
+            ],
         ];
 
         // Utiliza un bucle foreach para insertar cada conjunto de datos

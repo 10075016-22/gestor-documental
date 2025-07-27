@@ -91,11 +91,12 @@ class GrupoPermissionSeeder extends Seeder
             [ 'grupo_id' => 4, 'permission_id' => 56 ],
             [ 'grupo_id' => 4, 'permission_id' => 57 ],
             [ 'grupo_id' => 4, 'permission_id' => 58 ],
+            [ 'grupo_id' => 4, 'permission_id' => 61 ],
 
             // configuración
             [ 'grupo_id' => 12, 'permission_id' => 43 ],
 
-        ];
+        };
 
         foreach ($data as $key => $value) {
             GrupoPermission::create($value);

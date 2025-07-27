@@ -32,4 +32,16 @@ class UtilPermissions
             return [];
         }
     }
+
+    public static function getUserPermissionsByName() : array {
+        try {
+            $user = auth()->user();
+            if(!$user) {
+                return [];
+            }
+            return $user->getAllPermissions()->pluck('name')->toArray();
+        } catch (\Throwable $th) {
+            return [];
+        }
+    }
 }

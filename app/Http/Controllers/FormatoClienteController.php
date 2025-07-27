@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\FormatoClienteExport;
 use App\Interface\ResponseClass;
 use App\Models\Cliente;
 use App\Models\FormatoCliente;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Maatwebsite\Excel\Facades\Excel;
 
 class FormatoClienteController extends Controller
 {
@@ -147,6 +150,63 @@ class FormatoClienteController extends Controller
             return $this->response->error("Ha ocurrido un error");
         }
     }
+
+
+    // Export to Excel
+
+    public function exportFormatoByClient($id) {
+        try {
+            $data = FormatoCliente::select(
+                'c2.nombre AS ciclo',
+                'c3.nombre AS estandar',
+                'c4.nombre AS subestandar',
+                'c5.nombre AS itemdelestandar',
+                'c5.valor',
+                'formato_clientes.*'
+            )
+            ->leftJoin('clientes as c', 'formato_clientes.cliente_id', '=', 'c.id')
+            ->join('formatos as f2', 'formato_clientes.formato_id', '=', 'f2.id')
+            ->join('ciclos as c2', 'c2.id', '=', 'formato_clientes.ciclo_id')
+            ->join('ciclo_estandars as c3', 'c3.id', '=', 'formato_clientes.ciclo_estandar_id')
+            ->join('ciclo_estandar_sub_estandars as c4', 'c4.id', '=', 'formato_clientes.ciclo_sub_estandar_id')
+            ->join('ciclo_item_estandars as c5', 'c5.id', '=', 'formato_clientes.ciclo_item_estandars_id')
+            ->where('formato_clientes.preview', 0)
+            ->where('formato_clientes.cliente_id', $id)
+            ->get();
+
+            $cliente = Cliente::find($id);
+            if(!$cliente) {
+                return $this->response->error("No existe el cliente");
+            }
+
+
+            // Resumen de datos 
+            // Ciclo - Calificacion Posible - Calificacion Obtenida
+
+            $resumen = [];
+            $data->groupBy('ciclo')->each(function ($item) use (&$resumen) {
+                $resumen[] = [
+                    'ciclo' => $item->first()->ciclo,
+                    'calificacion_posible' => $item->sum('valor'),
+                    'calificacion_obtenida' => $item->sum('calificacion')
+                ];
+            });
+            $resumen = collect($resumen)->toArray();
+
+            $filename = "formato-cliente-[{$cliente->nombre}]-" . now()->timestamp . ".xlsx";
+
+            Excel::store(new FormatoClienteExport($data->toArray(), $cliente, $resumen), "exports/{$filename}", 'public');
+
+            $result = [
+                'url' => Storage::disk('public')->url("exports/{$filename}")
+            ];
+
+            return $this->response->success($result);
+        } catch (\Throwable $th) {
+            return $this->response->error("Ha ocurrido un error ". $th->getMessage());
+        }
+    }
+
     /**
      * Display the specified resource.
      */

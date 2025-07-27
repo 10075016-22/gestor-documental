@@ -101,6 +101,7 @@ Route::middleware([JwtMiddleware::class])->group(function () {
 
         Route::get('/formatos-clientes/clientes',     [FormatoClienteController::class, 'getClientes']);
         Route::get('/formatos-clientes/preview/{id}', [FormatoClienteController::class, 'getFormato']);
+        Route::get('/formatos-clientes/export/{id}',  [FormatoClienteController::class, 'exportFormatoByClient']);
         Route::get('/formatos-clientes/preview/cliente/{id}', [FormatoClienteController::class, 'getFormatoByCliente']);
         Route::get('/formatos-clientes/preview/cliente/{id}/chart', [FormatoClienteController::class, 'getFormatoByClienteChart']);
         Route::resource("/formatos-cliente", FormatoClienteController::class);
